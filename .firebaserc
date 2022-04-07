@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "medatlas-4de76": {
+      "hosting": {
+        "beta": [
+          "medatlas-beta"
+        ],
+        "production": [
+          "medatlas-production"
+        ]
+      }
+    }
+  }
+}

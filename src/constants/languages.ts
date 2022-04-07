@@ -1,0 +1,16 @@
+export const LanguageList = [
+  { id: "amharic", name: "Amharic" },
+  { id: "english", name: "English" },
+  { id: "french", name: "French" },
+  { id: "hausa", name: "Hausa" },
+  { id: "igbo", name: "Igbo" },
+  { id: "luo", name: "Luo" },
+  { id: "luganda", name: "Luganda" },
+  { id: "oromo", name: "Oromo" },
+  { id: "portugese", name: "Portugese" },
+  { id: "runyankole", name: "Runyankole" },
+  { id: "swahili", name: "Swahili" },
+  { id: "yoruba", name: "Yoruba" },
+  { id: "zulu", name: "Zulu" },
+  { id: "other", name: "Other" },
+];
