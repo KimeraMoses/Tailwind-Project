@@ -112,7 +112,7 @@ const NavBarLink: React.FunctionComponent<NavBarLinkType> = ({
     <a
       href={link}
       target={target}
-      className="font-medium xl:text-xl md:text-md mr-3"
+      className="font-medium xl:text-xl md:text-md mr-3 text-primary hover:text-accent font-Poppins"
       rel="noreferrer"
     >
       {children}

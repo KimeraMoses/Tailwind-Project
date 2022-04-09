@@ -15,12 +15,56 @@ import { NewsLetterSection } from "src/components/NewsLetterSection";
 import { InputField } from "src/components/InputField";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import DropdownInputField from "src/components/DropdownInputField/DropdownInputField";
+import { useState } from "react";
+import DoctorsSection from "./DoctorsSection/DoctorsSection";
+import Partners from "./PartnersSection/Partners";
+import BlogSection from "./BlogSection/BlogSection";
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
 export const Home = () => {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [selectedType, setSelectedType] = useState("");
+  console.log(SpecialityList);
+  const [show, setShow] = useState(false);
+  const [values, setValues] = useState({
+    doctorType: "",
+    location: "",
+    email: "",
+  });
+  const keyWordHandler = (e: any) => {
+    setShow(false);
+    const { value } = e.target;
+    setSearchTerm(value);
+
+    if (searchTerm !== "") {
+      const Results = SpecialityList.filter((Result: any) => {
+        return Object.values(Result)
+          .join(" ")
+          .replace(/-/g, " ")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
+      setSearchResults(Results);
+    }
+  };
+
+  const selectedItemHandler = (result: any) => {
+    setValues({ ...values, doctorType: result.name });
+    setSelectedType(result.name);
+    setSearchTerm("");
+    setShow(true);
+  };
+
+  const handleOnChange = (event: any) => {
+    const { name, value } = event.target;
+    setValues({ ...values, [name]: event.target.value });
+  };
+
   return (
     <div className="pd-10 bg-background">
       <header className=" bg-header bg-cover">
@@ -38,7 +82,7 @@ export const Home = () => {
               className="self-center   hidden md:flex md:flex-1 bg-cover bg-no-repeat bg-center w-full h-full md:flex-col justify-end rounded-b-md"
               style={{
                 backgroundImage: `url(${doctors})`,
-                backgroundPosition: 'center top',
+                backgroundPosition: "center top",
               }}
             >
               <div className="hero_section p-4 rounded-md">
@@ -52,7 +96,7 @@ export const Home = () => {
               </div>
             </div>
             <div className="flex justify-end">
-              <div className="w-450 p-8 mt-5 border bg-white border-gray rounded shadow flex flex-col gap-3">
+              <div className="w-350 p-8 mt-10 border bg-white border-gray rounded shadow flex flex-col gap-3">
                 <div className="text-center">
                   <h1 className="text-xl text-accent font-bold capitalize ">
                     Search for doctors
@@ -61,93 +105,57 @@ export const Home = () => {
                     Book Appointments Today!
                   </h2>
                 </div>
-                <form className="mt-5" action="/doctors" method="GET">
-                  <div className="flex flex-col gap-2 mb-6">
+                <form className="mt-2" action="/doctors" method="GET">
+                  <div className="flex flex-col gap-2 mb-2">
                     <label
                       htmlFor="type of doctor"
                       className="text-primary mb-1 font-semibold"
                     >
                       Type of Doctor
                     </label>
-                    <InputField type="text" placeholder="E.g. Fertility" />
+                    <DropdownInputField
+                      placeholder="E.g. Fertility"
+                      selectedItem={selectedType}
+                      keyWordHandler={keyWordHandler}
+                      searchTerm={searchTerm}
+                      searchResults={searchResults}
+                      isSelected={show}
+                      itemClickHandler={selectedItemHandler}
+                    />
                   </div>
-                  <div className="flex flex-col gap-2 mb-6">
+                  <div className="flex flex-col gap-2 mb-3">
                     <label
                       htmlFor="location"
                       className="text-primary mb-1 font-semibold"
                     >
                       Location
                     </label>
-                    <InputField type="text" placeholder="E.g. Kampala" />
+                    <InputField
+                      disabled={false}
+                      type="text"
+                      placeholder="E.g. Kampala or Uganda"
+                      name="location"
+                      value={values.location}
+                      onChange={handleOnChange}
+                    />
                   </div>
-                  <div className="flex flex-col gap-2 mb-6">
+                  <div className="flex flex-col gap-2 mb-3">
                     <label
                       htmlFor="email"
                       className="text-primary mb-1 font-semibold"
                     >
                       Email Address
                     </label>
-                    <InputField type="email" placeholder="name@gmail.com" />
+                    <InputField
+                      disabled={false}
+                      type="email"
+                      placeholder="name@gmail.com"
+                      name="email"
+                      value={values.email}
+                      onChange={handleOnChange}
+                    />
                   </div>
-
-                  {/* <label
-                  htmlFor="speciality"
-                  className="flex flex-col gap-2 text-lg text-primary"
-                >
-                  Speciality
-                  <select
-                    id="speciality"
-                    name="speciality"
-                    className="h-16 p-3 bg-white border border-gray rounded"
-                  >
-                    <option value="">Select a speciality</option>
-                    {SpecialityList.map((speciality, index) => (
-                      <option key={speciality.id} value={speciality.id}>
-                        {speciality.name}
-                      </option>
-                    ))}
-                  </select>
-                </label> */}
-
-                  {/* <div className="flex mt-5 justify-between">
-                  <label
-                    htmlFor="languages"
-                    className=" flex flex-col gap-2 text-lg"
-                  >
-                    Language
-                    <select
-                      id="languages"
-                      name="languages"
-                      className="h-16 p-3 text-sm bg-white border border-gray rounded "
-                    >
-                      <option value="">Select a language</option>
-                      {LanguageList.map((language, index) => (
-                        <option key={language.id} value={language.id}>
-                          {language.name}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                  <label
-                    htmlFor="country"
-                    className="flex flex-col gap-2 text-lg w-40"
-                  >
-                    Location
-                    <select
-                      id="country"
-                      name="country"
-                      className="h-16 p-3 text-sm bg-white border border-gray rounded"
-                    >
-                      <option value="">Select a location</option>
-                      {CountryList.map((country, index) => (
-                        <option key={country.id} value={country.id}>
-                          {country.name}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                </div> */}
-                  <div className="mt-10  ">
+                  <div className="mt-5">
                     <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4  transition bg-accent hover:bg-primary">
                       Book Doctor Now
                     </button>
@@ -270,6 +278,9 @@ export const Home = () => {
           ))}
         </Swiper>
       </div>
+      <DoctorsSection />
+      <BlogSection />
+      <Partners />
       <NewsLetterSection />
       <Footer />
     </div>

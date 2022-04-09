@@ -15,11 +15,11 @@ export const NavBarComponent = ({ children, submenu = [] }: any) => {
         <>
           <Popover.Button
             className={classNames(
-              open ? "text-gray-900" : "text-gray-500",
+              open ? "text-accent" : "text-gray-500",
               "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             )}
           >
-            <span className="xl:text-xl md:text-md transition-all hover:text-accent ">
+            <span className="xl:text-xl md:text-md transition-all text-primary hover:text-accent select-none">
               {children}
             </span>
             <ChevronDownIcon
@@ -49,6 +49,7 @@ export const NavBarComponent = ({ children, submenu = [] }: any) => {
                         <Link
                           to={item.href}
                           className="
+                          text-primary
                       transition-all
                     hover:text-accent
                       "

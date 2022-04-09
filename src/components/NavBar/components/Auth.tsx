@@ -18,17 +18,17 @@ export const AuthNavComponents: React.FunctionComponent<AuthNavProps> = ({
     >
       <AuthLink
         path={"/login"}
-        color={"text-white"}
-        background={"bg-primary"}
-        hover={"bg-accent"}
+        // color={"text-white"}
+        // background={"bg-primary"}
+        // hover={"bg-accent"}
       >
         Login
       </AuthLink>
       <AuthLink
         path={"/register"}
-        color={"text-white"}
-        background={"bg-primary"}
-        hover={"bg-accent"}
+        // color={"text-white"}
+        // background={"bg-primary"}
+        // hover={"bg-accent"}
       >
         Register
       </AuthLink>

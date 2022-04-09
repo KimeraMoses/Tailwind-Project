@@ -78,11 +78,11 @@ export const Footer = () => {
         <section className="text-white flex flex-col gap-3 basis-1/4">
           <h1 className="text-xl  font-semibold">Contact Us</h1>
           <ul className="flex flex-col gap-2 font-light">
-            <li className="flex gap-2 items-start">
-              <MdOutlineLocationOn className="w-8 h-8" /> Canada Hub, Waterloo ON. 
+            <li className="flex gap-2 items-center">
+              <MdOutlineLocationOn className="w-5 h-5" /> Canada Hub, Waterloo ON. 
             </li>
-            <li className="flex gap-2 items-start">
-              <MdOutlineLocationOn className="w-8 h-8" /> Africa Hub, Kampala, Uganda
+            <li className="flex gap-2 items-center">
+              <MdOutlineLocationOn className="w-5 h-5" /> Africa Hub, Kampala, Uganda
             </li>
 
             <a
@@ -90,7 +90,7 @@ export const Footer = () => {
               className="hover:text-accent"
             >
               <li className="flex items-center gap-2">
-                <MdOutlineMail className="w-5 h-5" />
+                <MdOutlineMail className="w-4 h-4" />
                 {process.env.REACT_APP_MEDATLAS_EMAIL}
               </li>
             </a>
@@ -99,7 +99,7 @@ export const Footer = () => {
               className="hover:text-accent"
             >
               <li className="flex items-center gap-2">
-                <MdOutlinePhone className="w-5 h-5" />
+                <MdOutlinePhone className="w-4 h-4" />
                 {process.env.REACT_APP_MEDATLAS_PHONE_NUMBER}
               </li>
             </a>

@@ -32,10 +32,12 @@ module.exports = {
       red: "#FF0000",
       grayPrimary: "#6C757D",
       grayAccent: "rgba(108,117,125,0.6)",
+      borderColor: "rgba(95, 94, 94, 0.336)",
     },
     fontFamily: {
       sans: ["system-ui", "-apple-system", "Roboto", '"Helvetica Neue"'],
       body: ["Montserrat", "Arial"],
+      Poppins: ["Poppins, sans-serif"],
     },
     extend: {
       height: {
