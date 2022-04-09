@@ -30,70 +30,67 @@ export const Home = () => {
          p-10  gap-5
          w-full
          flex
-         justify-center
-         xl:max-w-1140
-         lg:max-w-960
-         md:max-w-720
-         sm:max-w-540
-         md:grid md:grid-cols-2   md:justify-between md:items-center
-        
+         justify-between
+         md:justify-between md:items-center
         "
           >
             <div
-              className=" self-center   hidden md:flex bg-cover bg-no-repeat bg-center w-full h-full md:flex-col justify-end rounded-b-md"
+              className="self-center   hidden md:flex md:flex-1 bg-cover bg-no-repeat bg-center w-full h-full md:flex-col justify-end rounded-b-md"
               style={{
                 backgroundImage: `url(${doctors})`,
+                backgroundPosition: 'center top',
               }}
             >
               <div className="hero_section p-4 rounded-md">
-                <p className="text-primary font-extrabold text-xl mb-2">
+                <p className="text-primary font-extrabold text-3xl mb-2">
                   MedAtlas makes it easy to find Licensed Specialists Doctors
                   anywhere in Africa.
                 </p>
-                <p className="text-accent font-extrabold ">
+                <p className="text-accent font-extrabold text-2xl">
                   Simply search, book and speak to a Specialist today!
                 </p>
               </div>
             </div>
-            <div className="w-450 p-8 mt-5 border bg-white border-gray rounded shadow flex flex-col gap-3 ">
-              <div className="text-center">
-                <h1 className="text-xl text-accent font-bold capitalize ">
-                  Search for doctors
-                </h1>
-                <h2 className="text-2xl text-primary font-semibold">
-                  Book Appointments Today!
-                </h2>
-              </div>
-              <form className="mt-5" action="/doctors" method="GET">
-                <div className="flex flex-col gap-2 mb-6">
-                  <label
-                    htmlFor="type of doctor"
-                    className="text-primary mb-1 font-semibold"
-                  >
-                    Type of Doctor
-                  </label>
-                  <InputField type="text" placeholder="E.g. Fertility" />
+            <div className="flex justify-end">
+              <div className="w-450 p-8 mt-5 border bg-white border-gray rounded shadow flex flex-col gap-3">
+                <div className="text-center">
+                  <h1 className="text-xl text-accent font-bold capitalize ">
+                    Search for doctors
+                  </h1>
+                  <h2 className="text-2xl text-primary font-semibold">
+                    Book Appointments Today!
+                  </h2>
                 </div>
-                <div className="flex flex-col gap-2 mb-6">
-                  <label
-                    htmlFor="location"
-                    className="text-primary mb-1 font-semibold"
-                  >
-                    Location
-                  </label>
-                  <InputField type="text" placeholder="E.g. Kampala" />
-                </div>
-                <div className="flex flex-col gap-2 mb-6">
-                  <label
-                    htmlFor="email"
-                    className="text-primary mb-1 font-semibold"
-                  >
-                    Email Address
-                  </label>
-                  <InputField type="email" placeholder="name@gmail.com" />
-                </div>
+                <form className="mt-5" action="/doctors" method="GET">
+                  <div className="flex flex-col gap-2 mb-6">
+                    <label
+                      htmlFor="type of doctor"
+                      className="text-primary mb-1 font-semibold"
+                    >
+                      Type of Doctor
+                    </label>
+                    <InputField type="text" placeholder="E.g. Fertility" />
+                  </div>
+                  <div className="flex flex-col gap-2 mb-6">
+                    <label
+                      htmlFor="location"
+                      className="text-primary mb-1 font-semibold"
+                    >
+                      Location
+                    </label>
+                    <InputField type="text" placeholder="E.g. Kampala" />
+                  </div>
+                  <div className="flex flex-col gap-2 mb-6">
+                    <label
+                      htmlFor="email"
+                      className="text-primary mb-1 font-semibold"
+                    >
+                      Email Address
+                    </label>
+                    <InputField type="email" placeholder="name@gmail.com" />
+                  </div>
 
-                {/* <label
+                  {/* <label
                   htmlFor="speciality"
                   className="flex flex-col gap-2 text-lg text-primary"
                 >
@@ -112,7 +109,7 @@ export const Home = () => {
                   </select>
                 </label> */}
 
-                {/* <div className="flex mt-5 justify-between">
+                  {/* <div className="flex mt-5 justify-between">
                   <label
                     htmlFor="languages"
                     className=" flex flex-col gap-2 text-lg"
@@ -150,12 +147,13 @@ export const Home = () => {
                     </select>
                   </label>
                 </div> */}
-                <div className="mt-10  ">
-                  <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4  transition bg-accent hover:bg-primary">
-                    Book Appointment
-                  </button>
-                </div>
-              </form>
+                  <div className="mt-10  ">
+                    <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4  transition bg-accent hover:bg-primary">
+                      Book Doctor Now
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
