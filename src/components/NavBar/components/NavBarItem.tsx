@@ -10,7 +10,7 @@ export const classNames = (...classes: any) => {
 
 export const NavBarComponent = ({ children, submenu = [] }: any) => {
   return (
-    <Popover className="relative ">
+    <Popover className="relative">
       {({ open }) => (
         <>
           <Popover.Button

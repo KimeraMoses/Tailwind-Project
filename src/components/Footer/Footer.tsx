@@ -10,6 +10,7 @@ import {
   MdOutlinePhone,
   MdOutlineLocationOn,
 } from "react-icons/md";
+import { RiWhatsappFill } from "react-icons/ri";
 import { AccountTypes } from "@interface/enum";
 import { socialMedia } from "src/constants/socialMedia";
 
@@ -79,10 +80,12 @@ export const Footer = () => {
           <h1 className="text-xl  font-semibold">Contact Us</h1>
           <ul className="flex flex-col gap-2 font-light">
             <li className="flex gap-2 items-center">
-              <MdOutlineLocationOn className="w-5 h-5" /> Canada Hub, Waterloo ON. 
+              <MdOutlineLocationOn className="w-5 h-5" /> Canada Hub, Waterloo
+              ON.
             </li>
             <li className="flex gap-2 items-center">
-              <MdOutlineLocationOn className="w-5 h-5" /> Africa Hub, Kampala, Uganda
+              <MdOutlineLocationOn className="w-5 h-5" /> Africa Hub, Kampala,
+              Uganda
             </li>
 
             <a
@@ -99,8 +102,19 @@ export const Footer = () => {
               className="hover:text-accent"
             >
               <li className="flex items-center gap-2">
-                <MdOutlinePhone className="w-4 h-4" />
+                <RiWhatsappFill />
                 {process.env.REACT_APP_MEDATLAS_PHONE_NUMBER}
+              </li>
+            </a>
+            <a
+              href="https://wa.link/tvh16q"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-accent"
+            >
+              <li className="flex items-center gap-2">
+                <RiWhatsappFill />
+                +256772384551
               </li>
             </a>
           </ul>
