@@ -69,7 +69,7 @@ export const Footer = () => {
             />
             <ListItem
               itemLink={`/register?accountType=${AccountTypes.DOCTOR}`}
-              title="Doctor Dashboard"
+              title="Register"
             />
 
             <ListItem itemLink="/account" title="Doctor Dashboard" />

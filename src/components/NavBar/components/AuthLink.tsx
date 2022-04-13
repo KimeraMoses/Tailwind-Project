@@ -1,4 +1,3 @@
-import * as types from "@interface/models";
 import { Link } from "react-router-dom";
 
 export const AuthLink = ({ path, children }: any) => {

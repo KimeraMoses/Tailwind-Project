@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Fragment, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Popover, Transition } from "@headlessui/react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -18,7 +18,7 @@ import * as types from "@interface/models";
 import { useSignOutReducer, useCurrentUser } from "@hooks";
 import { SignOutButton } from "../Buttons";
 
-const REACT_APP_MEDATLAS_EMAIL = process.env.REACT_APP_MEDATLAS_EMAIL
+const REACT_APP_MEDATLAS_EMAIL = process.env.REACT_APP_MEDATLAS_EMAIL;
 
 /* eslint-disable react/prop-types */ // TODO: upgrade to latest eslint tooling
 
@@ -108,15 +108,24 @@ const NavBarLink: React.FunctionComponent<NavBarLinkType> = ({
   target,
   children,
 }) => {
+  const style = `font-medium text-base  xl:text-xl md:text-md mr-3 hover:text-accent font-Poppins`;
   return (
-    <a
-      href={link}
-      target={target}
-      className="font-medium xl:text-xl md:text-md mr-3 text-primary hover:text-accent font-Poppins"
-      rel="noreferrer"
+    <NavLink
+      to={link}
+      className={({ isActive }) =>
+        style + (isActive ? ` text-accent` : " text-primary")
+      }
     >
       {children}
-    </a>
+    </NavLink>
+    // <a
+    //   href={link}
+    //   target={target}
+    //   className=""
+    //   rel="noreferrer"
+    // >
+    //   {children}
+    // </a>
   );
 };
 
@@ -145,7 +154,10 @@ export const NavBar = () => {
                 <NavBarComponent submenu={doctor}>Doctors</NavBarComponent>
               </>
             )}
-            <NavBarLink link={`mailto:${REACT_APP_MEDATLAS_EMAIL}`} target="_blank">
+            <NavBarLink
+              link={`mailto:${REACT_APP_MEDATLAS_EMAIL}`}
+              target="_blank"
+            >
               Contact
             </NavBarLink>
           </Popover.Group>
@@ -205,7 +217,9 @@ export const NavBar = () => {
                       <NavBarComponent submenu={patient}>
                         Patients
                       </NavBarComponent>
-                      <NavBarComponent submenu={doctor}>Doctors</NavBarComponent>
+                      <NavBarComponent submenu={doctor}>
+                        Doctors
+                      </NavBarComponent>
                     </>
                   )}
                 </nav>

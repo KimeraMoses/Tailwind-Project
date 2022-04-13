@@ -29,13 +29,14 @@ export const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [selectedType, setSelectedType] = useState("");
-  console.log(SpecialityList);
+
   const [show, setShow] = useState(false);
   const [values, setValues] = useState({
     doctorType: "",
     location: "",
     email: "",
   });
+
   const keyWordHandler = (e: any) => {
     setShow(false);
     const { value } = e.target;
@@ -133,7 +134,7 @@ export const Home = () => {
                     <InputField
                       disabled={false}
                       type="text"
-                      placeholder="E.g. Kampala or Uganda"
+                      placeholder="E.g. City or Country"
                       name="location"
                       value={values.location}
                       onChange={handleOnChange}
