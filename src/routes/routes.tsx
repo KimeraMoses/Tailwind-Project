@@ -1,6 +1,7 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { AutheticatedView, LoggedInRedirect } from "@views";
+import BookingForm from "../components/BookingSummary/BookingComponents/BookingForm/BookingForm";
 import {
   NotFound,
   Home,
@@ -17,6 +18,7 @@ import {
   CreateSchedule,
   Privacy,
   TermsConditions,
+  AppointmentBooking,
 } from "../pages";
 
 export const AppRoutes = () => {
@@ -26,6 +28,13 @@ export const AppRoutes = () => {
       <Route path="/privacy-policy" element={<Privacy />} />
       <Route path="/terms-conditions" element={<TermsConditions />} />
       <Route path="/about-us" element={<AboutUs />}></Route>
+      <Route
+        path="/appointment"
+        element={<Navigate to="/appointment/booking" />}
+      />
+      <Route path="/appointment" element={<AppointmentBooking />}>
+        <Route path="booking" element={<BookingForm />} />
+      </Route>
       <Route
         path="/login"
         element={

@@ -29,7 +29,6 @@ export const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [selectedType, setSelectedType] = useState("");
-
   const [show, setShow] = useState(false);
   const [values, setValues] = useState({
     doctorType: "",

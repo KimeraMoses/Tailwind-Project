@@ -28,6 +28,7 @@ const DropdownInputField = (props: DropdownProps) => {
           placeholder={placeholder}
           type="search"
           name="search"
+          customClasses="font-medium"
           disabled={false}
           value={isSelected ? selectedItem : searchTerm}
           onChange={keyWordHandler}

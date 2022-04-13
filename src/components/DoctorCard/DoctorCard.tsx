@@ -1,5 +1,6 @@
 import React from "react";
 import { MdOutlineLocationOn } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 interface DoctorProps {
   image: any;
@@ -10,6 +11,7 @@ interface DoctorProps {
 }
 
 const DoctorCard = (props: DoctorProps) => {
+  const navigate = useNavigate();
   const { image, name, speciality, city, country } = props;
   return (
     <div className="bg-white px-3 pt-1 pb-5 shadow-sm w-80 rounded-md">
@@ -37,7 +39,10 @@ const DoctorCard = (props: DoctorProps) => {
           <button className="py-2 px-4 border border-solid border-primary rounded-md text-primary font-medium text-sm transition hover:bg-primary hover:text-white">
             View Profile
           </button>
-          <button className="py-2 px-4 border-none rounded-md text-white text-sm font-medium transition bg-accent hover:bg-primary">
+          <button
+            onClick={() => navigate("/appointment/booking")}
+            className="py-2 px-4 border-none rounded-md text-white text-sm font-medium transition bg-accent hover:bg-primary"
+          >
             Book Appointment
           </button>
         </div>

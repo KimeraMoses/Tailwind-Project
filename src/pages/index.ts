@@ -13,3 +13,4 @@ export * from "./NotFound";
 export * from "./AppointmentDetail";
 export * from "./Privacy";
 export * from "./TermsConditions";
+export * from "./AppointmentBooking/AppointmentBooking";
