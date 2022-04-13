@@ -11,7 +11,7 @@ interface InputFieldProps {
 }
 
 interface RadioFieldProps {
-  label: string;
+  label?: string;
   name: string;
   value?: any;
   id: any;
@@ -35,7 +35,7 @@ export const InputField = (props: InputFieldProps) => {
 };
 
 export const RadioInput = (props: RadioFieldProps) => {
-  const { name, label, value, id } = props;
+  const { name, label, value, id, onChange } = props;
   return (
     <div className="form-check form-check-inline">
       <input
@@ -44,6 +44,7 @@ export const RadioInput = (props: RadioFieldProps) => {
         name={name}
         id={id}
         value={value}
+        onChange={onChange}
       />
       <label
         className="form-check-label inline-block font-Poppins"

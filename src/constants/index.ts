@@ -5,3 +5,4 @@ export * from "./specialities";
 export * from "./languages";
 export * from "./common";
 export * from "./currency";
+export * from "./paymentModes";

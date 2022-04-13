@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AutheticatedView, LoggedInRedirect } from "@views";
 import BookingForm from "../components/BookingSummary/BookingComponents/BookingForm/BookingForm";
+import PaymentForm from "./../components/BookingSummary/BookingComponents/PaymentForm/PaymentForm";
 import {
   NotFound,
   Home,
@@ -34,6 +35,8 @@ export const AppRoutes = () => {
       />
       <Route path="/appointment" element={<AppointmentBooking />}>
         <Route path="booking" element={<BookingForm />} />
+        <Route path="payment" element={<PaymentForm />} />
+        <Route path="payment-success" element={<PaymentForm paid={true} />} />
       </Route>
       <Route
         path="/login"

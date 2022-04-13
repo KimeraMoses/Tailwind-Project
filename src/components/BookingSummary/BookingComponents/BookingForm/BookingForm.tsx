@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { DecoratedButton } from "@components";
+import { useNavigate } from "react-router-dom";
 import {
   CheckBoxInput,
   InputField,
@@ -9,6 +11,7 @@ const BookingForm = () => {
   const [values, setValues] = useState({
     other_reason: false,
   });
+  const navigate = useNavigate();
 
   const handleCheckBox = (e: any) => {
     const { name, checked } = e.target;
@@ -17,7 +20,7 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-md p-5">
+    <div className="bg-white shadow-md rounded-md p-5 md:w-142 w-full">
       <h2 className="text-2xl text-black font-semibold font-Poppins mb-4">
         Appointment Scheduling Form
       </h2>
@@ -96,13 +99,24 @@ const BookingForm = () => {
           />
         </div>
         <div className="my-4">
-          <p>
-            <strong>Note: </strong> This may not necessarily be the date on
-            which the consultation may take place for it depends on the
-            availabilty of the doctor. The doctor can accept or schedule another
-            day for the appointment which will pop up in the notification and
-            you (the patient) can accept of decline the appointment.
+          <p className="text-sm font-Poppins">
+            <strong className="text-red">Note: </strong> This may not
+            necessarily be the date on which the consultation may take place for
+            it depends on the availabilty of the doctor. The doctor can accept
+            or schedule another day for the appointment which will pop up in the
+            notification and you (the patient) can accept of decline the
+            appointment.
           </p>
+          <div className="text-right mt-5">
+            <DecoratedButton
+              color="accent"
+              hoverColor="primary"
+              className="rounded-lg"
+              onClick={() => navigate("/appointment/payment")}
+            >
+              Proceed to Payment
+            </DecoratedButton>
+          </div>
         </div>
       </form>
     </div>
