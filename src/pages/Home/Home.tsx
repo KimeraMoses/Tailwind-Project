@@ -86,7 +86,7 @@ export const Home = () => {
               }}
             >
               <div className="hero_section p-4 rounded-md">
-                <p className="text-primary font-extrabold text-3xl mb-2">
+                <p className="text-primary font-bold text-3xl mb-2">
                   MedAtlas makes it easy to find Licensed Specialists Doctors
                   anywhere in Africa.
                 </p>

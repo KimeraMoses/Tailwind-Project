@@ -21,7 +21,7 @@ const BookingForm = () => {
 
   return (
     <div className="bg-white shadow-md rounded-md p-5 md:w-142 w-full">
-      <h2 className="text-2xl text-black font-semibold font-Poppins mb-4">
+      <h2 className="text-2xl text-primary font-semibold font-Poppins mb-4">
         Appointment Scheduling Form
       </h2>
       <form className="select-none font-Poppins">

@@ -24,8 +24,8 @@ const PaymentForm = (props: paymentProps) => {
     <div className="bg-white shadow-md rounded-md p-5 md:w-132 w-full">
       <div className="justify-center font-Poppins flex flex-col items-center">
         <img src={medLogo} alt="MedAtlas" className="w-40 mb-4" />
-        <h2 className="text-xl text-black font-bold mb-7">
-          Consultation With a Specialist Doctor
+        <h2 className="text-xl text-primary font-bold mb-7">
+          Payment for Specialist Doctor Consultation
         </h2>
         <h6 className="text-xs font-normal font-Poppins text-center mb-7">
           Secure Visa/MasterCard/Mobile Money online payment by flutterwave
@@ -39,8 +39,9 @@ const PaymentForm = (props: paymentProps) => {
             The payment was successful
           </h4>
 
-          <p className="text-xs text-grayPrimary my-6">
-            Please check your email for a link and the doctor's whatsApp number
+          <p className="text-sm text-grayPrimary my-6">
+            Please check your email for the appointment confirmation. Your
+            Doctor will be in touch soon.
           </p>
         </div>
       ) : (
@@ -95,11 +96,11 @@ const PaymentForm = (props: paymentProps) => {
           color="accent"
           hoverColor="primary"
           className="rounded-md px-16"
-          onClick={
-            paid
-              ? () => navigate("/appointment/payment-success")
-              : () => console.log("Paid successfully")
-          }
+          onClick={() => {
+            !paid
+              ? navigate("/appointment/payment-success")
+              : console.log("Paid successfully");
+          }}
         >
           {paid ? "Close" : "Pay"}
         </DecoratedButton>

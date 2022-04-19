@@ -10,7 +10,7 @@ const TeamCard = ({
   firstName,
 }: any) => {
   return (
-    <div className="flex select-none w-128 shadow-sm pb-2">
+    <div className="flex select-none w-128 shadow-md pb-2 border border-gray">
       <div className="rounded-full">
         <img
           className="w-36 h-36 rounded-full mx-auto"

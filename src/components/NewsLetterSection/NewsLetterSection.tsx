@@ -7,8 +7,8 @@ export const NewsLetterSection = () => {
     <div className="w-full bg-white py-4 text-center px-12">
       <div className="container flex items-center justify-around mx-auto">
         <div className="flex flex-col text-left">
-          <h1 className="font-bold text-2xl text-black capitalize">
-            Sign up for <strong className="text-primary">our</strong> newletter
+          <h1 className="font-bold text-2xl text-primary capitalize">
+            Sign up for the medAtlas newletter
           </h1>
           <p className="font-light text-sm text-grayPrimary">
             Sign up for our newsletter to stay up to date.
