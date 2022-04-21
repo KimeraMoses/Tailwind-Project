@@ -32,7 +32,9 @@ const IconCarousel: React.FC<IconProps> = ({ icon, name }: any) => {
         <img className="object-cover" src={getIcon(icon)} />
         <div className="absolute bottom-3 right-2 w-5 h-5 border-4 border-white  rounded-full bg-accent shadow"></div>
       </div>
-      <h3 className="mt-4 text-lg text-primary ">{name}</h3>
+      <h3 className="mt-4 text-lg text-primary font-bold font-Poppins">
+        {name}
+      </h3>
     </div>
   );
 };

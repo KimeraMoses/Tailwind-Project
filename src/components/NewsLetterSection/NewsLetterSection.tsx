@@ -1,35 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { DecoratedButton } from "../Buttons";
 
 export const NewsLetterSection = () => {
   return (
-    <div className="w-full bg-white py-4 text-center px-12">
-      <div className="container flex items-center justify-around mx-auto">
-        <div className="flex flex-col text-left">
-          <h1 className="font-bold text-2xl text-primary capitalize">
-            Sign up for the medAtlas newletter
-          </h1>
-          <p className="font-light text-sm text-grayPrimary">
-            Sign up for our newsletter to stay up to date.
-          </p>
+    <div className="w-full text-center mx-auto px-44 py-10">
+      <div className="flex items-center shadow-lg rounded-md select-none">
+        <div className="bg-accent font-bold text-xl text-white w-1/2 p-2 h-12 rounded-l flex items-center justify-center">
+          Sign Up For The MedAtlas Newsletter
         </div>
-        <div className="flex flex-col text-left">
-          <div className="w-full flex">
+        <div className="flex w-1/2 items-center h-12">
+          <div className="bg-white w-3/4 h-full">
             <input
-              className="shadow appearance-none border border-gray rounded py-2 w-9/12 px-3 text-gray-700 leading-tight focus:outline-primary focus:shadow-outline mr-2"
+              className="appearance-none w-full h-full p-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Enter your email"
             />
-            <DecoratedButton color="accent" hoverColor="primary">
+          </div>
+          <div className="h-full w-3/12 flex items-center">
+            <DecoratedButton
+              color="primary"
+              hoverColor="accent"
+              className="w-full rounded-l-0 rounded-r-md"
+            >
               Subscribe
             </DecoratedButton>
           </div>
-          <p className="text-sm text-grayPrimary font-light mt-2">
-            We care about the protection of your data. Read our{" "}
-            <Link to="/privacy-policy" className="underline text-accent">
-              Privacy Policy
-            </Link>
-          </p>
         </div>
       </div>
     </div>

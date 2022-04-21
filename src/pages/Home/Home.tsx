@@ -261,11 +261,11 @@ export const Home = () => {
         </h1>
         <Swiper
           slidesPerView={4}
-          spaceBetween={30}
+          spaceBetween={40}
           pagination={{
             clickable: true,
           }}
-          className="mt-14 h-60 w-142 "
+          className="mt-14 h-60 w-142"
         >
           {iconsCarousel.map((icon, index) => (
             <SwiperSlide

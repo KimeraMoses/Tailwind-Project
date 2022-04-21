@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-
+import "swiper/css/bundle";
+import "swiper/css";
+import "swiper/css/navigation";
 import "@ionic/react/css/core.css";
 import App from "./App";
 import { store } from "@redux-store";

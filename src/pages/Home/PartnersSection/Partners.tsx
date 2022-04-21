@@ -1,10 +1,13 @@
 import React from "react";
-import Partner1 from "../../../assets/partners/concept-logo-1.png";
-import Partner2 from "../../../assets/partners/Dar-logo.png";
-import Partner3 from "../../../assets/partners/Sali-Hospital-logo.png";
-import Partner4 from "../../../assets/partners/uwaterloo-logo.png";
-import Partner5 from "../../../assets/partners/Vessel-is-Me-1.png";
-import Partner6 from "../../../assets/partners/whi-logo.jpg";
+import Partner1 from "../../../assets/partners/1.png";
+import Partner2 from "../../../assets/partners/2.png";
+import Partner3 from "../../../assets/partners/3.png";
+import Partner4 from "../../../assets/partners/4.png";
+import Partner5 from "../../../assets/partners/5.png";
+import Partner6 from "../../../assets/partners/6.png";
+import Partner7 from "../../../assets/partners/7.png";
+import Partner8 from "../../../assets/partners/8.png";
+import Partner9 from "../../../assets/partners/9.png";
 
 const Partners = () => {
   return (
@@ -27,12 +30,20 @@ const Partners = () => {
           <img src={Partner4} alt="" className="w-full" />
         </div>
         <div className="w-56 h-auto">
+          <img src={Partner5} alt="" className="w-full" />
+        </div>
+        <div className="w-56 h-auto">
           <img src={Partner6} alt="" className="w-full" />
         </div>
         <div className="w-56 h-auto">
-          <img src={Partner5} alt="" className="w-full" />
+          <img src={Partner7} alt="" className="w-full" />
         </div>
-
+        <div className="w-56 h-auto">
+          <img src={Partner8} alt="" className="w-full" />
+        </div>
+        <div className="w-56 h-auto">
+          <img src={Partner9} alt="" className="w-full" />
+        </div>
       </div>
     </div>
   );
