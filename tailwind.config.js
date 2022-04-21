@@ -21,6 +21,7 @@ module.exports = {
     colors: {
       background: "#EDF1FF",
       backgroundGray: "#EFF2F5",
+      backgroundPurple: "#E2DFDF",
       black: "rgb(0,0,0)",
       transparent: "rgba(0,0,0,0.2)",
       current: "currentColor",

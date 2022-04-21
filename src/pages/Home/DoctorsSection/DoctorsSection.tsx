@@ -63,7 +63,7 @@ const DoctorsSection = () => {
         Book Our Best Doctors
       </h2>
 
-      <div className="flex justify-center  my-5 select-none">
+      <div className="flex justify-center  my-5 select-none mx-40">
         <Swiper
           navigation={true}
           modules={[Navigation]}
@@ -71,7 +71,7 @@ const DoctorsSection = () => {
           slidesPerView={3}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
-          // className="w-142"
+          className="container flex justify-center mx-40"
         >
           {DoctorsList.map((doctor) => {
             return (
@@ -87,31 +87,6 @@ const DoctorsSection = () => {
             );
           })}
         </Swiper>
-
-        {/* <button onClick={() => swiper.slideNext()}>
-          Slide to the next slide
-        </button> */}
-        {/* <DoctorCard
-          name="Dr. Kimera Moses"
-          speciality="Fertility expert"
-          city="Kampala"
-          country="Uganda"
-          image={doctorsImage}
-        />
-        <DoctorCard
-          name="Dr. Namugambi Cynthia"
-          speciality="Dentist"
-          city="Mulago"
-          country="Uganda"
-          image={doctorsImage}
-        />
-        <DoctorCard
-          name="Dr. Mubiru Isaac"
-          speciality="Gynaecology"
-          city="Acra"
-          country="Ghana"
-          image={doctorsImage}
-        /> */}
       </div>
     </div>
   );

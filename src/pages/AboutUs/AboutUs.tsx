@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Footer } from "@components";
 import GlobalPartner from "src/components/GlobalPartner/GlobalPartner";
 import TeamSection from "src/components/TeamSection/TeamSection";
+import image1 from "../../assets/partners/Fertility.png";
 
 export const AboutUs = () => {
   return (
@@ -11,26 +12,33 @@ export const AboutUs = () => {
           <h2 className="p-4 text-4xl font-bold mb-0">About MedAtlas</h2>
 
           <div className="p-5 text-lg leading-8">
-            <h3 className="text-2xl font-semibold">Our Story</h3>
-            <p>
-              MedAtlas has been born out of the challenges many Africans face
-              when looking for specialist help. <br />
-              When you discover that you need a particular doctor to solve your
-              health problem and often, you may not be sure where to start.
-            </p>
+            <div className="flex items-start">
+              <div className="pr-5">
+                <img src={image1} alt="" className="w-126 h-auto rounded-md" />
+              </div>
+              <div className="">
+                <h3 className="text-2xl font-semibold">Our Story</h3>
+                <p>
+                  MedAtlas has been born out of the challenges many Africans
+                  face when looking for specialist help. <br />
+                  When you discover that you need a particular doctor to solve
+                  your health problem and often, you may not be sure where to
+                  start.
+                </p>
 
-            <p>
-              You think,{" "}
-              <i>
-                "Where should I start?" "Who should I ask?" "Where do I find
-                this type of doctor?" and "How much will it cost?"
-              </i>
-            </p>
+                <p>
+                  You think,{" "}
+                  <i>
+                    "Where should I start?" "Who should I ask?" "Where do I find
+                    this type of doctor?" and "How much will it cost?"
+                  </i>
+                </p>
+              </div>
+            </div>
             <p>
               After over 10 years of experiencing similar challenges, we are
               excited to introduce the solution that brings peace of mind!
             </p>
-
             <h3 className="text-2xl font-semibold mt-5 mb-2">Our Mission</h3>
 
             <p>

@@ -6,6 +6,8 @@ import {
   InputField,
   RadioInput,
 } from "src/components/InputField";
+import image1 from "../../../../assets/placeholder.png";
+import { RiAttachment2 } from "react-icons/ri";
 
 const BookingForm = () => {
   const [values, setValues] = useState({
@@ -97,6 +99,31 @@ const BookingForm = () => {
             placeholder="Describe your health condition"
             name="description"
           />
+        </div>
+        <div className="my-4">
+          <h6 className="flex items-center mb-1 font-Poppins font-medium">
+            <RiAttachment2 />
+            Attachments (1)
+          </h6>
+          <div
+            className="p-5 rounded-xl flex flex-wrap"
+            style={{
+              background: `linear-gradient(100.32deg, #FCF5FF -6.29%, #F5E4FF 88.21%)`,
+            }}
+          >
+            <div
+              className="w-16 h-16 rounded-xl bg-backgroundPurple flex items-center justify-center text-white m-1"
+              style={{
+                backgroundImage: `url(${image1})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center center",
+              }}
+            ></div>
+
+            <div className="w-16 h-16 rounded-xl bg-backgroundPurple flex items-center justify-center text-white m-1">
+              +
+            </div>
+          </div>
         </div>
         <div className="my-4">
           <p className="text-sm font-Poppins">
