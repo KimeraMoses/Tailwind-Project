@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import { useSearchDoctors } from "@hooks";
 // import { doctors } from "src/assets/MedAtlasDoctors.png";
 
-const DoctorsList = [
+export const DoctorsList = [
   {
     name: "Dr. Kimera Moses",
     speciality: "Fertility expert",
@@ -30,24 +30,24 @@ const DoctorsList = [
     image: doctorsImage,
   },
   {
-    name: "Dr. Kimera Moses",
+    name: "Dr. Margret Mutumba",
     speciality: "Fertility expert",
-    city: "Kampala",
-    country: "Uganda",
+    city: "Mwanza",
+    country: "Tanzania",
     image: doctorsImage,
   },
   {
-    name: "Dr. Namugambi Cynthia",
-    speciality: "Dentist",
-    city: "Mulago",
-    country: "Uganda",
+    name: "Dr. Samuel Mutumba",
+    speciality: "Physiotherapist",
+    city: "Nailobi",
+    country: "Kenya",
     image: doctorsImage,
   },
   {
-    name: "Dr. Mubiru Isaac",
-    speciality: "Gynaecology",
-    city: "Acra",
-    country: "Ghana",
+    name: "Dr. Nantale Becky",
+    speciality: "Orthopaedic Specialist ",
+    city: "Dodoma",
+    country: "Tanzania",
     image: doctorsImage,
   },
 ];

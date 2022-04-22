@@ -2,7 +2,7 @@ import React from "react";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
-interface DoctorProps {
+export interface DoctorProps {
   image: any;
   name: string;
   speciality: string;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useCurrentUser } from "@hooks";
 import { useNavigate } from "react-router-dom";
 
+
 export const AutheticatedView: React.FunctionComponent = ({ children }) => {
   const user = useCurrentUser();
   const [isLoggedIn] = useState(!!user);
@@ -18,6 +19,7 @@ export const AutheticatedView: React.FunctionComponent = ({ children }) => {
 
   return !user ? null : <div>{children}</div>;
 };
+
 
 export const LoggedInRedirect: React.FunctionComponent = ({ children }) => {
   const user = useCurrentUser();

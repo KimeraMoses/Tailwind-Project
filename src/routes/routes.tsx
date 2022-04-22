@@ -5,6 +5,8 @@ import BookingForm from "../components/BookingSummary/BookingComponents/BookingF
 import PaymentForm from "./../components/BookingSummary/BookingComponents/PaymentForm/PaymentForm";
 import OtpForm from "./../components/BookingSummary/BookingComponents/PaymentForm/OtpForm";
 import PaymentStatus from "./../components/BookingSummary/BookingComponents/PaymentForm/PaymentStatus";
+import DashboardLayout from "./../pages/Dashboard/DashboardLayout";
+import SearchDoctors from "./../pages/Dashboard/PatientsMenuPanels/SearchDoctors";
 import {
   NotFound,
   Home,
@@ -40,6 +42,13 @@ export const AppRoutes = () => {
         <Route path="payment" element={<PaymentForm />} />
         <Route path="otp" element={<OtpForm />} />
         <Route path="payment-success" element={<PaymentStatus type="fail" />} />
+      </Route>
+      <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="news-feeds" element={<BookingForm />} />
+        <Route path="search-doctors" element={<SearchDoctors />} />
+        <Route path="appointments" element={<PaymentForm />} />
+        <Route path="messages" element={<PaymentForm />} />
+        <Route path="profile-settings" element={<PaymentForm />} />
       </Route>
       <Route
         path="/login"
