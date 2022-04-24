@@ -14,6 +14,7 @@ export const DoctorsList = [
     city: "Kampala",
     country: "Uganda",
     image: doctorsImage,
+    rating: 3.5,
   },
   {
     name: "Dr. Namugambi Cynthia",
@@ -21,6 +22,7 @@ export const DoctorsList = [
     city: "Mulago",
     country: "Uganda",
     image: doctorsImage,
+    rating: 5,
   },
   {
     name: "Dr. Mubiru Isaac",
@@ -28,6 +30,7 @@ export const DoctorsList = [
     city: "Acra",
     country: "Ghana",
     image: doctorsImage,
+    rating: 4.5,
   },
   {
     name: "Dr. Margret Mutumba",
@@ -35,6 +38,7 @@ export const DoctorsList = [
     city: "Mwanza",
     country: "Tanzania",
     image: doctorsImage,
+    rating: 2.5,
   },
   {
     name: "Dr. Samuel Mutumba",
@@ -42,6 +46,7 @@ export const DoctorsList = [
     city: "Nailobi",
     country: "Kenya",
     image: doctorsImage,
+    rating: 5,
   },
   {
     name: "Dr. Nantale Becky",
@@ -49,6 +54,7 @@ export const DoctorsList = [
     city: "Dodoma",
     country: "Tanzania",
     image: doctorsImage,
+    rating: 3.5,
   },
 ];
 
@@ -82,6 +88,7 @@ const DoctorsSection = () => {
                   city={doctor.city}
                   country={doctor.country}
                   image={doctor.image}
+                  rating={doctor.rating}
                 />
               </SwiperSlide>
             );

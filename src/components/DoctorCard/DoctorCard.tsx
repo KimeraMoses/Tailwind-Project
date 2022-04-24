@@ -1,6 +1,7 @@
 import React from "react";
-import { MdOutlineLocationOn } from "react-icons/md";
+import { MdLocationOn } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import Rating from "@mui/material/Rating";
 
 export interface DoctorProps {
   image: any;
@@ -8,11 +9,12 @@ export interface DoctorProps {
   speciality: string;
   city: string;
   country: string;
+  rating?: number;
 }
 
 const DoctorCard = (props: DoctorProps) => {
   const navigate = useNavigate();
-  const { image, name, speciality, city, country } = props;
+  const { image, name, speciality, city, country, rating } = props;
   return (
     <div className="bg-white px-3 pt-1 pb-5 shadow-sm w-80 rounded-md">
       <div className="flex justify-center">
@@ -21,16 +23,11 @@ const DoctorCard = (props: DoctorProps) => {
       <div className="font-Poppins pt-4">
         <h2 className="font-bold text-primary text-xl">{name}</h2>
         <p className="text-accent text-sm font-medium">{speciality}</p>
-        <div className="w-full">
-          {/* <StarRatingComponent
-                name="rate2"
-                editing={false}
-                starCount={10}
-                value={8}
-              /> */}
+        <div className="w-full py-1">
+          <Rating name="read-only" value={rating} precision={0.5} readOnly />
         </div>
         <div className="flex text-primary items-center">
-          <MdOutlineLocationOn className="font-medium m-0 p-0" />
+          <MdLocationOn className="font-medium m-0 p-0" />
           <h6 className="font-normal ml-1">
             {city} - {country}
           </h6>

@@ -47,6 +47,7 @@ const SearchDoctors = () => {
                   speciality={doctor.speciality}
                   city={doctor.city}
                   country={doctor.country}
+                  rating={doctor.rating}
                 />
               );
             }

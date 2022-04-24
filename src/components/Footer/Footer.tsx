@@ -55,7 +55,10 @@ export const Footer = () => {
               itemLink={`/register?accountType=${AccountTypes.PATIENT}`}
               title="Register"
             />
-            <ListItem itemLink="/account" title="Patient Dashboard" />
+            <ListItem
+              itemLink="/dashboard/news-feeds"
+              title="Patient Dashboard"
+            />
           </ul>
         </section>
         {/*---------- For Doctors -------------*/}

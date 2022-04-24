@@ -14,12 +14,13 @@ interface MenuProps {
 
 const DashboardMenuItem = (props: MenuProps) => {
   const { menuTitle, menuIcon, menuLink } = props;
+
+  const linkStyles = `text-primary flex items-center py-2 px-5 font-semibold rounded-lg mt-2 capitalize select-none`;
+  const activeLinkStyles = `bg-accentHover text-white flex items-center py-2 px-5 font-medium rounded-lg mt-2 capitalize select-none`;
+
   return (
     <NavLink
-      className={({ isActive }) =>
-        `flex items-center py-2 px-5 text-primary font-semibold rounded-lg mt-2 capitalize select-none` +
-        (isActive && ` bg-accentHover text-white font-medium`)
-      }
+      className={({ isActive }) => (isActive ? activeLinkStyles : linkStyles)}
       to={`/dashboard/${menuLink}`}
       end
     >

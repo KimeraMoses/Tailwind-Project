@@ -3,9 +3,10 @@ import { MdLocationOn } from "react-icons/md";
 import { HiCreditCard } from "react-icons/hi";
 import { DoctorProps } from "./DoctorCard";
 import { useNavigate } from "react-router-dom";
+import Rating from "@mui/material/Rating";
 
 const DoctorCardDashboard = (props: DoctorProps) => {
-  const { image, name, speciality, city, country } = props;
+  const { image, name, speciality, city, country, rating } = props;
   const navigate = useNavigate();
 
   return (
@@ -18,7 +19,13 @@ const DoctorCardDashboard = (props: DoctorProps) => {
             English, Luganda, Kiswahili
           </h6>
           <p className="text-accent text-sm font-medium">{speciality}</p>
-          Ratings Component
+          <Rating
+            name="read-only"
+            value={rating}
+            precision={0.5}
+            readOnly
+            className="mt-5"
+          />
         </div>
       </div>
       <div className="flex flex-col justify-start mr-20">
