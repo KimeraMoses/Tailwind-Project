@@ -10,6 +10,7 @@ export interface DoctorProps {
   city: string;
   country: string;
   rating?: number;
+  isSelected?: boolean;
 }
 
 const DoctorCard = (props: DoctorProps) => {
@@ -21,7 +22,7 @@ const DoctorCard = (props: DoctorProps) => {
         <img src={image} alt="" className="w-48 h-48 shadow-md rounded-md" />
       </div>
       <div className="font-Poppins pt-4">
-        <h2 className="font-bold text-primary text-xl">{name}</h2>
+        <h2 className="font-bold text-primary text-xl">Dr. {name}</h2>
         <p className="text-accent text-sm font-medium">{speciality}</p>
         <div className="w-full py-1">
           <Rating name="read-only" value={rating} precision={0.5} readOnly />

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 
 const DoctorCardDashboard = (props: DoctorProps) => {
-  const { image, name, speciality, city, country, rating } = props;
+  const { image, name, speciality, city, country, rating, isSelected } = props;
   const navigate = useNavigate();
 
   return (
@@ -14,7 +14,7 @@ const DoctorCardDashboard = (props: DoctorProps) => {
       <div className="flex">
         <img src={image} alt="" className="shadow-md rounded-xl w-40 h-40" />
         <div className="flex flex-col ml-3">
-          <h2 className="font-bold text-primary text-xl mb-2">{name}</h2>
+          <h2 className="font-bold text-primary text-xl mb-2">Dr. {name}</h2>
           <h6 className="text-sm font-normal mb-1">
             English, Luganda, Kiswahili
           </h6>
@@ -40,9 +40,21 @@ const DoctorCardDashboard = (props: DoctorProps) => {
           <h6 className="font-medium">UGX 50,000</h6>
         </div>
         <div className="flex flex-col items-center justify-between gap-2 mt-5">
-          <button className="py-2 px-4 w-full border border-solid border-primary rounded-md text-primary font-medium text-sm transition hover:bg-primary hover:text-white">
-            View Profile
-          </button>
+          {!isSelected && (
+            <button
+              onClick={() =>
+                navigate(
+                  `/dashboard/doctors/${name
+                    .toLowerCase()
+                    .replace("Dr.", "")
+                    .replace(/ /g, "-")}`
+                )
+              }
+              className="py-2 px-4 w-full border border-solid border-primary rounded-md text-primary font-medium text-sm transition hover:bg-primary hover:text-white"
+            >
+              View Profile
+            </button>
+          )}
           <button
             onClick={() => navigate("/appointment/booking")}
             className="py-2 px-4 border-none w-full rounded-md text-white text-sm font-medium transition bg-accent hover:bg-primary"

@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export const DoctorsList = [
   {
-    name: "Dr. Kimera Moses",
+    name: "Kimera Moses",
     speciality: "Fertility expert",
     city: "Kampala",
     country: "Uganda",
@@ -17,7 +17,7 @@ export const DoctorsList = [
     rating: 3.5,
   },
   {
-    name: "Dr. Namugambi Cynthia",
+    name: "Namugambi Cynthia",
     speciality: "Dentist",
     city: "Mulago",
     country: "Uganda",
@@ -25,7 +25,7 @@ export const DoctorsList = [
     rating: 5,
   },
   {
-    name: "Dr. Mubiru Isaac",
+    name: "Mubiru Isaac",
     speciality: "Gynaecology",
     city: "Acra",
     country: "Ghana",
@@ -33,7 +33,7 @@ export const DoctorsList = [
     rating: 4.5,
   },
   {
-    name: "Dr. Margret Mutumba",
+    name: "Margret Mutumba",
     speciality: "Fertility expert",
     city: "Mwanza",
     country: "Tanzania",
@@ -41,7 +41,7 @@ export const DoctorsList = [
     rating: 2.5,
   },
   {
-    name: "Dr. Samuel Mutumba",
+    name: "Samuel Mutumba",
     speciality: "Physiotherapist",
     city: "Nailobi",
     country: "Kenya",
@@ -49,7 +49,7 @@ export const DoctorsList = [
     rating: 5,
   },
   {
-    name: "Dr. Nantale Becky",
+    name: "Nantale Becky",
     speciality: "Orthopaedic Specialist ",
     city: "Dodoma",
     country: "Tanzania",

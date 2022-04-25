@@ -10,6 +10,7 @@ import SearchDoctors from "./../pages/Dashboard/PatientsMenuPanels/SearchDoctors
 import NewsFeeds from "./../pages/Dashboard/PatientsMenuPanels/NewsFeeds";
 import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
 import Messages from "./../pages/Dashboard/PatientsMenuPanels/Messages";
+import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
 import {
   NotFound,
   Home,
@@ -49,6 +50,7 @@ export const AppRoutes = () => {
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route path="news-feeds" element={<NewsFeeds />} />
         <Route path="search-doctors" element={<SearchDoctors />} />
+        <Route path="doctors/:doctorName" element={<DoctorDetails />} />
         <Route
           path="patients-appointments"
           element={<PatientsAppointments />}
