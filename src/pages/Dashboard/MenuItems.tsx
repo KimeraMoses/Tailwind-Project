@@ -31,3 +31,31 @@ export const PatientsMenuItems = [
     icon: <FiSettings className="text-2xl mr-2" />,
   },
 ];
+
+export const DoctorsMenuItems = [
+  {
+    name: "News Feeds",
+    slug: "news-feeds",
+    icon: <MdOutlineMenu className="text-2xl mr-2" />,
+  },
+  {
+    name: "Appointments",
+    slug: "patients-appointments",
+    icon: <IoBagSharp className="text-2xl mr-2" />,
+  },
+  {
+    name: "Messages",
+    slug: "messages",
+    icon: <TiMessages className="text-2xl mr-2" />,
+  },
+  {
+    name: "Search Doctors",
+    slug: "search-doctors",
+    icon: <BiSearch className="text-2xl mr-2" />,
+  },
+  {
+    name: "Profile Settings",
+    slug: "profile-settings",
+    icon: <FiSettings className="text-2xl mr-2" />,
+  },
+];

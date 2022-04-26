@@ -4,9 +4,6 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import DoctorCard from "src/components/DoctorCard/DoctorCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// import { useSearchDoctors } from "@hooks";
-// import { doctors } from "src/assets/MedAtlasDoctors.png";
-
 export const DoctorsList = [
   {
     name: "Kimera Moses",

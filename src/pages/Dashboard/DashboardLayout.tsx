@@ -4,7 +4,7 @@ import MHFS from "../../assets/MHFS.png";
 import { MdOutlineHelpOutline } from "react-icons/md";
 
 import { NavLink, Outlet } from "react-router-dom";
-import { PatientsMenuItems } from "./MenuItems";
+import { DoctorsMenuItems, PatientsMenuItems } from "./MenuItems";
 
 interface MenuProps {
   menuTitle: string;
@@ -45,6 +45,16 @@ const DashboardLayout = () => {
                 />
               );
             })}
+            {/* {DoctorsMenuItems.map((menuItem) => {
+              return (
+                <DashboardMenuItem
+                  key={menuItem.slug}
+                  menuTitle={menuItem.name}
+                  menuLink={menuItem.slug}
+                  menuIcon={menuItem.icon}
+                />
+              );
+            })} */}
           </div>
           <div className="flex flex-col justify-center items-center mt-4 mx-auto text-center">
             <img src={MHFS} alt="MedAtlas Health Finance Scheme" className="" />

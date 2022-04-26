@@ -4,9 +4,9 @@ import TeamCard from "./TeamCard/TeamCard";
 
 const TeamSection = () => {
   return (
-    <div className="mt-8 px-20 text-center">
+    <div className="mt-8 px-8 text-center">
       <h3 className="text-primary text-4xl font-semibold mb-10">Our Team</h3>
-      <div className="flex flex-wrap gap-5 mt-6 justify-center">
+      <div className="flex mt-6 justify-between">
         {TeamData.map((team) => {
           return (
             <TeamCard

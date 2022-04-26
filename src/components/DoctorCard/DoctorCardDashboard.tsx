@@ -6,7 +6,17 @@ import { useNavigate } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 
 const DoctorCardDashboard = (props: DoctorProps) => {
-  const { image, name, speciality, city, country, rating, isSelected } = props;
+  const {
+    image,
+    name,
+    speciality,
+    city,
+    country,
+    rating,
+    isSelected,
+    isDoctor,
+  } = props;
+
   const navigate = useNavigate();
 
   return (
@@ -44,10 +54,7 @@ const DoctorCardDashboard = (props: DoctorProps) => {
             <button
               onClick={() =>
                 navigate(
-                  `/dashboard/doctors/${name
-                    .toLowerCase()
-                    .replace("Dr.", "")
-                    .replace(/ /g, "-")}`
+                  `/dashboard/doctors/${name.toLowerCase().replace(/ /g, "-")}`
                 )
               }
               className="py-2 px-4 w-full border border-solid border-primary rounded-md text-primary font-medium text-sm transition hover:bg-primary hover:text-white"
@@ -55,12 +62,14 @@ const DoctorCardDashboard = (props: DoctorProps) => {
               View Profile
             </button>
           )}
-          <button
-            onClick={() => navigate("/appointment/booking")}
-            className="py-2 px-4 border-none w-full rounded-md text-white text-sm font-medium transition bg-accent hover:bg-primary"
-          >
-            Book Appointment
-          </button>
+          {!isDoctor && (
+            <button
+              onClick={() => navigate("/appointment/booking")}
+              className="py-2 px-4 border-none w-full rounded-md text-white text-sm font-medium transition bg-accent hover:bg-primary"
+            >
+              Book Appointment
+            </button>
+          )}
         </div>
       </div>
     </div>

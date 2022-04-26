@@ -10,21 +10,21 @@ const TeamCard = ({
   firstName,
 }: any) => {
   return (
-    <div className="flex select-none w-128 shadow-md pb-2 border border-gray">
+    <div className="flex select-none pb-2 w-128 m-2">
       <div className="rounded-full">
         <img
           className="w-36 h-36 rounded-full mx-auto"
           src={image}
           alt=""
-          width="384"
-          height="512"
+          width="155"
+          height="155"
         />
       </div>
       <div className="flex flex-col gap-2 px-2 text-primary text-left">
-        <h2 className="font-bold text-lg">{name}</h2>
-        <h3 className="font-semibold text-lg">{title}</h3>
-        <h3 className="font-normal text-lg">{proffession}</h3>
-        <h3 className="font-semibold text-lg">About {firstName}:</h3>
+        <h2 className="font-bold text-sm">{name}</h2>
+        <h3 className="font-semibold text-sm">{title}</h3>
+        <h3 className="font-normal text-sm">{proffession}</h3>
+        <h3 className="font-semibold text-sm">About {firstName}:</h3>
         <a
           href={`https://linkedin.com/${linkedIn}`}
           className="flex items-center"

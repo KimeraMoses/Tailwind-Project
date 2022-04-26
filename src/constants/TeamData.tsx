@@ -1,5 +1,5 @@
 import Team1 from "../assets/team/margret.png";
-import Team2 from "../assets/team/chris.png";
+// import Team2 from "../assets/team/chris.png";
 import Team3 from "../assets/team/sam.png";
 import Team4 from "../assets/team/clive.png";
 export const TeamData = [
@@ -11,14 +11,14 @@ export const TeamData = [
     image: Team1,
     linkedIn: "margret",
   },
-  {
-    name: "Christoper Nsimbe",
-    firstName: "Nsimbe",
-    title: "CTO & Co-Founder",
-    profession: "Senior Software Engineer",
-    image: Team2,
-    linkedIn: "chris",
-  },
+  // {
+  //   name: "Christoper Nsimbe",
+  //   firstName: "Nsimbe",
+  //   title: "CTO & Co-Founder",
+  //   profession: "Senior Software Engineer",
+  //   image: Team2,
+  //   linkedIn: "chris",
+  // },
   {
     name: "Samuel Mutumba",
     firstName: "Samuel",

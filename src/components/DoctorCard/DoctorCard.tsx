@@ -11,6 +11,7 @@ export interface DoctorProps {
   country: string;
   rating?: number;
   isSelected?: boolean;
+  isDoctor?: boolean;
 }
 
 const DoctorCard = (props: DoctorProps) => {
@@ -34,7 +35,14 @@ const DoctorCard = (props: DoctorProps) => {
           </h6>
         </div>
         <div className="flex items-center justify-between gap-2 mt-5">
-          <button className="py-2 px-4 border border-solid border-primary rounded-md text-primary font-medium text-sm transition hover:bg-primary hover:text-white">
+          <button
+            onClick={() =>
+              navigate(
+                `/dashboard/doctors/${name.toLowerCase().replace(/ /g, "-")}`
+              )
+            }
+            className="py-2 px-4 border border-solid border-primary rounded-md text-primary font-medium text-sm transition hover:bg-primary hover:text-white"
+          >
             View Profile
           </button>
           <button

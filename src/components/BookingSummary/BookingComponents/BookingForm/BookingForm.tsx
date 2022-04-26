@@ -8,6 +8,7 @@ import {
 } from "src/components/InputField";
 import image1 from "../../../../assets/placeholder.png";
 import { RiAttachment2 } from "react-icons/ri";
+import Dropdown from "src/components/CustomDropdown/Dropdown";
 
 const BookingForm = () => {
   const [values, setValues] = useState({
@@ -33,6 +34,7 @@ const BookingForm = () => {
         </div>
         <div className="flex gap-3 my-4">
           <InputField placeholder="Appointment By" name="mode" />
+          {/* <Dropdown /> */}
           <InputField placeholder="WhatsApp Number" name="number" type="tel" />
         </div>
         <div className="my-4">

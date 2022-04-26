@@ -23,7 +23,7 @@ const DoctorDetails = () => {
           Doctor's Profile
         </h3>
       </div>
-      <div className="w-full bg-white">
+      <div className="w-full bg-white rounded-t-md">
         <DoctorCardDashboard
           name={SelectedDoctor && SelectedDoctor.name}
           image={SelectedDoctor && SelectedDoctor.image}
