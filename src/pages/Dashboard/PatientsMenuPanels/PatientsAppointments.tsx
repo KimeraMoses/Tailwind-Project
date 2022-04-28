@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import AppointmentCard from "src/components/AppointmentCard/AppointmentCard";
+import AppointmentTable from "./PatientTables/AppointmentTable";
+import BillingTable from "./PatientTables/BillingTable";
+import ReportTable from "./PatientTables/ReportTable";
 
 const appointmentData = [
   {
@@ -26,7 +29,14 @@ const appointmentData = [
   },
 ];
 
+const TABS = {
+  APPOINTMENTS: "Appointments",
+  REPORTS: "Reports",
+  BILLING: "Billing",
+};
+
 const PatientsAppointments = () => {
+  const [tab, setTab] = useState(TABS.APPOINTMENTS);
   return (
     <div className="w-full">
       <h3 className="text-primary font-semibold text-2xl mb-5">
@@ -49,11 +59,46 @@ const PatientsAppointments = () => {
 
       <div className="w-full mt-10 mx-auto">
         <div className="flex justify-center items-center">
-          <div className="text-accent font-semibold mx-9">Appointments</div>
-          <div className="text-primary mx-9 font-medium">Medical Reports</div>
-          <div className="text-primary mx-9 font-medium">Billing</div>
+          <div
+            className={`mx-9 cursor-pointer select-none ${
+              tab === TABS.APPOINTMENTS
+                ? `text-accent font-semibold`
+                : "text-primary font-medium"
+            }`}
+            onClick={() => setTab(TABS.APPOINTMENTS)}
+          >
+            Appointments
+          </div>
+          <div
+            className={`mx-9 cursor-pointer select-none ${
+              tab === TABS.REPORTS
+                ? `text-accent font-semibold`
+                : "text-primary font-medium"
+            }`}
+            onClick={() => setTab(TABS.REPORTS)}
+          >
+            Medical Reports
+          </div>
+          <div
+            className={`mx-9 cursor-pointer select-none ${
+              tab === TABS.BILLING
+                ? `text-accent font-semibold`
+                : "text-primary font-medium"
+            }`}
+            onClick={() => setTab(TABS.BILLING)}
+          >
+            Billing
+          </div>
         </div>
-        Appointment Details Here
+        <div className="mx-4 select-none">
+          {tab === TABS.BILLING ? (
+            <BillingTable />
+          ) : tab === TABS.REPORTS ? (
+            <ReportTable />
+          ) : (
+            <AppointmentTable />
+          )}
+        </div>
       </div>
     </div>
   );
