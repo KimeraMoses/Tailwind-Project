@@ -1,9 +1,10 @@
 import React from "react";
-import { MdLocationOn } from "react-icons/md";
+import { MdLocationOn, MdVerified } from "react-icons/md";
 import { HiCreditCard } from "react-icons/hi";
 import { DoctorProps } from "./DoctorCard";
 import { useNavigate } from "react-router-dom";
 import Rating from "@mui/material/Rating";
+import { Tooltip } from "@mui/material";
 
 const DoctorCardDashboard = (props: DoctorProps) => {
   const {
@@ -24,7 +25,13 @@ const DoctorCardDashboard = (props: DoctorProps) => {
       <div className="flex">
         <img src={image} alt="" className="shadow-md rounded-xl w-40 h-40" />
         <div className="flex flex-col ml-3">
-          <h2 className="font-bold text-primary text-xl mb-2">Dr. {name}</h2>
+          <h2 className="font-bold text-primary text-xl mb-2 flex items-center">
+            Dr. {name}
+            <MdVerified
+              className="text-accent ml-1"
+              title="Doctors Document Verified"
+            />
+          </h2>
           <h6 className="text-sm font-normal mb-1">
             English, Luganda, Kiswahili
           </h6>

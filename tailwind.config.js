@@ -27,6 +27,7 @@ module.exports = {
       backgroundActionBtn: "rgba(25, 123, 189, 0.28)",
       backgroundConfirmed: "rgba(91, 216, 80, 0.6)",
       backgroundSuccess: "#0E7305",
+      backgroundGreen: "rgb(11,218,81)",
       backgroundPending: "rgba(255, 13, 13, 0.6)",
       black: "rgb(0,0,0)",
       transparent: "rgba(0,0,0,0.2)",

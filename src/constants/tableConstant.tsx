@@ -8,7 +8,7 @@ export const appointmentTableColumns = [
     accessor: "date",
   },
   {
-    name: "Consultation Type",
+    name: "Service Type",
     accessor: "ctype",
   },
   {
