@@ -50,7 +50,7 @@ const ProfileSettings = () => {
               />
             </div>
             <div className="w-1/2">
-              <h6 className="text-primary font-medium text-sm mb-1">SurName</h6>
+              <h6 className="text-primary font-medium text-sm mb-1">Surname</h6>
               <InputField
                 type="text"
                 placeholder="SurName"
@@ -153,7 +153,7 @@ const ProfileSettings = () => {
                 type="text"
                 placeholder="speciality"
                 name="speciality"
-                value="Oethopedics"
+                value="Orthopedic"
               />
             </div>
           </div>
