@@ -19,8 +19,8 @@ const countryCurrency = [
 
 const ProfileSettings = () => {
   return (
-    <div className="bg-white pt-2 pb-3">
-      <div className="bg-white flex">
+    <form className="bg-white pt-2 pb-3">
+      <div className="flex">
         <div className="w-1/2 px-2 border-r border-primary pr-5">
           <h4 className="text-base text-primary font-bold">Profile Picture</h4>
           <div className="flex items-end">
@@ -59,27 +59,25 @@ const ProfileSettings = () => {
               />
             </div>
           </div>
-          <div className="flex gap-4 my-4 w-full">
-            <div className="w-1/2">
-              <h6 className="text-primary font-medium text-sm mb-1">Gender</h6>
-              <select className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out">
-                <option>Male</option>
-                <option>Female</option>
-              </select>
-            </div>
-            <div className="w-1/2">
-              <h6 className="text-primary font-medium text-sm mb-1">
-                Email Address
-              </h6>
-              <InputField
-                type="email"
-                placeholder="Email"
-                name="email"
-                value="margret@medatlas.com"
-              />
-            </div>
-          </div>
 
+          <div className="my-4">
+            <h6 className="text-primary font-medium text-sm mb-1">Gender</h6>
+            <select className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out">
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div className="my-4">
+            <h6 className="text-primary font-medium text-sm mb-1">
+              Email Address
+            </h6>
+            <InputField
+              type="email"
+              placeholder="Email"
+              name="email"
+              value="margret@medatlas.com"
+            />
+          </div>
           <div className="my-4">
             <h6 className="text-primary font-medium text-sm mb-1">
               Languages spoken
@@ -164,6 +162,7 @@ const ProfileSettings = () => {
           <div className="my-4">
             <h4 className="text-base text-primary font-bold">About Me</h4>
             <textarea
+              rows={4}
               className="textarea textarea-primary box-border border border-gray w-full rounded-lg select-none text-gray-700 leading-tight py-2 px-3 focus:outline-none focus:border-primary mr-2 font-Poppins"
               placeholder="Add information about you (will be visible to patients)"
             ></textarea>
@@ -298,11 +297,12 @@ const ProfileSettings = () => {
           color="primary"
           hoverColor="accent"
           className="px-4 py-1 w-1/2"
+          type="submit"
         >
           Update Profile
         </DecoratedButton>
       </div>
-    </div>
+    </form>
   );
 };
 
