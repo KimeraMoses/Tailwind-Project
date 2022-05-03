@@ -11,6 +11,7 @@ import NewsFeeds from "./../pages/Dashboard/PatientsMenuPanels/NewsFeeds";
 import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
 import Messages from "./../pages/Dashboard/PatientsMenuPanels/Messages";
 import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
+import ProfileSettings from "./../pages/Dashboard/DoctorsMenuPanels/ProfileSettings/ProfileSettings";
 import {
   NotFound,
   Home,
@@ -56,7 +57,7 @@ export const AppRoutes = () => {
           element={<PatientsAppointments />}
         />
         <Route path="messages" element={<Messages />} />
-        <Route path="profile-settings" element={<PaymentForm />} />
+        <Route path="profile-settings" element={<ProfileSettings />} />
       </Route>
       <Route
         path="/login"
