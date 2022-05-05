@@ -9,9 +9,10 @@ import DashboardLayout from "./../pages/Dashboard/DashboardLayout";
 import SearchDoctors from "./../pages/Dashboard/PatientsMenuPanels/SearchDoctors";
 import NewsFeeds from "./../pages/Dashboard/PatientsMenuPanels/NewsFeeds";
 import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
-import Messages from "./../pages/Dashboard/PatientsMenuPanels/Messages";
 import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
 import ProfileSettings from "./../pages/Dashboard/DoctorsMenuPanels/ProfileSettings/ProfileSettings";
+import Messages from "./../pages/Dashboard/GeneralPanels/Messages";
+import Scheduling from "./../pages/Dashboard/GeneralPanels/Scheduling";
 import {
   NotFound,
   Home,
@@ -57,6 +58,7 @@ export const AppRoutes = () => {
           element={<PatientsAppointments />}
         />
         <Route path="messages" element={<Messages />} />
+        <Route path="scheduling" element={<Scheduling />} />
         <Route path="profile-settings" element={<ProfileSettings />} />
       </Route>
       <Route

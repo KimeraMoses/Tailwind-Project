@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Footer } from "@components";
 import GlobalPartner from "src/components/GlobalPartner/GlobalPartner";
-import TeamSection from "src/components/TeamSection/TeamSection";
+// import TeamSection from "src/components/TeamSection/TeamSection";
 import image1 from "../../assets/AboutUs.png";
 import MissionSection from "./MissionSection";
 
@@ -72,7 +72,7 @@ export const AboutUs = () => {
       </div>
       <div className="w-full bg-backgroundGray py-6">
         <MissionSection />
-        <TeamSection />
+        {/* <TeamSection /> */}
         <GlobalPartner />
       </div>
       <Footer />

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NewsFeeds = () => {
   return (
-    <div className="w-full">
+    <div className="w-full bg-backgroundSidebar p-3 rounded">
       <img
         src={welcomeBunner}
         alt="Welcome to MedAtlas"

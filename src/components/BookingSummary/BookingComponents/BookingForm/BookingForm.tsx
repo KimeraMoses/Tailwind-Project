@@ -9,6 +9,9 @@ import {
 import image1 from "../../../../assets/placeholder.png";
 import { RiAttachment2 } from "react-icons/ri";
 import Dropdown from "src/components/CustomDropdown/Dropdown";
+import { MdVerified } from "react-icons/md";
+import Rating from "@mui/material/Rating";
+import imageDr from "../../../../assets/doctor-01.png";
 
 const BookingForm = () => {
   const [values, setValues] = useState({
@@ -27,14 +30,53 @@ const BookingForm = () => {
       <h2 className="text-2xl text-primary font-semibold font-Poppins mb-4">
         Appointment Scheduling Form
       </h2>
+      <div className="my-2">
+        <div className="flex">
+          <img
+            src={imageDr}
+            alt=""
+            className="shadow-md rounded-xl w-40 h-40"
+          />
+          <div className="flex flex-col ml-3">
+            <h2 className="font-bold text-primary text-xl mb-2 flex items-center">
+              Dr. Kimera Moses
+              <MdVerified
+                className="text-accent ml-1"
+                title="Doctors Document Verified"
+              />
+            </h2>
+            <h6 className="text-sm font-normal mb-1">
+              English, Luganda, Kiswahili
+            </h6>
+            <p className="text-accent text-sm font-medium">Fertilty</p>
+            <Rating
+              name="read-only"
+              value={3.6}
+              precision={0.5}
+              readOnly
+              className="mt-5"
+            />
+          </div>
+        </div>
+        <div className="my-3">
+          <h4 className="text-base font-medium text-primary">
+            Doctors Availability Schedule{" "}
+            <strong className="text-accent">(Fixed)</strong>
+          </h4>
+          Doctors availability here
+        </div>
+      </div>
       <form className="select-none font-Poppins">
         <div className="flex gap-3 my-4">
           <InputField placeholder="Name" name="name" />
           <InputField placeholder="Email Address" name="email" type="email" />
         </div>
         <div className="flex gap-3 my-4">
-          <InputField placeholder="Appointment By" name="mode" />
-          {/* <Dropdown /> */}
+          <select className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out">
+            <option>In Person</option>
+            <option>Online (Google Meet)</option>
+            <option>Online (WhatsApp)</option>
+          </select>
           <InputField placeholder="WhatsApp Number" name="number" type="tel" />
         </div>
         <div className="my-4">

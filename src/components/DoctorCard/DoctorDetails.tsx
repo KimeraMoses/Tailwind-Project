@@ -3,6 +3,7 @@ import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 import { DoctorsList } from "./../../pages/Home/DoctorsSection/DoctorsSection";
 import DoctorCardDashboard from "./DoctorCardDashboard";
+import { SiMicrodotblog } from "react-icons/si";
 
 const DoctorDetails = () => {
   const { doctorName } = useParams();
@@ -33,8 +34,8 @@ const DoctorDetails = () => {
           rating={SelectedDoctor && SelectedDoctor.rating}
           isSelected={true}
         />
-        <div className="mt-5 p-3">
-          <h4>About Me</h4>
+        <div className="mt-5 p-6 font-Poppins">
+          <h4 className="text-lg font-bold text-primary">About Me</h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -44,6 +45,57 @@ const DoctorDetails = () => {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
+
+          <div className="mt-3 font-Poppins">
+            <h4 className="text-lg font-bold text-primary">Speciality</h4>
+            <div className="flex">
+              <div className="">
+                <div className="flex items-center text-primary text-base font-medium mr-6 p-2">
+                  <SiMicrodotblog className="mr-1" />
+                  <h5>Soft Tissue Diagonosis</h5>
+                </div>
+                <div className="flex items-center text-primary text-base font-medium p-2">
+                  <SiMicrodotblog className="mr-1" />
+                  <h5>Soft Tissue Surgery</h5>
+                </div>
+              </div>
+
+              <div className="ml-3">
+                <div className="flex items-center text-primary text-base font-medium mr-6 p-2">
+                  <SiMicrodotblog className="mr-1" /> <h5>Bone Surgery</h5>
+                </div>
+                <div className="flex items-center text-primary text-base font-medium p-2">
+                  <SiMicrodotblog className="mr-1" />
+                  <h5>Soft Tissue Diagonosis</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-3 font-Poppins">
+            <h4 className="text-lg font-bold text-primary">Services</h4>
+            <div className="flex">
+              <div className="">
+                <div className="flex items-center text-primary text-base font-medium mr-6 p-2">
+                  <SiMicrodotblog className="mr-1" />
+                  <h5>Full body check up</h5>
+                </div>
+                <div className="flex items-center text-primary text-base font-medium p-2">
+                  <SiMicrodotblog className="mr-1" />
+                  <h5>Soft Tissue Surgery</h5>
+                </div>
+              </div>
+
+              <div className="ml-3">
+                <div className="flex items-center text-primary text-base font-medium mr-6 p-2">
+                  <SiMicrodotblog className="mr-1" /> <h5>Bone Surgery</h5>
+                </div>
+                <div className="flex items-center text-primary text-base font-medium p-2">
+                  <SiMicrodotblog className="mr-1" />
+                  <h5>Soft Tissue Surgery</h5>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -63,7 +63,7 @@ const DashboardLayout = () => {
               Finance Scheme
             </h4>
           </div>
-          <div className="text-center mx-5 -mt-10 mb-3 select-none">
+          <div className="text-center mx-5 -mt-5 mb-3 select-none">
             <NavLink
               className={({ isActive }) =>
                 `flex items-center justify-center px-5 py-2 border border-accent text-primary font-semibold rounded-lg capitalize` +
@@ -78,7 +78,7 @@ const DashboardLayout = () => {
           </div>
         </div>
         <div className="py-4 px-4 flex-grow overflow-hidden ">
-          <div className="w-full bg-backgroundSidebar p-3 rounded">
+          <div className="w-full">
             <Outlet />
           </div>
         </div>

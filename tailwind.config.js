@@ -42,6 +42,7 @@ module.exports = {
       grayPrimary: "#6C757D",
       grayAccent: "rgba(108,117,125,0.6)",
       borderColor: "rgba(95, 94, 94, 0.336)",
+      chatBlue: "#1A66FF",
     },
     fontFamily: {
       sans: ["system-ui", "-apple-system", "Roboto", '"Helvetica Neue"'],

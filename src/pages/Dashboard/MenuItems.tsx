@@ -3,6 +3,7 @@ import { BiSearch } from "react-icons/bi";
 import { IoBagSharp } from "react-icons/io5";
 import { TiMessages } from "react-icons/ti";
 import { FiSettings } from "react-icons/fi";
+import { BsFillCalendarEventFill } from "react-icons/bs";
 
 export const PatientsMenuItems = [
   {
@@ -24,6 +25,11 @@ export const PatientsMenuItems = [
     name: "Messages",
     slug: "messages",
     icon: <TiMessages className="text-2xl mr-2" />,
+  },
+  {
+    name: "Scheduling",
+    slug: "scheduling",
+    icon: <BsFillCalendarEventFill className="text-2xl mr-2" />,
   },
   {
     name: "Profile Settings",

@@ -26,7 +26,7 @@ const SearchDoctors = () => {
   }, [searchTerm.length < 1]);
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-backgroundSidebar p-3 rounded">
       <h3 className="text-primary font-semibold text-2xl mb-5">Doctors</h3>
       <DoctorsSearch onSearchHandler={keyWordHandler} searchTerm={searchTerm} />
       <div className="my-6 mx-3">
