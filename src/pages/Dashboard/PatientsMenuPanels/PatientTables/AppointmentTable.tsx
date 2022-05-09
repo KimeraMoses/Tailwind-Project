@@ -45,16 +45,15 @@ export default function AppointmentTable() {
                 <TableCell align="center">{row.ctype}</TableCell>
                 <TableCell align="center">${row.amount}.00</TableCell>
                 <TableCell>
-                  {" "}
                   <div
-                    className={`px-2 py-1 rounded-md flex items-center justify-center font-medium ${
+                    className={`rounded flex items-center justify-center font-medium text-white ${
                       row.status === "Confirmed"
-                        ? `bg-backgroundConfirmed`
+                        ? `bg-primary`
                         : row.status === "Pending"
                         ? `bg-backgroundPending`
                         : row.status === "Canceled"
-                        ? `border border-red text-red`
-                        : `border boader-backgroundSuccess text-backgroundSuccess`
+                        ? `bg-red`
+                        : `bg-backgroundSuccess`
                     }`}
                   >
                     {row.status}

@@ -230,21 +230,10 @@ const ProfileSettings = () => {
               <h6 className="text-primary font-medium text-sm mb-1">
                 Conultation Fees (Convert to USD)
               </h6>
-              <div className="flex">
-                <select
-                  defaultValue="+256"
-                  className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out"
-                >
-                  {countryCurrency.map((currency) => (
-                    <option
-                      className="travelcompany-input"
-                      value={currency.value}
-                      key={currency.value}
-                    >
-                      {currency.label}
-                    </option>
-                  ))}
-                </select>
+              <div className="flex items-center">
+                <div className="py-1.5 px-4 border border-gray rounded-l-lg font-medium">
+                  USD
+                </div>
                 <InputField
                   type="number"
                   placeholder="50,000"
@@ -257,21 +246,10 @@ const ProfileSettings = () => {
               <h6 className="text-primary font-medium text-sm mb-1">
                 Follow-up Fees
               </h6>
-              <div className="flex">
-                <select
-                  defaultValue="+256"
-                  className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out"
-                >
-                  {countryCurrency.map((currency) => (
-                    <option
-                      className="travelcompany-input"
-                      value={currency.value}
-                      key={currency.value}
-                    >
-                      {currency.label}
-                    </option>
-                  ))}
-                </select>
+              <div className="flex items-center">
+                <div className="py-1.5 px-4 border border-gray rounded-l-lg font-medium">
+                  USD
+                </div>
                 <InputField
                   type="number"
                   placeholder="50,000"

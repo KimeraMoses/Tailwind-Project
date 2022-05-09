@@ -10,7 +10,6 @@ import SearchDoctors from "./../pages/Dashboard/PatientsMenuPanels/SearchDoctors
 import NewsFeeds from "./../pages/Dashboard/PatientsMenuPanels/NewsFeeds";
 import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
 import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
-import ProfileSettings from "./../pages/Dashboard/DoctorsMenuPanels/ProfileSettings/ProfileSettings";
 import Messages from "./../pages/Dashboard/GeneralPanels/Messages";
 import Scheduling from "./../pages/Dashboard/GeneralPanels/Scheduling";
 import {
@@ -31,6 +30,7 @@ import {
   TermsConditions,
   AppointmentBooking,
 } from "../pages";
+import ProfileSetting from "./../pages/Dashboard/PatientsMenuPanels/ProfileSetting";
 
 export const AppRoutes = () => {
   return (
@@ -59,7 +59,7 @@ export const AppRoutes = () => {
         />
         <Route path="messages" element={<Messages />} />
         <Route path="scheduling" element={<Scheduling />} />
-        <Route path="profile-settings" element={<ProfileSettings />} />
+        <Route path="profile-settings" element={<ProfileSetting />} />
       </Route>
       <Route
         path="/login"
