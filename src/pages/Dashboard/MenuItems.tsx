@@ -27,11 +27,6 @@ export const PatientsMenuItems = [
     icon: <TiMessages className="text-2xl mr-2" />,
   },
   {
-    name: "Scheduling",
-    slug: "scheduling",
-    icon: <BsFillCalendarEventFill className="text-2xl mr-2" />,
-  },
-  {
     name: "Profile Settings",
     slug: "profile-settings",
     icon: <FiSettings className="text-2xl mr-2" />,
@@ -58,6 +53,11 @@ export const DoctorsMenuItems = [
     name: "Search Doctors",
     slug: "search-doctors",
     icon: <BiSearch className="text-2xl mr-2" />,
+  },
+  {
+    name: "Scheduling",
+    slug: "scheduling",
+    icon: <BsFillCalendarEventFill className="text-2xl mr-2" />,
   },
   {
     name: "Profile Settings",

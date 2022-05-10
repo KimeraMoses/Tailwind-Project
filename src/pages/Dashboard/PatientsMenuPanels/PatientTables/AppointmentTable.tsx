@@ -69,7 +69,7 @@ export default function AppointmentTable() {
                     <ActionButton
                       label="Print"
                       icon={<MdOutlinePrint className="mr-1" />}
-                      handleClick={() => console.log("Print Btn Clicked")}
+                      handleClick={() => console.log("Print Btn Clicked test")}
                     />
                   </Stack>
                 </TableCell>

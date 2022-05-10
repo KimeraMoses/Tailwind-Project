@@ -11,7 +11,6 @@ import NewsFeeds from "./../pages/Dashboard/PatientsMenuPanels/NewsFeeds";
 import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
 import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
 import Messages from "./../pages/Dashboard/GeneralPanels/Messages";
-import Scheduling from "./../pages/Dashboard/GeneralPanels/Scheduling";
 import {
   NotFound,
   Home,
@@ -31,8 +30,15 @@ import {
   AppointmentBooking,
 } from "../pages";
 import ProfileSetting from "./../pages/Dashboard/PatientsMenuPanels/ProfileSetting";
+import { useSelector } from "react-redux";
+import ProfileSettings from "src/pages/Dashboard/DoctorsMenuPanels/ProfileSettings/ProfileSettings";
+import HelpCenter from "./../pages/Dashboard/GeneralPanels/HelpCenter";
+import Scheduling from "./../pages/Dashboard/DoctorsMenuPanels/AvailabilitySettings/Scheduling";
 
 export const AppRoutes = () => {
+  const userRole = useSelector((state: any) => state.account.userRole);
+  const isPatient = userRole && userRole === "patient" ? true : false;
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -59,7 +65,11 @@ export const AppRoutes = () => {
         />
         <Route path="messages" element={<Messages />} />
         <Route path="scheduling" element={<Scheduling />} />
-        <Route path="profile-settings" element={<ProfileSetting />} />
+        <Route path="help-center" element={<HelpCenter />} />
+        <Route
+          path="profile-settings"
+          element={isPatient ? <ProfileSetting /> : <ProfileSettings />}
+        />
       </Route>
       <Route
         path="/login"
