@@ -1,7 +1,6 @@
 import React from "react";
 import MHFS from "../../assets/MHFS.png";
 import { MdOutlineHelpOutline } from "react-icons/md";
-
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { DoctorsMenuItems, PatientsMenuItems } from "./MenuItems";
 import { useSelector } from "react-redux";

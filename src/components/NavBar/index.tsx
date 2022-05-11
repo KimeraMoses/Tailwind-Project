@@ -17,6 +17,10 @@ import { AvatarComponent } from "./components/AvatarNavBarComponent";
 import * as types from "@interface/models";
 import { useSignOutReducer, useCurrentUser } from "@hooks";
 import { SignOutButton } from "../Buttons";
+import { Avatar } from "@mui/material";
+import { MdNotifications } from "react-icons/md";
+import userImage from "../../assets/team/margret.png";
+import Notifications from "./../Notification/Notifications";
 
 const REACT_APP_MEDATLAS_EMAIL = process.env.REACT_APP_MEDATLAS_EMAIL;
 
@@ -130,39 +134,60 @@ const NavBarLink: React.FunctionComponent<NavBarLinkType> = ({
 };
 
 export const NavBar = () => {
-  const isAuthenticated = useCurrentUser()!;
+  // const isAuthenticated = useCurrentUser()!;
+  const isAuthenticated = false;
 
   return (
     <Popover className="sticky top-0  z-50 w-full h-primaryNavBar shadow bg-white  border-b border-gray ">
       <div className=" mx-auto px-4 xl:w-extra ">
         <div className=" flex justify-between items-center  py-6 md:space-x-10">
           <Logo />
-          <div className="md:hidden">
-            <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-              <span className="sr-only">Open menu</span>
-              <MenuIcon className="h-6 w-6" aria-hidden="true" />
-            </Popover.Button>
-          </div>
-          <Popover.Group as="nav" className="hidden md:flex gap-3 ">
-            <NavBarLink link="/">Home</NavBarLink>
-            <NavBarLink link="/about-us">About</NavBarLink>
-            <NavBarLink link="/#specialities">Services</NavBarLink>
-            {!isAuthenticated && (
-              <>
-                {" "}
-                <NavBarComponent submenu={patient}>Patients</NavBarComponent>
-                <NavBarComponent submenu={doctor}>Doctors</NavBarComponent>
-              </>
-            )}
-            <NavBarLink
-              link={`mailto:${REACT_APP_MEDATLAS_EMAIL}`}
-              target="_blank"
-            >
-              Contact
-            </NavBarLink>
-          </Popover.Group>
+          {!isAuthenticated ? (
+            <>
+              <div className="md:hidden">
+                <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <span className="sr-only">Open menu</span>
+                  <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                </Popover.Button>
+              </div>
+              <Popover.Group as="nav" className="hidden md:flex gap-3 ">
+                <NavBarLink link="/">Home</NavBarLink>
+                <NavBarLink link="/about-us">About</NavBarLink>
+                <NavBarLink link="/#specialities">Services</NavBarLink>
+                {!isAuthenticated && (
+                  <>
+                    {" "}
+                    <NavBarComponent submenu={patient}>
+                      Patients
+                    </NavBarComponent>
+                    <NavBarComponent submenu={doctor}>Doctors</NavBarComponent>
+                  </>
+                )}
+                <NavBarLink
+                  link={`mailto:${REACT_APP_MEDATLAS_EMAIL}`}
+                  target="_blank"
+                >
+                  Contact
+                </NavBarLink>
+              </Popover.Group>
+            </>
+          ) : (
+            <div className="flex justify-center item-center font-light text-grayPrimary">
+              <strong className="text-black font-semibold mr-1">Hi </strong>
+              <strong className="font-semibold text-primary">
+                Kimera Moses,
+              </strong>
+              Welcome Back
+            </div>
+          )}
+          {isAuthenticated && (
+            <div className="flex items-center">
+              <Notifications />
+              <Avatar src={userImage} alt="Margret Mutumba" />
+            </div>
+          )}
 
-          {isAuthenticated ? (
+          {/* {isAuthenticated ? (
             <div className="flex items-center">
               <div className="hidden md:block">
                 <NavBarLink link="/account">Account</NavBarLink>
@@ -171,7 +196,7 @@ export const NavBar = () => {
             </div>
           ) : (
             <AuthNavComponents />
-          )}
+          )} */}
         </div>
       </div>
 
