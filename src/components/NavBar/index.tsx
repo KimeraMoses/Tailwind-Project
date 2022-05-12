@@ -1,8 +1,6 @@
-import { useSelector } from "react-redux";
-import { Fragment, useCallback } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Fragment } from "react";
+import { NavLink } from "react-router-dom";
 import { Popover, Transition } from "@headlessui/react";
-import { useNavigate } from "react-router-dom";
 import {
   ChartBarIcon,
   MenuIcon,
@@ -14,11 +12,9 @@ import { NavBarComponent } from "./components/NavBarItem";
 import { Logo } from "./components/Logo";
 import { AuthNavComponents } from "./components/Auth";
 import { AvatarComponent } from "./components/AvatarNavBarComponent";
-import * as types from "@interface/models";
-import { useSignOutReducer, useCurrentUser } from "@hooks";
+
 import { SignOutButton } from "../Buttons";
 import { Avatar } from "@mui/material";
-import { MdNotifications } from "react-icons/md";
 import userImage from "../../assets/team/margret.png";
 import Notifications from "./../Notification/Notifications";
 
@@ -135,7 +131,7 @@ const NavBarLink: React.FunctionComponent<NavBarLinkType> = ({
 
 export const NavBar = () => {
   // const isAuthenticated = useCurrentUser()!;
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   return (
     <Popover className="sticky top-0  z-50 w-full h-primaryNavBar shadow bg-white  border-b border-gray ">
@@ -180,11 +176,14 @@ export const NavBar = () => {
               Welcome Back
             </div>
           )}
-          {isAuthenticated && (
+
+          {isAuthenticated ? (
             <div className="flex items-center">
               <Notifications />
               <Avatar src={userImage} alt="Margret Mutumba" />
             </div>
+          ) : (
+            <AuthNavComponents />
           )}
 
           {/* {isAuthenticated ? (

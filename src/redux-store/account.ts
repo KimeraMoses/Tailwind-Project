@@ -5,7 +5,7 @@ export const accountSlice = createSlice({
   name: "account",
   initialState: {
     user: null,
-    userRole: "patient",
+    userRole: "doctor",
   } as { user: models.Account | null },
   reducers: {
     setUser: (state, action) => {

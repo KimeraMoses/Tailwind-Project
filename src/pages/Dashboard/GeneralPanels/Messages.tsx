@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import { InputField } from "./../../../components/InputField/InputField";
 import userImage from "../../../assets/team/margret.png";
@@ -9,11 +9,53 @@ import UserAvatar from "./UserAvatar";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { AiFillCamera } from "react-icons/ai";
 import { IoMic } from "react-icons/io5";
+import { MdOutlineEmojiEmotions } from "react-icons/md";
+import { GrFormAttachment } from "react-icons/gr";
+
+const UserMessages = [
+  {
+    message: "Message here",
+    time: "date",
+  },
+];
+
+const chats = [
+  {
+    image: userImage,
+    name: "Dr. Margret Mutumba",
+    message: "Meeting today?",
+    date: "today",
+    time: "10:01am",
+  },
+  {
+    image: userImage2,
+    name: "Missaga Zeus",
+    message: "What plans today?",
+    date: "Yesterday",
+    time: "2:32pm",
+  },
+  {
+    image: userImage,
+    name: "Mubiru Isaac",
+    message: "Can we reschedule the appointment?",
+    date: "Yesterday",
+    time: "10:01am",
+  },
+  {
+    image: "",
+    name: "Kimera Moxhus",
+    message: "I can't make it at that time dr?",
+    date: "Yesterday",
+    time: "10:59pm",
+  },
+];
 
 const Messages = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState<any[]>([]);
 
   const handleClick = (newPlacement: any) => (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -23,24 +65,56 @@ const Messages = () => {
   const userProfilePopperCloseHandler = () => {
     setOpen(false);
   };
+
+  const onSearchHandler = (e: any) => {
+    const { value } = e.target;
+    setSearchTerm(value);
+
+    if (searchTerm !== "") {
+      const Results = chats.filter((Result: any) => {
+        return Object.values(Result)
+          .join(" ")
+          .replace(/-/g, " ")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
+      setSearchResults(Results);
+    }
+  };
+  useEffect(() => {
+    setSearchResults([]);
+  }, [searchTerm.length < 1]);
+
   return (
-    <div className="p-3 rounded">
-      <div className="flex">
+    <div className="p-3 rounded relative">
+      <div className="flex items-start">
         <div className="w-1/2 px-2 pr-16">
           <div className="flex items-center bg-white text-primary font-medium rounded-xl px-2 w-full my-4">
             <BiSearch className="text-xl text-grayPrimary" />
             <InputField
               placeholder="Search month or Date"
-              value=""
+              value={searchTerm}
               name="search"
               type="search"
-              // onChange={onSearchHandler}
+              onChange={onSearchHandler}
               customClasses="border-none bg-white rounded-none text-primary"
             />
           </div>
           <div className="bg-white rounded-2xl shadow-md px-5 py-1 mt-8">
             <h3 className="font-semibold text-xl text-black mb-3">Chats</h3>
-            <ChartCard
+            {(searchResults.length > 0 ? searchResults : chats).map((chat) => {
+              return (
+                <ChartCard
+                  key={chat.time}
+                  image={chat.image}
+                  name={chat.name}
+                  message={chat.message}
+                  date={chat.date}
+                  time={chat.time}
+                />
+              );
+            })}
+            {/* <ChartCard
               image={userImage}
               name="Dr. Margret Mutumba"
               message="Meeting today?"
@@ -67,10 +141,10 @@ const Messages = () => {
               message="What plans today?"
               date="Yesterday"
               time="2:32pm"
-            />
+            /> */}
           </div>
         </div>
-        <div className="w-1/2 px-2">
+        <div className="w-1/2 px-2 ">
           <div className="relative bg-white w-full shadow-md rounded-2xl px-8 py-1 h-full">
             <div className="border-b border-chatBlue py-3">
               <div className="flex select-none justify-between items-center">
@@ -145,7 +219,9 @@ const Messages = () => {
                 <div className="flex items-center ">
                   <div className="flex-grow">
                     <div className="flex items-center bg-[#B0B7C3] text-primary font-medium rounded-xl px-2 w-full my-4">
-                      <AiFillCamera className="text-xl text-grayPrimary" />
+                      <IconButton size="small">
+                        <GrFormAttachment className="text-xl text-grayPrimary" />
+                      </IconButton>
                       <InputField
                         placeholder=""
                         value=""
@@ -154,8 +230,12 @@ const Messages = () => {
                         // onChange={onSearchHandler}
                         customClasses="border-none bg-[#B0B7C3] rounded-none text-white"
                       />
-                      <AiFillCamera className="text-xl text-grayPrimary" />
-                      <AiFillCamera className="text-xl text-grayPrimary" />
+                      <IconButton size="small">
+                        <MdOutlineEmojiEmotions className="text-xl text-grayPrimary" />
+                      </IconButton>
+                      <IconButton size="small">
+                        <AiFillCamera className="text-xl text-grayPrimary" />
+                      </IconButton>
                     </div>
                   </div>
                   <div className="w-8 h-8 ml-3 cursor-pointer rounded-2xl bg-chatBlue text-white flex items-center justify-center">

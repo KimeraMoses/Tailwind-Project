@@ -59,13 +59,19 @@ const DashboardLayout = () => {
             </h4>
           </div>
           <div className="text-center mx-5 -mt-5 mb-3 select-none">
-            <div
-              className={`flex items-center justify-center cursor-pointer px-5 py-2 border border-accent text-primary font-semibold rounded-lg capitalize`}
-              onClick={() => navigate("/dashboard/help-center")}
+            <NavLink
+              to="/dashboard/help-center"
+              className={({ isActive }) =>
+                `flex items-center justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize ${
+                  isActive
+                    ? "bg-primary border-primary text-white"
+                    : "text-primary border-accent"
+                }`
+              }
             >
               <MdOutlineHelpOutline className="text-2xl mr-2" />
               Help
-            </div>
+            </NavLink>
           </div>
         </div>
         <div className="py-4 px-4 flex-grow overflow-hidden ">
