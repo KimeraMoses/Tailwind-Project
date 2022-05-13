@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BiSearch } from "react-icons/bi";
 import { InputField } from "./../../../components/InputField/InputField";
 import userImage from "../../../assets/team/margret.png";
@@ -11,6 +11,7 @@ import { AiFillCamera } from "react-icons/ai";
 import { IoMic } from "react-icons/io5";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { GrFormAttachment } from "react-icons/gr";
+// import EmojiPicker from "./Emojis";
 
 const UserMessages = [
   {
@@ -25,7 +26,7 @@ const chats = [
     name: "Dr. Margret Mutumba",
     message: "Meeting today?",
     date: "today",
-    time: "10:01am",
+    time: "10:02am",
   },
   {
     image: userImage2,
@@ -50,7 +51,7 @@ const chats = [
   },
 ];
 
-const Messages = () => {
+const Messages = (props: any) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState();
@@ -86,7 +87,7 @@ const Messages = () => {
   }, [searchTerm.length < 1]);
 
   return (
-    <div className="p-3 rounded relative">
+    <div className="p-3 rounded">
       <div className="flex items-start">
         <div className="w-1/2 px-2 pr-16">
           <div className="flex items-center bg-white text-primary font-medium rounded-xl px-2 w-full my-4">
@@ -114,37 +115,9 @@ const Messages = () => {
                 />
               );
             })}
-            {/* <ChartCard
-              image={userImage}
-              name="Dr. Margret Mutumba"
-              message="Meeting today?"
-              date="today"
-              time="10:01am"
-            />
-            <ChartCard
-              image={userImage2}
-              name="Missaga Zeus"
-              message="What plans today?"
-              date="Yesterday"
-              time="2:32pm"
-            />
-            <ChartCard
-              image={userImage}
-              name="Dr. Margret Mutumba"
-              message="Meeting today?"
-              date="today"
-              time="10:01am"
-            />
-            <ChartCard
-              image={userImage2}
-              name="Missaga Zeus"
-              message="What plans today?"
-              date="Yesterday"
-              time="2:32pm"
-            /> */}
           </div>
         </div>
-        <div className="w-1/2 px-2 ">
+        <div className="w-136 px-2 fixed bottom-5 right-0 h-[500px]">
           <div className="relative bg-white w-full shadow-md rounded-2xl px-8 py-1 h-full">
             <div className="border-b border-chatBlue py-3">
               <div className="flex select-none justify-between items-center">
@@ -189,7 +162,7 @@ const Messages = () => {
                 </div>
               </div>
             </div>
-            <div className="py-5">
+            <div className="py-5 overflow-auto h-80">
               <div className="flex justify-start w-full mb-3 text-white">
                 <div className="bg-[#979797] shadow pl-3 pr-1 py-1 rounded-tr-2xl rounded-bl-2xl max-w-[65%]">
                   <div className="m-0 text-sm select-text">
@@ -206,16 +179,40 @@ const Messages = () => {
                   <div className="text-right text-sm pl-7">9:01am</div>
                 </div>
               </div>
+              <div className="flex justify-end w-full text-white mb-3">
+                <div className="bg-[#1A66FF]  shadow pl-3 pr-1 py-1 rounded-tl-2xl rounded-br-2xl max-w-[65%]">
+                  <div className="m-0 text-sm">
+                    I will be available in the afternoon doctor
+                  </div>
+                  <div className="text-right text-sm pl-7">9:01am</div>
+                </div>
+              </div>
+              <div className="flex justify-end w-full text-white mb-3">
+                <div className="bg-[#1A66FF]  shadow pl-3 pr-1 py-1 rounded-tl-2xl rounded-br-2xl max-w-[65%]">
+                  <div className="m-0 text-sm">
+                    I will be available in the afternoon doctor
+                  </div>
+                  <div className="text-right text-sm pl-7">9:01am</div>
+                </div>
+              </div>
               <div className="flex justify-start w-full mb-3 text-white">
                 <div className="bg-[#979797] shadow pl-3 pr-1 py-1 rounded-tr-2xl rounded-bl-2xl max-w-[65%]">
                   <div className="m-0 text-sm select-text">Alright then</div>
                   <div className="text-right text-sm pl-7">9:05am</div>
                 </div>
               </div>
+              <div className="flex justify-end w-full text-white mb-3">
+                <div className="bg-[#1A66FF]  shadow pl-3 pr-1 py-1 rounded-tl-2xl rounded-br-2xl max-w-[65%]">
+                  <div className="m-0 text-sm">
+                    I will be available in the afternoon doctor
+                  </div>
+                  <div className="text-right text-sm pl-7">9:01am</div>
+                </div>
+              </div>
             </div>
 
-            <div className="absolute bottom-0 right-0 left-0 px-8 py-5">
-              <div className="border-t border-chatBlue">
+            <div className="absolute bottom-0 right-0 left-0 px-8 py-5 ">
+              <div className="border-t border-chatBlue bg-white">
                 <div className="flex items-center ">
                   <div className="flex-grow">
                     <div className="flex items-center bg-[#B0B7C3] text-primary font-medium rounded-xl px-2 w-full my-4">
@@ -224,12 +221,13 @@ const Messages = () => {
                       </IconButton>
                       <InputField
                         placeholder=""
-                        value=""
+                        // value=""
                         name="search"
                         type="search"
                         // onChange={onSearchHandler}
                         customClasses="border-none bg-[#B0B7C3] rounded-none text-white"
                       />
+                      {/* <EmojiPicker showPreview={false} show={false} /> */}
                       <IconButton size="small">
                         <MdOutlineEmojiEmotions className="text-xl text-grayPrimary" />
                       </IconButton>

@@ -17,6 +17,7 @@ import { SignOutButton } from "../Buttons";
 import { Avatar } from "@mui/material";
 import userImage from "../../assets/team/margret.png";
 import Notifications from "./../Notification/Notifications";
+import { useSelector } from "react-redux";
 
 const REACT_APP_MEDATLAS_EMAIL = process.env.REACT_APP_MEDATLAS_EMAIL;
 
@@ -130,6 +131,8 @@ const NavBarLink: React.FunctionComponent<NavBarLinkType> = ({
 };
 
 export const NavBar = () => {
+  const userRole = useSelector((state: any) => state.account.userRole);
+  const isPatient = userRole && userRole === "patient" ? true : false;
   // const isAuthenticated = useCurrentUser()!;
   const isAuthenticated = true;
 
@@ -169,9 +172,9 @@ export const NavBar = () => {
             </>
           ) : (
             <div className="flex justify-center item-center font-light text-grayPrimary">
-              <strong className="text-black font-semibold mr-1">Hi </strong>
+              <strong className="text-black font-semibold mr-1">Hi</strong>
               <strong className="font-semibold text-primary">
-                Kimera Moses,
+                {!isPatient ? "Dr. " : ""}Kimera Moses,
               </strong>
               Welcome Back
             </div>
