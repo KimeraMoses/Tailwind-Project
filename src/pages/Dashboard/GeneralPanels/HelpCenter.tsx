@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { InputField } from "./../../../components/InputField/InputField";
 import { DecoratedButton } from "@components";
+import FeedbackModal from "src/components/Modal/FeedbackModal";
 
 const HelpCenter = () => {
   const [values, setValues] = useState({
@@ -94,6 +95,7 @@ const HelpCenter = () => {
           </div>
         </form>
       </div>
+      <FeedbackModal />
     </div>
   );
 };
