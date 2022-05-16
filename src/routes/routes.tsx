@@ -34,6 +34,7 @@ import { useSelector } from "react-redux";
 import ProfileSettings from "src/pages/Dashboard/DoctorsMenuPanels/ProfileSettings/ProfileSettings";
 import HelpCenter from "./../pages/Dashboard/GeneralPanels/HelpCenter";
 import Scheduling from "./../pages/Dashboard/DoctorsMenuPanels/AvailabilitySettings/Scheduling";
+import Service from "./../pages/ServicePage/Service";
 
 export const AppRoutes = () => {
   const userRole = useSelector((state: any) => state.account.userRole);
@@ -45,6 +46,7 @@ export const AppRoutes = () => {
       <Route path="/privacy-policy" element={<Privacy />} />
       <Route path="/terms-conditions" element={<TermsConditions />} />
       <Route path="/about-us" element={<AboutUs />}></Route>
+      <Route path="/services" element={<Service />}></Route>
       <Route
         path="/appointment"
         element={<Navigate to="/appointment/booking" />}

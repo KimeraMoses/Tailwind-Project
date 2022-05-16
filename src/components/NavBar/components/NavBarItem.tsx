@@ -19,7 +19,7 @@ export const NavBarComponent = ({ children, submenu = [] }: any) => {
               "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             )}
           >
-            <span className="xl:text-xl md:text-md transition-all text-primary hover:text-accent select-none">
+            <span className="xl:text-xl md:text-md transition-all text-primary hover:text-accent select-none font-medium">
               {children}
             </span>
             <ChevronDownIcon

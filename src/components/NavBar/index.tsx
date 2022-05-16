@@ -134,7 +134,7 @@ export const NavBar = () => {
   const userRole = useSelector((state: any) => state.account.userRole);
   const isPatient = userRole && userRole === "patient" ? true : false;
   // const isAuthenticated = useCurrentUser()!;
-  const isAuthenticated = true;
+  const isAuthenticated = false;
 
   return (
     <Popover className="sticky top-0  z-50 w-full h-primaryNavBar shadow bg-white  border-b border-gray ">
@@ -152,7 +152,7 @@ export const NavBar = () => {
               <Popover.Group as="nav" className="hidden md:flex gap-3 ">
                 <NavBarLink link="/">Home</NavBarLink>
                 <NavBarLink link="/about-us">About</NavBarLink>
-                <NavBarLink link="/#specialities">Services</NavBarLink>
+                <NavBarLink link="/services">Services</NavBarLink>
                 {!isAuthenticated && (
                   <>
                     {" "}
