@@ -55,7 +55,7 @@ export const DoctorsList = [
   },
 ];
 
-const DoctorsSection = () => {
+const DoctorsSection: React.FunctionComponent = () => {
   // const doctorsList = useSearchDoctors({});
   // console.log("doctors", doctorsList);
   // const swiper = useSwiper();

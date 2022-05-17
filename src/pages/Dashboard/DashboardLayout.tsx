@@ -11,9 +11,11 @@ interface MenuProps {
   menuLink: string;
 }
 
-const DashboardMenuItem = (props: MenuProps) => {
-  const { menuTitle, menuIcon, menuLink } = props;
-
+const DashboardMenuItem: React.FC<MenuProps> = ({
+  menuIcon,
+  menuLink,
+  menuTitle,
+}) => {
   const linkStyles = `text-primary flex items-center py-2 px-5 font-semibold rounded-lg mt-2 capitalize select-none`;
   const activeLinkStyles = `bg-accentHover text-white flex items-center py-2 px-5 font-medium rounded-lg mt-2 capitalize select-none`;
 
@@ -28,7 +30,7 @@ const DashboardMenuItem = (props: MenuProps) => {
   );
 };
 
-const DashboardLayout = () => {
+const DashboardLayout: React.FunctionComponent = () => {
   const userRole = useSelector((state: any) => state.account.userRole);
   const isPatient = userRole && userRole === "patient" ? true : false;
   const navigate = useNavigate();

@@ -35,7 +35,7 @@ const TABS = {
   BILLING: "Billing",
 };
 
-const PatientsAppointments = () => {
+const PatientsAppointments: React.FunctionComponent = () => {
   const [tab, setTab] = useState(TABS.APPOINTMENTS);
   return (
     <div className="w-full bg-backgroundSidebar p-3 rounded">

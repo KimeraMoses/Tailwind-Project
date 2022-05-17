@@ -55,7 +55,7 @@ const partnersData = [
   },
 ];
 
-const Partners = () => {
+const Partners: React.FunctionComponent = () => {
   return (
     <div className="w-full my-5">
       <h2 className="text-4xl text-primary capitalize text-center mb-3 font-semibold font-Poppins select-none">

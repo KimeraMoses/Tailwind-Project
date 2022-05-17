@@ -1,10 +1,12 @@
 import React, { useState, useCallback, useMemo, useRef } from "react";
-import { Button, showNotification } from "@components";
+import { Button, DecoratedButton, showNotification } from "@components";
 import { GenericView } from "@views";
 import { useQuery } from "@hooks";
 import * as enums from "@interface/enum";
 import { Link, useNavigate } from "react-router-dom";
 import { HttpApi } from "@api";
+import { InputField } from "./../../components/InputField/InputField";
+import { ResetPassword } from "./../ResetPassword/ResetPassword";
 
 export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -36,42 +38,51 @@ export const ForgotPassword = () => {
   );
 
   return (
-    <GenericView>
-      <form onSubmit={onSubmit} ref={formRef}>
-        <h3 className="my-6 text-center text-xl font-medium">Reset Password</h3>
-        <div className="mb-7">
-          <div>
-            <input
-              className="
-				        shadow
-				        w-full
-				        h-11
-				        p-4
-				        mb-5
-				        "
-              type="email"
-              name="email"
-              placeholder="email"
-              required
-              onChange={onEmailChange}
-            ></input>
+    <>
+      <GenericView>
+        <form onSubmit={onSubmit} ref={formRef} className="w-full">
+          <h3 className="my-6 text-center text-xl font-semibold text-primary">
+            Reset Password
+          </h3>
+          <div className="mb-4">
+            <div className="my-2">
+              <label className="text-base text-primary font-semibold mb-1">
+                Email
+              </label>
+              <InputField
+                name="email"
+                placeholder="name@gmail.com"
+                type="email"
+                required
+                onChange={onEmailChange}
+              />
+            </div>
           </div>
-        </div>
-        <Button type="submit" disabled={!formRef.current?.checkValidity()}>
-          Send reset email
-        </Button>
-        <div className="my-6 p-4">
-          <div className="flex gap-1">
-            Do you have an account?{" "}
-            <Link
-              className="border-none transition-all text-primary font-medium hover:text-accent"
-              to={`/login?accountType=${accountType}`}
+          <div className="flex justify-center my-4">
+            <DecoratedButton
+              disabled={!formRef.current?.checkValidity()}
+              color="accent"
+              hoverColor="primary"
+              className="w-3/4 px-6 py-2"
+              type="submit"
             >
-              Login
-            </Link>
+              Send reset email
+            </DecoratedButton>
           </div>
-        </div>
-      </form>
-    </GenericView>
+          <div className="my-6 p-4">
+            <div className="flex gap-1 text-primary font-semibold">
+              Do you have an account?{" "}
+              <Link
+                className="border-none transition-all text-accent font-semibold hover:text-primary"
+                to={`/login?accountType=${accountType}`}
+              >
+                Login
+              </Link>
+            </div>
+          </div>
+        </form>
+      </GenericView>
+      <ResetPassword />
+    </>
   );
 };

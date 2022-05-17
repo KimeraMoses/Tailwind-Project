@@ -3,7 +3,7 @@ import ServiceImage from "../../assets/services.png";
 import image1 from "../../assets/carousel/cardiologist.png";
 import { Footer } from "./../../components/Footer/Footer";
 
-const Service = () => {
+const Service: React.FunctionComponent = () => {
   return (
     <>
       <div className="bg-background pt-6 px-10">

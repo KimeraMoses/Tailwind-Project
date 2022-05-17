@@ -6,7 +6,7 @@ import medLogo from "../../../assets/medatlas_logo.png";
 
 import { countryData } from "@constants";
 
-const ProfileSetting = () => {
+const ProfileSetting: React.FunctionComponent = () => {
   // const [values, setValues] = useState({
   //   image: "",
   // })

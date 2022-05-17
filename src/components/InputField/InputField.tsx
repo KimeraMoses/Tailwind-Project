@@ -6,8 +6,9 @@ interface InputFieldProps {
   value?: any;
   name: any;
   disabled?: boolean;
-  onChange?: any;
+  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
   customClasses?: string;
+  required?: boolean;
 }
 
 interface RadioFieldProps {
@@ -15,17 +16,25 @@ interface RadioFieldProps {
   name: string;
   value?: any;
   id: any;
-  onChange?: any;
+  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
 
-export const InputField = (props: InputFieldProps) => {
-  const { type, placeholder, value, name, disabled, onChange, customClasses } =
-    props;
+export const InputField: React.FC<InputFieldProps> = ({
+  type,
+  placeholder,
+  value,
+  name,
+  disabled,
+  onChange,
+  customClasses,
+  required,
+}) => {
   return (
     <input
       type={type}
       placeholder={placeholder}
       value={value}
+      required={required ? true : false}
       onChange={onChange}
       name={name}
       disabled={disabled}
@@ -34,8 +43,13 @@ export const InputField = (props: InputFieldProps) => {
   );
 };
 
-export const RadioInput = (props: RadioFieldProps) => {
-  const { name, label, value, id, onChange } = props;
+export const RadioInput: React.FC<RadioFieldProps> = ({
+  name,
+  label,
+  value,
+  id,
+  onChange,
+}) => {
   return (
     <div className="form-check form-check-inline">
       <input
@@ -47,7 +61,7 @@ export const RadioInput = (props: RadioFieldProps) => {
         onChange={onChange}
       />
       <label
-        className="form-check-label inline-block font-Poppins"
+        className="form-check-label inline-block font-Poppins text-primary"
         htmlFor={id}
       >
         {label}
@@ -56,8 +70,13 @@ export const RadioInput = (props: RadioFieldProps) => {
   );
 };
 
-export const CheckBoxInput = (props: RadioFieldProps) => {
-  const { label, value, id, onChange, name } = props;
+export const CheckBoxInput: React.FC<RadioFieldProps> = ({
+  label,
+  value,
+  id,
+  onChange,
+  name,
+}) => {
   return (
     <div className="form-check">
       <input
@@ -69,7 +88,7 @@ export const CheckBoxInput = (props: RadioFieldProps) => {
         id={id}
       />
       <label
-        className="form-check-label inline-block font-Poppins"
+        className="form-check-label inline-block font-Poppins text-primary"
         htmlFor={id}
       >
         {label}

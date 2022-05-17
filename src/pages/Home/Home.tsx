@@ -24,7 +24,7 @@ import BlogSection from "./BlogSection/BlogSection";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);

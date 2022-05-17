@@ -1,27 +1,37 @@
 import React from "react";
 import logo from "@assets/medatlas_logo.png";
+import { Footer } from "@components";
+import Image from "@assets/genericViewBaner.png";
 
 export const GenericView: React.FunctionComponent = ({ children }) => {
   return (
-    <div className="min-h-screen p-10 flex justify-center items-center relative bg-authFlow bg-cover ">
-      <div
-        className="
+    <>
+      <div className="min-h-screen p-10 flex relative bg-header bg-cover items-center">
+        <div className="flex-grow align-bottom">
+          <div className="flex items-end justify-center">
+            <img src={Image} alt="MedAtlas" />
+          </div>
+        </div>
+        <div
+          className="
         w-80
-        p-6
+        p-5
         bg-white
         flex
         flex-col
         items-center
         justify-center
         gap-5
-        rounded-3xl
+        rounded-2xl
         shadow-md
-        md:w-132
+        md:w-128
       "
-      >
-        <img src={logo}></img>
-        {children}
+        >
+          <img src={logo} className="w-52"></img>
+          {children}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };

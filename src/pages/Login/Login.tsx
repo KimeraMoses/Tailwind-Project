@@ -1,10 +1,11 @@
 import React, { useState, useCallback, useMemo, useRef } from "react";
-import { Button } from "@components";
+import { Button, DecoratedButton } from "@components";
 import { GenericView } from "@views";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import * as enums from "@interface/enum";
 import { useQuery } from "@hooks";
 import { HttpApi } from "@api";
+import { InputField } from "./../../components/InputField/InputField";
 
 export const Login: React.FunctionComponent = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -61,54 +62,53 @@ export const Login: React.FunctionComponent = () => {
 
   return (
     <GenericView>
-      <form onSubmit={onSubmit} ref={formRef}>
-        <h3 className="my-6 text-center text-2xl font-medium">
+      <form onSubmit={onSubmit} ref={formRef} className="w-full">
+        <h3 className="mb-2 text-center text-2xl font-semibold text-primary">
           {getLoginTitle(accountType)}
         </h3>
-        <div className="mb-3">
-          <div>
-            <input
-              className="
-				        border
-						border-gray
-						rounded
-				        w-full
-				        h-12
-				        p-4
-				        mb-5
-				        "
-              type="email"
+        <div className="mb-7">
+          <div className="my-2">
+            <label className="text-base text-primary font-medium mb-1">
+              First Name
+            </label>
+            <InputField
               name="email"
               placeholder="Email"
+              type="email"
               required
               onChange={onEmailChange}
-            ></input>
-            <input
-              className="
-				        border
-						border-gray
-						rounded
-				        w-full
-				        h-12
-				        p-4
-				        mb-5
-				        "
-              type="password"
+            />
+          </div>
+          <div className="my-2">
+            <label className="text-base text-primary font-medium mb-1">
+              Password
+            </label>
+            <InputField
               name="password"
-              placeholder="Password"
+              placeholder="password"
+              type="password"
               required
               onChange={onPasswordChange}
-            ></input>
+            />
           </div>
         </div>
-        <Button type="submit" disabled={!formRef.current?.checkValidity()}>
-          Login
-        </Button>
-        <div className="my-6 p-4">
-          <div className="flex gap-1">
+        <div className="flex justify-center my-4">
+          <DecoratedButton
+            disabled={!formRef.current?.checkValidity()}
+            color="accent"
+            hoverColor="primary"
+            className="w-3/4 px-6 py-2"
+            type="submit"
+          >
+            Login
+          </DecoratedButton>
+        </div>
+
+        <div className="my-4 p-4 text-center">
+          <div className="flex gap-1 text-primary font-semibold justify-center items-center">
             New to MedAtlas?{" "}
             <Link
-              className="border-none transition-all text-primary font-medium hover:text-accent"
+              className="border-none transition-all text-accent font-semibold hover:text-primary"
               to={`/register?accountType=${accountType}`}
             >
               Create account

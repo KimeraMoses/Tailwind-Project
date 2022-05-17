@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import image from "../../../assets/bkgrd-authflow.jpeg";
 import { FaClock } from "react-icons/fa";
 
-const NewsFeeds = () => {
+const NewsFeeds: React.FunctionComponent = () => {
   return (
     <div className="w-full p-3 rounded font-body">
       <div className="px-40 flex items-center justify-center mx-20">

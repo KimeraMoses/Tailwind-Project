@@ -214,19 +214,24 @@ const Messages = (props: any) => {
             <div className="absolute bottom-0 right-0 left-0 px-8 py-5 ">
               <div className="border-t border-chatBlue bg-white">
                 <div className="flex items-center ">
-                  <div className="flex-grow">
+                  <div className="flex-grow max-h-36">
                     <div className="flex items-center bg-[#B0B7C3] text-primary font-medium rounded-xl px-2 w-full my-4">
                       <IconButton size="small">
                         <GrFormAttachment className="text-xl text-grayPrimary" />
                       </IconButton>
-                      <InputField
+                      {/* <InputField
                         placeholder=""
                         // value=""
                         name="search"
                         type="search"
                         // onChange={onSearchHandler}
                         customClasses="border-none bg-[#B0B7C3] rounded-none text-white"
-                      />
+                      /> */}
+                      <textarea
+                        rows={1}
+                        className="textarea textarea-primary border-none bg-[#B0B7C3] box-border w-full rounded-lg select-none text-gray-700 leading-tight py-2 px-3 focus:outline-none focus:border-primary mr-2 font-Poppins"
+                        placeholder="Type here"
+                      ></textarea>
                       {/* <EmojiPicker showPreview={false} show={false} /> */}
                       <IconButton size="small">
                         <MdOutlineEmojiEmotions className="text-xl text-grayPrimary" />

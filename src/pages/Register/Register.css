@@ -1,0 +1,12 @@
+.PhoneInputInput {
+  appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 0;
+  user-select: none;
+  padding: 0px 12px;
+}
+.PhoneInputInput:focus {
+  outline: none;
+  border: none;
+}

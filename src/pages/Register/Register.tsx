@@ -10,6 +10,7 @@ import { HttpApi } from "@api";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import Select from "react-select";
+import { DecoratedButton } from "@components";
 import {
   InputSignupFields,
   AddressFields,
@@ -17,6 +18,8 @@ import {
   Input2Fields,
   Input2ChidFields,
 } from "@interface/input";
+import { InputField, RadioInput } from "src/components/InputField";
+import "./Register.css";
 
 const SpeciliatyOptions = SpecialityList.map((option) => ({
   value: option.id,
@@ -142,50 +145,104 @@ export const Register = () => {
   return (
     <GenericView>
       <form onSubmit={onSubmit} ref={formRef}>
-        <h3 className="my-6 text-center text-2xl font-medium">
+        <h3 className="mb-3 text-center text-2xl font-semibold text-primary">
           {getSignUpTitle(accountType)}
         </h3>
         <div className="mb-7">
           <div>
-            <input
-              className="
-				        border
-						border-gray
-						rounded
-				        w-full
-				        h-12
-				        p-4
-				        mb-5
-				        "
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              required
-              onChange={onInputChange("firstName")}
-            ></input>
-            <input
-              className="
-				        border
-						border-gray
-						rounded
-				        w-full
-				        h-12
-				        p-4
-				        mb-5
-				        "
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              required
-              onChange={onInputChange("lastName")}
-            ></input>
-            {accountType !== enums.AccountTypes.DOCTOR && (
+            <div className="my-2">
+              <label className="text-base text-primary font-medium mb-1">
+                First Name
+              </label>
+              <InputField
+                name="firstName"
+                placeholder="First Name"
+                type="text"
+                required
+                onChange={onInputChange("firstName")}
+              />
+            </div>
+            <div className="my-2">
+              <label className="text-base text-primary font-medium mb-1">
+                Surname
+              </label>
+              <InputField
+                name="lastName"
+                required
+                placeholder="Type here"
+                type="text"
+                onChange={onInputChange("lastName")}
+              />
+            </div>
+            <div className="my-2">
+              <label className="text-base text-primary font-medium mb-1">
+                Email
+              </label>
+              <InputField
+                name="email"
+                placeholder="name@gmail.com"
+                type="email"
+                required
+                onChange={onInputChange("email")}
+              />
+            </div>
+
+            <div className="my-2">
+              <label className="text-base text-primary font-medium mb-1">
+                Phone Number
+              </label>
+              <PhoneInput
+                className="appearance-none box-border border border-gray w-full rounded-lg select-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins custom_style"
+                type="tel"
+                name="whatsAppNum"
+                value={inputParams.whatsAppNum}
+                placeholder="WhatsApp number"
+                onChange={onPhoneInputChange("whatsAppNum")}
+              />
+            </div>
+            <div className="my-2">
+              <label className="text-base text-primary font-medium mb-1">
+                Gender
+              </label>
               <select
-                className="
-				        w-full
-				      h-12
-				      
-				        mb-5 border border-gray p-2 rounded text-black bg-white"
+                className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out"
+                name="gender"
+                placeholder="Gender"
+                required
+                onChange={onInputChange("gender")}
+              >
+                <option value="">Select gender</option>
+                {GenderList.map((gender) => (
+                  <option key={gender.id} value={gender.id}>
+                    {gender.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {accountType === enums.AccountTypes.DOCTOR && (
+              <div className="my-2">
+                <label className="text-base text-primary font-medium mb-1">
+                  Specialitiy
+                </label>
+                <Select
+                  className="shadow-0 w-full mb-0 border border-gray rounded-lg text-black bg-white"
+                  name="specialities"
+                  placeholder="Specialities"
+                  options={SpeciliatyOptions as any}
+                  onChange={onMultiInputChange("specialities")}
+                  noOptionsMessage={(value) => "Select your specialities"}
+                  isMulti
+                  isSearchable={false}
+                />
+              </div>
+            )}
+
+            <div className="my-2">
+              <label className="text-base text-primary font-medium mb-1">
+                Country
+              </label>
+              <select
+                className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out"
                 name="address__country"
                 placeholder="Country"
                 required
@@ -198,175 +255,68 @@ export const Register = () => {
                   </option>
                 ))}
               </select>
-            )}
+            </div>
+            <div className="my-2">
+              <label className="text-base text-primary font-medium mb-1">
+                Password
+              </label>
+              <InputField
+                name="password"
+                placeholder="password"
+                type="password"
+                required
+                onChange={onInputChange("password")}
+              />
+            </div>
+            <div className="my-2">
+              <label className="text-base text-primary font-medium mb-1">
+                Confirm Password
+              </label>
+              <InputField
+                name="retype"
+                placeholder="password"
+                type="password"
+                required
+                onChange={onInputChange("retype")}
+              />
+            </div>
 
-            <input
-              className="
-				        border
-						border-gray
-						rounded
-				        w-full
-				        h-12
-				        p-4
-				        mb-5
-				        "
-              type="email"
-              name="email"
-              placeholder="Email"
-              required
-              onChange={onInputChange("email")}
-            ></input>
-            <input
-              className="
-				        border
-						border-gray
-						rounded
-				        w-full
-				        h-12
-				        p-4
-				        mb-5
-				        "
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              onChange={onInputChange("password")}
-            ></input>
-            <input
-              className="
-				        border
-						border-gray
-						rounded
-				        w-full
-				        h-12
-				        p-4
-				        mb-5
-				        "
-              type="password"
-              name="retype"
-              placeholder="Retype Password"
-              required
-              onChange={onInputChange("retype")}
-            ></input>
-            {accountType === enums.AccountTypes.DOCTOR ? (
-              <>
-                {/* Gender */}
-                <select
-                  className="shadow
-				        w-full
-				        h-11
-				        p-2
-				        mb-5 border border-gray rounded text-black bg-white"
-                  name="gender"
-                  placeholder="Gender"
-                  required
-                  onChange={onInputChange("gender")}
-                >
-                  <option value="">Select gender</option>
-                  {GenderList.map((gender) => (
-                    <option key={gender.id} value={gender.id}>
-                      {gender.name}
-                    </option>
-                  ))}
-                </select>
-
-                {/* Whatsapp */}
-
-                <PhoneInput
-                  className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
-                  type="tel"
-                  name="whatsAppNum"
-                  value={inputParams.whatsAppNum}
-                  placeholder="WhatsApp number"
-                  onChange={onPhoneInputChange("whatsAppNum")}
-                />
-
-                {/* Especialities */}
-                <Select
-                  className="shadow
-				        w-full
-				        mb-5 border border-gray rounded text-black bg-white"
-                  name="specialities"
-                  placeholder="Specialities"
-                  options={SpeciliatyOptions as any}
-                  onChange={onMultiInputChange("specialities")}
-                  noOptionsMessage={(value) => "Select your specialities"}
-                  isMulti
-                  isSearchable={false}
-                />
-
-                {/* Clinic */}
-
-                <h3 className="font-medium mb-2">Clinic name & address</h3>
-                <div className="pl-4">
-                  <input
-                    className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
-                    type="text"
-                    name="clinic__name"
-                    placeholder="Clinic name"
-                    onChange={onInput2Change("clinic", "name")}
-                    required
-                  ></input>
-                  <input
-                    className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
-                    type="text"
-                    name="clinic__address__city"
-                    placeholder="City"
-                    onChange={onClinicAddressInputChange("city")}
-                    required
-                  ></input>
-                  <select
-                    className="shadow
-				        w-full
-				        h-11
-				        mb-5 border border-gray p-2 rounded text-black bg-white"
-                    name="clinic__address__country"
-                    placeholder="Country"
-                    required
-                    onChange={onClinicAddressInputChange("country")}
-                  >
-                    <option value="">Select country</option>
-                    {CountryList.map((country) => (
-                      <option key={country.id} value={country.id}>
-                        {country.name}
-                      </option>
-                    ))}
-                  </select>
+            <div className="my-2">
+              <label className="text-base text-primary font-medium mb-1">
+                Verify your account using
+              </label>
+              <div className="flex gap-2 ">
+                <div className="form-check form-check-inline">
+                  <RadioInput
+                    value="option1"
+                    label="Mobile Number"
+                    name="isVerified"
+                    id="01"
+                  />
                 </div>
-              </>
-            ) : (
-              <></>
-            )}
+                <div className="form-check form-check-inline">
+                  <RadioInput
+                    value="option2"
+                    label="Email"
+                    name="isVerified"
+                    id="02"
+                  />
+                </div>
+              </div>
+            </div>
 
-            <div className="flex gap-2 justify-center items-center">
+            <div className="flex gap-2  items-center mt-3">
               <input
                 onChange={onInputChange("isTermsPrivacyPolicyAccepted")}
                 type="checkbox"
                 required
                 name="isTermsPrivacyPolicyAccepted"
               />
-              <div className="text-sm">
+
+              <div className="text-sm text-primary font-medium">
                 I have read and accept
                 <Link
-                  className="ml-2 transition-all text-primary font-medium hover:text-accent"
+                  className="ml-2 transition-all text-accent font-semibold hover:text-primary"
                   to="/terms-conditions"
                   target="_blank"
                 >
@@ -376,14 +326,22 @@ export const Register = () => {
             </div>
           </div>
         </div>
-        <Button type="submit" disabled={!formRef.current?.checkValidity()}>
-          Register
-        </Button>
-        <div className="my-6 p-4">
+        <div className="flex justify-center my-4">
+          <DecoratedButton
+            disabled={!formRef.current?.checkValidity()}
+            color="accent"
+            hoverColor="primary"
+            className="w-3/4 px-6 py-1"
+            type="submit"
+          >
+            Sign Up
+          </DecoratedButton>
+        </div>
+        <div className="my-6">
           <div className="flex gap-1">
             Already have a MedAtlas account?{" "}
             <Link
-              className="border-none transition-all text-primary font-medium hover:text-accent"
+              className="border-none transition-all text-accent font-semibold hover:text-primary"
               to={`/login?accountType=${accountType}`}
             >
               Login

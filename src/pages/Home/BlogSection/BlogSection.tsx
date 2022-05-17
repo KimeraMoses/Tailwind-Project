@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import image from "../../../assets/bkgrd-authflow.jpeg";
 import { FaClock } from "react-icons/fa";
 
-const BlogSection = () => {
+const BlogSection: React.FunctionComponent = () => {
   return (
     <div className="w-full my-6">
       <h2 className="text-4xl text-primary text-center mb-3 font-semibold font-Poppins select-none">
