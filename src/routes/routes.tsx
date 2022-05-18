@@ -35,6 +35,7 @@ import ProfileSettings from "src/pages/Dashboard/DoctorsMenuPanels/ProfileSettin
 import HelpCenter from "./../pages/Dashboard/GeneralPanels/HelpCenter";
 import Scheduling from "./../pages/Dashboard/DoctorsMenuPanels/AvailabilitySettings/Scheduling";
 import Service from "./../pages/ServicePage/Service";
+import ContactUs from "./../pages/ContactUs/ContactUs";
 
 export const AppRoutes = () => {
   const userRole = useSelector((state: any) => state.account.userRole);
@@ -47,6 +48,7 @@ export const AppRoutes = () => {
       <Route path="/terms-conditions" element={<TermsConditions />} />
       <Route path="/about-us" element={<AboutUs />}></Route>
       <Route path="/services" element={<Service />}></Route>
+      <Route path="/contact-us" element={<ContactUs />}></Route>
       <Route
         path="/appointment"
         element={<Navigate to="/appointment/booking" />}

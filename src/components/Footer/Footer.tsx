@@ -1,18 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as Facebook } from "@assets/socialMedia/facebook.svg";
-import { ReactComponent as Instagram } from "@assets/socialMedia/instagram.svg";
-import { ReactComponent as Linkedin } from "@assets/socialMedia/linkedin.svg";
-import { ReactComponent as Twitter } from "@assets/socialMedia/twitter.svg";
 import {
   MdDoubleArrow,
   MdOutlineMail,
-  MdOutlinePhone,
   MdOutlineLocationOn,
 } from "react-icons/md";
 import { RiWhatsappFill } from "react-icons/ri";
 import { AccountTypes } from "@interface/enum";
-import { socialMedia } from "src/constants/socialMedia";
+import CopyRight from "./CopyRight";
 
 interface ItemProps {
   title: string;
@@ -20,8 +15,6 @@ interface ItemProps {
 }
 
 export const Footer = () => {
-  const getCurrentYear = new Date().getFullYear();
-
   const ListItem = ({ title, itemLink }: ItemProps) => {
     return (
       <li className="flex items-center transition hover:translate-x-1 hover:text-accent">
@@ -123,65 +116,7 @@ export const Footer = () => {
           </ul>
         </section>
       </div>
-      <div className="w-full flex flex-col md:flex-row gap-4 md:gap-0 items-center justify-center md:justify-between text-white border-t border-whitePrimary mt-4 p-5">
-        <div className="">
-          <p>© {getCurrentYear} MedAtlas Care Inc. All rights reserved.</p>
-        </div>
-        <div className="">
-          <div className="flex gap-3 justify-center">
-            <a
-              rel="noreferrer"
-              target="_blank"
-              href={socialMedia.facebook}
-              className="transition hover:text-accent"
-            >
-              <Facebook className="w-4 h-4" />
-            </a>
-
-            <a
-              rel="noreferrer"
-              target="_blank"
-              href={socialMedia.twitter}
-              className="transition hover:text-accent"
-            >
-              <Twitter className="w-4 h-4 " />
-            </a>
-            <a
-              rel="noreferrer"
-              target="_blank"
-              href={socialMedia.linkedin}
-              className="transition hover:text-accent"
-            >
-              <Linkedin className="w-4 h-4 " />
-            </a>
-            <a
-              rel="noreferrer"
-              target="_blank"
-              href={socialMedia.instagram}
-              className="transition hover:text-accent"
-            >
-              <Instagram className="w-4 h-4 " />
-            </a>
-          </div>
-        </div>
-        <div className="flex gap-4 font-light">
-          <Link
-            target="_blank"
-            to="/terms-conditions"
-            className="transition hover:text-accent"
-          >
-            Terms and Conditions
-          </Link>
-          |
-          <Link
-            target="_blank"
-            to="/privacy-policy"
-            className=" transition hover:text-accent"
-          >
-            Policy
-          </Link>
-        </div>
-      </div>
+      <CopyRight />
     </div>
   );
 };

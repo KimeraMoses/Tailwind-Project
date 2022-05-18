@@ -162,12 +162,7 @@ export const NavBar = () => {
                     <NavBarComponent submenu={doctor}>Doctors</NavBarComponent>
                   </>
                 )}
-                <NavBarLink
-                  link={`mailto:${REACT_APP_MEDATLAS_EMAIL}`}
-                  target="_blank"
-                >
-                  Contact
-                </NavBarLink>
+                <NavBarLink link="/contact-us">Contact Us</NavBarLink>
               </Popover.Group>
             </>
           ) : (

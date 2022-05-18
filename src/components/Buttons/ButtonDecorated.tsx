@@ -12,7 +12,7 @@ export const DecoratedButton: React.FunctionComponent<
 }) => {
   return (
     <button
-      className={`p-3 border rounded bg-${color} text-white transition hover:bg-${hoverColor} ${className}`}
+      className={`p-3 border rounded bg-${color} cursor-pointer text-white transition hover:bg-${hoverColor} ${className}`}
       {...props}
     >
       {children}
