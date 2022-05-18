@@ -1,14 +1,23 @@
 import React from "react";
 import { FiExternalLink } from "react-icons/fi";
 
-const TeamCard = ({
+interface TeamProps {
+  image: any;
+  name: string;
+  title: string;
+  linkedIn: string;
+  proffession: string;
+  firstName: string;
+}
+
+const TeamCard: React.FC<TeamProps> = ({
   image,
   name,
   title,
   linkedIn,
   proffession,
   firstName,
-}: any) => {
+}) => {
   return (
     <div className="flex select-none pb-2 w-128 m-2">
       <div className="rounded-full">

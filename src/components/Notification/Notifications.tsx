@@ -33,7 +33,7 @@ const NotificationsArray = [
 ];
 const readMessages = NotificationsArray.filter((msg) => msg.status === "read");
 
-const Notifications = () => {
+const Notifications: React.FunctionComponent = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState();

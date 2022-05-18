@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { InputField } from "./../../../../components/InputField/InputField";
 import { RiAddFill } from "react-icons/ri";
 
-const WeekDay = ({ day }: any) => {
+const WeekDay: React.FC<{ day: string }> = ({ day }) => {
   const [selected, setSelected] = useState(false);
   return (
     <div
@@ -17,7 +17,7 @@ const WeekDay = ({ day }: any) => {
   );
 };
 
-const Scheduling = () => {
+const Scheduling: React.FunctionComponent = () => {
   return (
     <div className="w-full bg-white p-3 rounded">
       <h3 className="text-primary font-semibold text-2xl mb-5">

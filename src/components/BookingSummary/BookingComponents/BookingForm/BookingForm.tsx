@@ -8,12 +8,11 @@ import {
 } from "src/components/InputField";
 import image1 from "../../../../assets/placeholder.png";
 import { RiAttachment2 } from "react-icons/ri";
-import Dropdown from "src/components/CustomDropdown/Dropdown";
 import { MdVerified } from "react-icons/md";
 import Rating from "@mui/material/Rating";
 import imageDr from "../../../../assets/doctor-01.png";
 
-const BookingForm = () => {
+const BookingForm: React.FunctionComponent = () => {
   const [values, setValues] = useState({
     other_reason: false,
   });

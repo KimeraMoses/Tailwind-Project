@@ -1,7 +1,7 @@
 import React from "react";
 import { InputField } from "./../../../InputField/InputField";
 
-const MasterCardForm = () => {
+const MasterCardForm: React.FunctionComponent = () => {
   return (
     <div className="w-full my-2">
       <div className="flex justify-between gap-2 mb-2">

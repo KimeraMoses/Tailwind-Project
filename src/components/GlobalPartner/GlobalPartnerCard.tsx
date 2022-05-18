@@ -1,6 +1,15 @@
 import React from "react";
+interface PartnerProps {
+  title: string;
+  location: string;
+  image: any;
+}
 
-const GlobalPartnerCard = ({ title, location, image }: any) => {
+const GlobalPartnerCard: React.FC<PartnerProps> = ({
+  title,
+  location,
+  image,
+}) => {
   return (
     <div className="bg-white p-2 shadow-sm w-80 rounded-md font-Poppins text-primary">
       <div className="flex justify-center flex-col">

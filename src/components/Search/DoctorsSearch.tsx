@@ -3,7 +3,15 @@ import { BiSearch } from "react-icons/bi";
 import { MdFilterList } from "react-icons/md";
 import { InputField } from "./../InputField/InputField";
 
-function DoctorsSearch({ onSearchHandler, searchTerm }: any) {
+interface SearchProps {
+  onSearchHandler: (e: any) => void;
+  searchTerm: string;
+}
+
+const DoctorsSearch: React.FunctionComponent<SearchProps> = ({
+  onSearchHandler,
+  searchTerm,
+}) => {
   return (
     <div className="w-full flex bg-white shadow-md p-2 rounded-md items-center select-none">
       <div className="text-primary flex mr-3 items-center font-medium">
@@ -24,6 +32,6 @@ function DoctorsSearch({ onSearchHandler, searchTerm }: any) {
       </div>
     </div>
   );
-}
+};
 
 export default DoctorsSearch;

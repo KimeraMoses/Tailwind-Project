@@ -11,7 +11,7 @@ import { useCurrentUser } from "@hooks";
 import { PaymentProcessors } from "@interface/enum";
 import { AppointmentDetail } from "../AppointmentDetail";
 
-export const BookingSummary = ({
+export const BookingSummary: React.FC<BookingSummaryProps> = ({
   doctor,
   consultation,
   availability,
@@ -20,7 +20,7 @@ export const BookingSummary = ({
   timeZone,
   onCancel,
   onBooked,
-}: BookingSummaryProps) => {
+}) => {
   const navigate = useNavigate();
 
   const user = useCurrentUser();

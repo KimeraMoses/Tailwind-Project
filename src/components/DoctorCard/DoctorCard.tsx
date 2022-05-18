@@ -14,9 +14,15 @@ export interface DoctorProps {
   isDoctor?: boolean;
 }
 
-const DoctorCard = (props: DoctorProps) => {
+const DoctorCard: React.FC<DoctorProps> = ({
+  image,
+  name,
+  speciality,
+  city,
+  country,
+  rating,
+}) => {
   const navigate = useNavigate();
-  const { image, name, speciality, city, country, rating } = props;
   return (
     <div className="bg-white px-3 pt-1 pb-5 shadow-sm w-80 rounded-md">
       <div className="flex justify-center">

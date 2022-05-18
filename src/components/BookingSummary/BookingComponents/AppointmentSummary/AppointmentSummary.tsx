@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "../../../../assets/team/margret.png";
 
-const AppointmentSummary = () => {
+const AppointmentSummary: React.FunctionComponent = () => {
   return (
     <div className="w-full">
       <h1 className="text-center my-6 font-semibold text-primary">

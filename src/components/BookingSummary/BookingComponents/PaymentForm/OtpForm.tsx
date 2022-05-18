@@ -5,7 +5,7 @@ import { AiFillLock } from "react-icons/ai";
 import { DecoratedButton } from "./../../../Buttons/ButtonDecorated";
 import { useNavigate } from "react-router-dom";
 
-const OtpForm = () => {
+const OtpForm: React.FunctionComponent = () => {
   const navigate = useNavigate();
   return (
     <div>

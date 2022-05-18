@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { AiFillLock } from "react-icons/ai";
 import AppointmentSummary from "../AppointmentSummary/AppointmentSummary";
 
-const PaymentForm = () => {
+const PaymentForm: React.FunctionComponent = () => {
   const [paymentMode, setPaymentMode] = useState(paymentModes.MOBILEMONEY);
   const navigate = useNavigate();
   const paymentSelectHandler = (e: any) => {

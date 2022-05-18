@@ -4,7 +4,7 @@ import Partner1 from "../../assets/partners/WH.png";
 import Partner2 from "../../assets/partners/Fertility.png";
 import Partner3 from "../../assets/partners/vessel.png";
 
-const GlobalPartner = ({ title, location, image }: any) => {
+const GlobalPartner: React.FunctionComponent = () => {
   return (
     <div className="mt-12 px-10 text-center">
       <h3 className="text-primary text-4xl font-semibold mb-8">

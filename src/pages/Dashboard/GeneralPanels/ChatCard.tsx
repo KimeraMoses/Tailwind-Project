@@ -1,7 +1,21 @@
 import React from "react";
 import { Avatar } from "@mui/material";
 
-const ChartCard = ({ image, name, message, date, time }: any) => {
+interface ChatProps {
+  image: any;
+  name: string;
+  message: string;
+  date: string;
+  time: string;
+}
+
+const ChatCard: React.FC<ChatProps> = ({
+  image,
+  name,
+  message,
+  date,
+  time,
+}) => {
   return (
     <div className="flex justify-between items-start mb-5 cursor-pointer">
       <div className="flex">
@@ -20,4 +34,4 @@ const ChartCard = ({ image, name, message, date, time }: any) => {
   );
 };
 
-export default ChartCard;
+export default ChatCard;

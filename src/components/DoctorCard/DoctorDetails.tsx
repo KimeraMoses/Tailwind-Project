@@ -5,7 +5,7 @@ import { DoctorsList } from "./../../pages/Home/DoctorsSection/DoctorsSection";
 import DoctorCardDashboard from "./DoctorCardDashboard";
 import { SiMicrodotblog } from "react-icons/si";
 
-const DoctorDetails = () => {
+const DoctorDetails: React.FunctionComponent = () => {
   const { doctorName } = useParams();
   const navigate = useNavigate();
 

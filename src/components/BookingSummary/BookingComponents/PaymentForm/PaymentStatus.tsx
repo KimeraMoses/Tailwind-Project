@@ -7,8 +7,7 @@ import { AiFillLock } from "react-icons/ai";
 interface paymentProps {
   type?: string;
 }
-const PaymentStatus = (props: paymentProps) => {
-  const { type } = props;
+const PaymentStatus: React.FC<paymentProps> = ({ type }) => {
   const navigate = useNavigate();
 
   return (

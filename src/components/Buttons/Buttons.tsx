@@ -33,7 +33,7 @@ type PropTypes = {
   className?: string;
 };
 
-export const SignOutButton = () => {
+export const SignOutButton: React.FunctionComponent = () => {
   const [signOut] = useSignOutReducer();
   const nagivate = useNavigate();
 

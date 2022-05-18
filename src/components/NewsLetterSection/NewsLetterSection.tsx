@@ -1,7 +1,7 @@
 import React from "react";
 import { DecoratedButton } from "../Buttons";
 
-export const NewsLetterSection = () => {
+export const NewsLetterSection: React.FunctionComponent = () => {
   return (
     <div className="w-full text-center mx-auto px-44 py-10">
       <div className="flex items-center shadow-lg rounded-md select-none">

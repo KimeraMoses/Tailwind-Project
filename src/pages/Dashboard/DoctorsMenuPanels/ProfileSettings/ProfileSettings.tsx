@@ -17,7 +17,7 @@ const countryCurrency = [
   },
 ];
 
-const ProfileSettings = () => {
+const ProfileSettings: React.FunctionComponent = () => {
   // const [values, setValues] = useState({
   //   image: "",
   // })

@@ -12,7 +12,7 @@ import {
 import { HttpApi } from "@api";
 import { useGetAppointment, useTimeZone } from "@hooks";
 
-export const AppointmentDetail = () => {
+export const AppointmentDetail: React.FunctionComponent = () => {
   const timeZone = useTimeZone();
   const { id } = useParams<{ id: string }>();
   const [appointment, setAppointment] = useState<models.Appointment | null>(

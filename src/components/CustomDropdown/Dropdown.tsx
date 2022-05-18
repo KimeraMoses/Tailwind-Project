@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dropdown = () => {
+const Dropdown: React.FunctionComponent = () => {
   return (
     <div className="flex justify-center w-full">
       <div>

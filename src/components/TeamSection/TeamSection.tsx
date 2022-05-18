@@ -2,7 +2,7 @@ import React from "react";
 import { TeamData } from "src/constants/TeamData";
 import TeamCard from "./TeamCard/TeamCard";
 
-const TeamSection = () => {
+const TeamSection: React.FunctionComponent = () => {
   return (
     <div className="mt-8 px-8 text-center">
       <h3 className="text-primary text-4xl font-semibold mb-10">Our Team</h3>

@@ -6,18 +6,16 @@ import { useNavigate } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import { Tooltip } from "@mui/material";
 
-const DoctorCardDashboard = (props: DoctorProps) => {
-  const {
-    image,
-    name,
-    speciality,
-    city,
-    country,
-    rating,
-    isSelected,
-    isDoctor,
-  } = props;
-
+const DoctorCardDashboard: React.FC<DoctorProps> = ({
+  image,
+  name,
+  speciality,
+  city,
+  country,
+  rating,
+  isSelected,
+  isDoctor,
+}) => {
   const navigate = useNavigate();
 
   return (

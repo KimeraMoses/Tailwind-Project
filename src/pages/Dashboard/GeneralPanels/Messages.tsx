@@ -3,7 +3,7 @@ import { BiSearch } from "react-icons/bi";
 import { InputField } from "./../../../components/InputField/InputField";
 import userImage from "../../../assets/team/margret.png";
 import userImage2 from "../../../assets/team/clive.png";
-import ChartCard from "./ChartCard";
+import ChatCard from "./ChatCard";
 import { Avatar, Fade, IconButton, Paper, Popper } from "@mui/material";
 import UserAvatar from "./UserAvatar";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -105,7 +105,7 @@ const Messages = (props: any) => {
             <h3 className="font-semibold text-xl text-black mb-3">Chats</h3>
             {(searchResults.length > 0 ? searchResults : chats).map((chat) => {
               return (
-                <ChartCard
+                <ChatCard
                   key={chat.time}
                   image={chat.image}
                   name={chat.name}

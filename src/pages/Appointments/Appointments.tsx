@@ -6,7 +6,7 @@ import { DashboardView } from "@views";
 import { useQuery } from "@hooks";
 import { AppointmentListItem } from "@components";
 
-export const Appointments = () => {
+export const Appointments: React.FunctionComponent = () => {
   const [searchParams, setSearchParams] = useState(
     {} as input.AppointmentSearchInput
   );
