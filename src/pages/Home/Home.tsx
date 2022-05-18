@@ -20,6 +20,7 @@ import { useState } from "react";
 import DoctorsSection from "./DoctorsSection/DoctorsSection";
 import Partners from "./PartnersSection/Partners";
 import BlogSection from "./BlogSection/BlogSection";
+import ChooseUs from "./ChooseUs/ChooseUs";
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
@@ -166,6 +167,7 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </header>
+
       {/* <section className="flex justify-center">
         <div
           className="
@@ -278,6 +280,7 @@ export const Home: React.FC = () => {
           ))}
         </Swiper>
       </div>
+      <ChooseUs />
       <DoctorsSection />
       <BlogSection />
       <Partners />
