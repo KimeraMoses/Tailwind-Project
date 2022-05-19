@@ -13,7 +13,6 @@ import SwiperCore, { Pagination } from "swiper";
 import { Footer } from "@components";
 import { NewsLetterSection } from "src/components/NewsLetterSection";
 import { InputField } from "src/components/InputField";
-import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import DropdownInputField from "src/components/DropdownInputField/DropdownInputField";
 import { useState } from "react";
@@ -21,6 +20,7 @@ import DoctorsSection from "./DoctorsSection/DoctorsSection";
 import Partners from "./PartnersSection/Partners";
 import BlogSection from "./BlogSection/BlogSection";
 import ChooseUs from "./ChooseUs/ChooseUs";
+import FeatureCard from "../../components/FeatureCard/FeatureCard";
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
@@ -67,196 +67,101 @@ export const Home: React.FC = () => {
   };
 
   return (
-    <div className="pd-10 bg-background">
+    <div className="bg-background">
       <header className=" bg-header bg-cover">
-        <div className="w-full flex justify-center">
-          <div
-            className="hero_sectionn
-         p-10  gap-5
-         w-full
-         flex
-         justify-between
-         md:justify-between md:items-center
-        "
-          >
-            <div
-              className="self-center   hidden md:flex md:flex-1 bg-cover bg-no-repeat bg-center w-full h-full md:flex-col justify-end rounded-b-md"
-              style={{
-                backgroundImage: `url(${doctors})`,
-                backgroundPosition: "center top",
-              }}
-            >
-              <div className="hero_section p-4 rounded-md">
-                <p className="text-primary font-bold text-3xl mb-2">
-                  MedAtlas makes it easy to find Licensed Specialists Doctors
-                  anywhere in Africa.
-                </p>
-                <p className="text-accent font-extrabold text-2xl">
-                  Simply search, book and speak to a Specialist today!
-                </p>
-              </div>
+        <div className="w-full flex justify-center items-center px-20">
+          <div className="self-center w-2/3 flex h-full flex-col justify-endd rounded-b-md px-20">
+            <img src={doctors} alt="" className="w-full h-auto" />
+            <div className="bg-[#F7FAFE] p-4 rounded-md -mt-40 w-auto">
+              <p className="text-primary font-bold text-3xl mb-2">
+                MedAtlas makes it easy to find Licensed Specialists Doctors
+                anywhere in Africa.
+              </p>
+              <p className="text-accent font-extrabold text-2xl">
+                Simply search, book and speak to a Specialist today!
+              </p>
             </div>
-            <div className="flex justify-end">
-              <div className="w-350 p-8 mt-10 border bg-white border-gray rounded shadow flex flex-col gap-3">
-                <div className="text-center">
-                  <h1 className="text-xl text-accent font-bold capitalize ">
-                    Search for doctors
-                  </h1>
-                  <h2 className="text-2xl text-primary font-semibold">
-                    Book Appointments Today!
-                  </h2>
+          </div>
+
+          <div className="flex justify-end w-1/3">
+            <div className="pt-[76px] pb-[94px] mt-10 border bg-white border-gray rounded shadow px-10">
+              <div className="text-center w-full ">
+                <h1 className="text-xl text-accent font-bold capitalize ">
+                  Search for doctors
+                </h1>
+                <h2 className="text-2xl text-primary font-semibold">
+                  Book Appointments Today!
+                </h2>
+              </div>
+              <form className="mt-2" action="/doctors" method="GET">
+                <div className="flex flex-col gap-2 mb-4">
+                  <label
+                    htmlFor="type of doctor"
+                    className="text-primary mb-1 font-semibold"
+                  >
+                    Type of Doctor
+                  </label>
+                  <DropdownInputField
+                    placeholder="E.g. Fertility"
+                    selectedItem={selectedType}
+                    keyWordHandler={keyWordHandler}
+                    searchTerm={searchTerm}
+                    searchResults={searchResults}
+                    isSelected={show}
+                    itemClickHandler={selectedItemHandler}
+                  />
                 </div>
-                <form className="mt-2" action="/doctors" method="GET">
-                  <div className="flex flex-col gap-2 mb-2">
-                    <label
-                      htmlFor="type of doctor"
-                      className="text-primary mb-1 font-semibold"
-                    >
-                      Type of Doctor
-                    </label>
-                    <DropdownInputField
-                      placeholder="E.g. Fertility"
-                      selectedItem={selectedType}
-                      keyWordHandler={keyWordHandler}
-                      searchTerm={searchTerm}
-                      searchResults={searchResults}
-                      isSelected={show}
-                      itemClickHandler={selectedItemHandler}
-                    />
-                  </div>
-                  <div className="flex flex-col gap-2 mb-3">
-                    <label
-                      htmlFor="location"
-                      className="text-primary mb-1 font-semibold"
-                    >
-                      Location
-                    </label>
-                    <InputField
-                      disabled={false}
-                      type="text"
-                      placeholder="E.g. City or Country"
-                      name="location"
-                      value={values.location}
-                      onChange={handleOnChange}
-                    />
-                  </div>
-                  <div className="flex flex-col gap-2 mb-3">
-                    <label
-                      htmlFor="email"
-                      className="text-primary mb-1 font-semibold"
-                    >
-                      Email Address
-                    </label>
-                    <InputField
-                      disabled={false}
-                      type="email"
-                      placeholder="name@gmail.com"
-                      name="email"
-                      value={values.email}
-                      onChange={handleOnChange}
-                    />
-                  </div>
-                  <div className="mt-5">
-                    <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4  transition bg-accent hover:bg-primary">
-                      Book Doctor Now
-                    </button>
-                  </div>
-                </form>
-              </div>
+                <div className="flex flex-col gap-2 mb-4">
+                  <label
+                    htmlFor="location"
+                    className="text-primary mb-1 font-semibold"
+                  >
+                    Location
+                  </label>
+                  <InputField
+                    disabled={false}
+                    type="text"
+                    placeholder="E.g. City or Country"
+                    name="location"
+                    value={values.location}
+                    onChange={handleOnChange}
+                  />
+                </div>
+                <div className="flex flex-col gap-2 mb-4">
+                  <label
+                    htmlFor="email"
+                    className="text-primary mb-1 font-semibold"
+                  >
+                    Email Address
+                  </label>
+                  <InputField
+                    disabled={false}
+                    type="email"
+                    placeholder="name@gmail.com"
+                    name="email"
+                    value={values.email}
+                    onChange={handleOnChange}
+                  />
+                </div>
+                <div className="mt-5">
+                  <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4  transition bg-accent hover:bg-primary">
+                    Book Doctor Now
+                  </button>
+                </div>
+              </form>
             </div>
+          </div>
+        </div>
+        <div className="w-full p-5 my-3 px-20 mb-4">
+          <div className="flex justify-between items-center">
+            <FeatureCard feature="Secure Payments" color="primary" />
+            <FeatureCard feature="Certified Specialists" color="accent" />
+            <FeatureCard feature="Online or In-person" color="primary" />
+            <FeatureCard feature="Secure and Confidential" color="primary" />
           </div>
         </div>
       </header>
 
-      {/* <section className="flex justify-center">
-        <div
-          className="
-      p-4
-      md:p-0
-      md:-mt-8  
-      w-full
-      md:flex 
-      justify-between
-      gap-10
-      xl:max-w-1140
-      lg:max-w-960
-      md:max-w-720
-      sm:max-w-540
-      "
-        >
-          <div
-            className="
-        relative
-        flex
-        justify-center
-        items-center
-        bg-primary
-        border border-gray rounded-xl
-        p-5
-        text-white text-2xl 
-        font-semibold
-        h-48
-        md:max-w-[33%]
-        w-full
-        md:mb-0
-        mb-3
-        "
-          >
-            Find and choose a specialist doctor
-            <span className="absolute bottom-2 right-3 text-6xl font-semibold">
-              1
-            </span>
-          </div>
-          <div
-            className="
-         relative
-         flex
-         justify-center
-         items-center
-         bg-primary
-         border border-gray rounded-xl
-         p-5
-         text-white text-2xl 
-         font-semibold
-         h-48
-         md:max-w-[33%]
-        w-full
-        md:mb-0
-        mb-3
-         "
-          >
-            {" "}
-            Book online appointment
-            <span className="absolute bottom-2 right-3 text-6xl font-semibold">
-              2
-            </span>
-          </div>
-          <div
-            className="
-         relative
-         flex
-         justify-center
-         items-center
-         bg-primary
-         border border-gray rounded-xl
-         p-5
-         text-white text-2xl 
-         font-semibold
-         h-48
-        md:max-w-[33%]
-        w-full
-        md:mb-0
-        mb-3
-         "
-          >
-            {" "}
-            Speak with specialist doctor
-            <span className="absolute bottom-2 right-3 text-6xl font-semibold">
-              3
-            </span>
-          </div>
-        </div>
-      </section> */}
       <div className="p-6 mt-12 md:mt-10 overflow-hidden ">
         <h1 className=" text-4xl  text-center text-primary font-[500]">
           Specialities

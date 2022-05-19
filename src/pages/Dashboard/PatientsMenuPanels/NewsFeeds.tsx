@@ -3,6 +3,7 @@ import welcomeBunner from "../../../assets/welcomebunner.png";
 import { Link } from "react-router-dom";
 import image from "../../../assets/bkgrd-authflow.jpeg";
 import { FaClock } from "react-icons/fa";
+import FeatureCard from "./../../../components/FeatureCard/FeatureCard";
 
 const NewsFeeds: React.FunctionComponent = () => {
   return (
@@ -15,12 +16,15 @@ const NewsFeeds: React.FunctionComponent = () => {
         />
       </div>
       <div className="p-4 bg-white rounded-md shadow-md flex gap-4">
-        <div className="w-2/3">
+        <div className="w-1/3">
           {" "}
           <p className="mb-5">
-            Hello <strong className="text-primary">Kimera Moses!</strong>
+            Hello{" "}
+            <strong className="text-primary font-medium">Kimera Moses!</strong>
           </p>
-          <p className="text-accent mb-5">Thank you for joining MedAtlas.</p>
+          <p className="text-accent mb-5 font-medium">
+            Thank you for joining MedAtlas.
+          </p>
           <p className="mb-5">
             Our vision at MedAtlas is to connecting you with Specialist Doctors
             from anywhere you are located!
@@ -29,7 +33,7 @@ const NewsFeeds: React.FunctionComponent = () => {
             Simply{" "}
             <Link
               to="/dashboard/search-doctors"
-              className="text-accent hover:text-primary"
+              className="text-accent hover:text-primary font-medium"
             >
               Book An Appointment{" "}
             </Link>{" "}
@@ -37,37 +41,14 @@ const NewsFeeds: React.FunctionComponent = () => {
             comfort ofyour home.
           </p>
         </div>
-        <div className="w-1/3">
-          <div className="flex gap-4 w-full my-2">
-            <div className="bg-primary py-1 flex items-center justify-center shadow-sm rounded-md font-semibold text-white w-1/2">
-              Simple <br />
-              Booking
-            </div>
-            <div className="bg-accent py-1 flex items-center font-semibold shadow-sm rounded-md justify-center text-white w-1/2">
-              Certified <br />
-              Specialists
-            </div>
-          </div>
-          <div className="flex gap-4 w-full my-2">
-            <div className="bg-accent py-1 flex items-center justify-center shadow-sm rounded-md font-semibold text-white w-1/2">
-              Secure <br />
-              Payments
-            </div>
-            <div className="bg-primary py-1 flex items-center font-semibold shadow-sm rounded-md justify-center text-white w-1/2">
-              Private <br />
-              Confidential
-            </div>
-          </div>
-          <div className="flex gap-4 w-full my-2">
-            <div className="bg-primary py-1 flex items-center justify-center shadow-sm rounded-md font-semibold text-white w-1/2">
-              Easier than
-              <br />
-              Traveling
-            </div>
-            <div className="bg-accent py-1 flex items-center font-semibold shadow-sm rounded-md justify-center text-white w-1/2">
-              All in <br />
-              One Place
-            </div>
+        <div className="w-2/3">
+          <div className="flex w-full my-2 items-start flex-wrap justify-evenly">
+            <FeatureCard feature="Simple Booking" color="primary" />
+            <FeatureCard feature="Certified Specialists" color="accent" />
+            <FeatureCard feature="Secure Payments" color="accent" />
+            <FeatureCard feature="Private and Confidential" color="primary" />
+            <FeatureCard feature="Easier than travelling" color="primary" />
+            <FeatureCard feature="All in One Place" color="accent" />
           </div>
         </div>
       </div>

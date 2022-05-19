@@ -119,14 +119,6 @@ const NavBarLink: React.FunctionComponent<NavBarLinkType> = ({
     >
       {children}
     </NavLink>
-    // <a
-    //   href={link}
-    //   target={target}
-    //   className=""
-    //   rel="noreferrer"
-    // >
-    //   {children}
-    // </a>
   );
 };
 
