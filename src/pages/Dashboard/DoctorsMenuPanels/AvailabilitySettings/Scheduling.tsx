@@ -86,11 +86,13 @@ const Scheduling: React.FunctionComponent = () => {
           })}
         </select>
       </div>
-      <div className="mb-5 w-132">
-        <DatePicker value={value} setValue={onChange} />
-      </div>
-      <div className="flex mt-3">
-        <TimePicker time={time} setTime={setTime} />
+      <div className="flex items-start w-full">
+        <div className="mb-5 w-132">
+          <DatePicker value={value} setValue={onChange} />
+        </div>
+        <div className="flex ml-5">
+          <TimePicker time={time} setTime={setTime} />
+        </div>
       </div>
     </div>
   );
