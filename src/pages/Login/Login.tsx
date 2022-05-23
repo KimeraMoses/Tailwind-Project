@@ -11,6 +11,7 @@ export const Login: React.FunctionComponent = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const searchParams = useQuery();
 
@@ -38,8 +39,10 @@ export const Login: React.FunctionComponent = () => {
 
   const onSubmit: React.FormEventHandler = useCallback(
     async (event) => {
+      setIsLoading(true);
       event.preventDefault();
       await HttpApi.login({ email, password, accountType });
+      setIsLoading(false);
       const redirect = searchParams.get("redirect");
       if (redirect) navigate(redirect);
       else navigate("/account");
@@ -69,7 +72,7 @@ export const Login: React.FunctionComponent = () => {
         <div className="mb-7">
           <div className="my-2">
             <label className="text-base text-primary font-medium mb-1">
-              First Name
+              Email
             </label>
             <InputField
               name="email"
@@ -100,7 +103,7 @@ export const Login: React.FunctionComponent = () => {
             className="w-3/4 px-6 py-2"
             type="submit"
           >
-            Login
+            {isLoading ? "Logging In..." : "Login"}
           </DecoratedButton>
         </div>
 

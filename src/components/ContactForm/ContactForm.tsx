@@ -19,7 +19,7 @@ const ContactForm: React.FunctionComponent = () => {
     <form ref={formRef} className="w-full">
       <div className="my-2">
         <label className="text-base text-primary font-medium mb-1">
-          First Name
+          Full Name
         </label>
         <InputField
           name="name"

@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SocialHandles from "./../SocialHandles/SocialHandles";
 
+export const getCurrentYear = new Date().getFullYear();
+
 const CopyRight: React.FC<{ isContactPage?: boolean }> = ({
   isContactPage,
 }) => {
-  const getCurrentYear = new Date().getFullYear();
-
   return (
     <div
       className={`w-full bg-primary flex flex-col md:flex-row gap-4 md:gap-0 items-center justify-center md:justify-between text-white p-5 px-8 ${

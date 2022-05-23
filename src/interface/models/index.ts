@@ -8,5 +8,6 @@ export * from "./Consultation";
 export * from "./OnlineMeeting";
 export * from "./Payment";
 export * from "./common";
+export * from "./DoctorSchedule";
 
 export type TodoType = any;

@@ -1,11 +1,12 @@
 import React from "react";
 import { BsEmojiNeutral } from "react-icons/bs";
+import { HiOutlineEmojiSad, HiOutlineEmojiHappy } from "react-icons/hi";
 import { RadioInput } from "../InputField";
 import { DecoratedButton } from "./../Buttons/ButtonDecorated";
 
 const FeedbackModal = () => {
   return (
-    <div className="w-128 bg-white p-3 rounded-lg mb-20 shadow-md mt-14">
+    <div className="w-full bg-white p-3 rounded-lg mb-20 shadow-md mt-14">
       <div className="mx-1 p-3 bg-accent text-center text-white font-semibold mb-4">
         Feedback Form
       </div>
@@ -14,19 +15,19 @@ const FeedbackModal = () => {
       </h4>
       <div className="flex items-center justify-between px-4 mt-5">
         <div className="flex flex-col justify-center items-center">
-          <BsEmojiNeutral className="text-4xl text-primary" />
+          <HiOutlineEmojiSad className="text-4xl text-primary" />
           <div className="form-check form-check-inline">
             <RadioInput value="option1" label="Bad" name="feedback" id="01" />
           </div>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <BsEmojiNeutral className="text-4xl text-primary" />
+          <BsEmojiNeutral className="text-3xl text-primary" />
           <div className="form-check form-check-inline">
             <RadioInput value="option1" label="Okay" name="feedback" id="01" />
           </div>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <BsEmojiNeutral className="text-4xl text-primary" />
+          <HiOutlineEmojiHappy className="text-4xl text-primary" />
           <div className="form-check form-check-inline">
             <RadioInput value="option1" label="Good" name="feedback" id="01" />
           </div>

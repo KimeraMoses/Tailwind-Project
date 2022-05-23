@@ -5,6 +5,7 @@ import * as input from "@interface/input";
 import { DashboardView } from "@views";
 import { useQuery } from "@hooks";
 import { DoctorListItem, DoctorSearchFilter } from "@components";
+// import { HttpApi } from "./../../api/http";
 
 export const DoctorList = () => {
   const query = useQuery();
@@ -12,6 +13,8 @@ export const DoctorList = () => {
   const [params, setParams] = useState(initialParams);
 
   const doctors = useSearchDoctors(params);
+
+  // const schedules = await async HttpApi.getDoctorSchedule;
 
   const onSearchChange = useCallback((params: input.AccountSearchInput) => {
     setParams(params);

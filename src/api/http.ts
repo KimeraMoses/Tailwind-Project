@@ -111,6 +111,21 @@ export class HttpApi {
     return instance.get<never, models.Consultation>(`/consultation/${_id}`);
   }
 
+  // Doctors Schedule
+  // static async getDoctorSchedule(_id: string) {
+
+  //   return [
+  //     {
+  //       _id: "001",
+  //       dateTime: ""
+
+  //     }
+  //   ]
+  // return instance.get<never, models.DoctorSchedule[]>(
+  //   `/doctor-schedule/${_id}`
+  // );
+  // }
+
   static async getConsultations(params?: input.ConsultationSearchInput) {
     return instance.get<
       input.ConsultationSearchInput | undefined,

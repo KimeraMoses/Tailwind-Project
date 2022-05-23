@@ -143,7 +143,7 @@ export const Home: React.FC = () => {
                     onChange={handleOnChange}
                   />
                 </div>
-                <div className="mt-5">
+                <div className="mt-8">
                   <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4  transition bg-accent hover:bg-primary">
                     Book Doctor Now
                   </button>

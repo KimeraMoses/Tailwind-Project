@@ -222,7 +222,7 @@ export const Register = () => {
             {accountType === enums.AccountTypes.DOCTOR && (
               <div className="my-2">
                 <label className="text-base text-primary font-medium mb-1">
-                  Specialitiy
+                  Speciality
                 </label>
                 <Select
                   className="shadow-0 w-full mb-0 border border-gray rounded-lg text-black bg-white"
