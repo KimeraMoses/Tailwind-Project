@@ -17,3 +17,4 @@ export * from "./AppointmentListItem";
 export * from "./SelectAppointmentMeeting";
 export * from "./ImageCropper";
 export * from "./SocialHandles";
+export * from "./SpecialistButton";

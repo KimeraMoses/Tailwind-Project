@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
-import { Footer } from "@components";
+import { Footer, SpecialityButton } from "@components";
 import { NewsLetterSection } from "src/components/NewsLetterSection";
 import { InputField } from "src/components/InputField";
 import { useNavigate } from "react-router-dom";
@@ -188,6 +188,7 @@ export const Home: React.FC = () => {
       <ChooseUs />
       <DoctorsSection />
       <BlogSection />
+      <SpecialityButton />
       <Partners />
       <NewsLetterSection />
       <Footer />

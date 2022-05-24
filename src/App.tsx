@@ -17,6 +17,7 @@ const App = () => {
     HttpApi.getAccount().finally(() => {
       setIsLoading(false);
     });
+    window.scrollTo(0, 0);
   }, []);
 
   const modals = useModals();

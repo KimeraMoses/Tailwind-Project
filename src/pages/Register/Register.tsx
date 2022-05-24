@@ -1,4 +1,10 @@
-import React, { useState, useCallback, useMemo, useRef } from "react";
+import React, {
+  useState,
+  useCallback,
+  useMemo,
+  useRef,
+  useEffect,
+} from "react";
 import { Button, showNotification } from "@components";
 import { GenericView } from "@views";
 import { GenderList, CountryList, SpecialityList } from "@constants";
@@ -27,6 +33,10 @@ const SpeciliatyOptions = SpecialityList.map((option) => ({
 }));
 
 export const Register = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const formRef = useRef<HTMLFormElement>(null);
   const [inputParams, setInputParams] = useState(
     {} as input.AccountCreateInput

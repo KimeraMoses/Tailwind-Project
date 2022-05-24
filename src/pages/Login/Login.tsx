@@ -1,4 +1,10 @@
-import React, { useState, useCallback, useMemo, useRef } from "react";
+import React, {
+  useState,
+  useCallback,
+  useMemo,
+  useRef,
+  useEffect,
+} from "react";
 import { Button, DecoratedButton } from "@components";
 import { GenericView } from "@views";
 import { Link, useNavigate, useParams } from "react-router-dom";
@@ -19,6 +25,11 @@ export const Login: React.FunctionComponent = () => {
     () => searchParams.get("accountType") || enums.AccountTypes.PATIENT,
     [searchParams]
   ) as enums.AccountTypes;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const counterAccountType = useMemo(
     () =>
       accountType === enums.AccountTypes.DOCTOR
