@@ -13,52 +13,52 @@ export const AboutUs = () => {
           <h2 className="p-4 text-3xl font-bold mb-0 mt-5">About MedAtlas</h2>
 
           <div className="flex p-4 w-full">
-            <div className="w-2/3">
-              <img src={image1} alt="" className="w-full rounded-md" />
+            <div className="w-1/2">
+              <img src={image1} alt="" className="w-full h-auto rounded-md" />
             </div>
-            <div className="flex-grow ml-9">
-              <div className="text-justify">
-                <h3 className="text-2xl font-semibold">Our Story</h3>
-                <p className="text-justify">
-                  MedAtlas has been born out of the challenges many Africans
-                  face when looking for specialist help. <br />
-                  When you discover that you need a particular doctor to solve
+            <div className="w-1/2 ml-9">
+              <div className="text-justify font-semibold text-primary">
+                <h3 className="text-2xl font-bold mb-3">Our Story</h3>
+                <p className="text-justify text-base mb-2">
+                  MedAtlas has been born out of the challenges many individuals
+                  face when looking for specialist help in Africa and other
+                  underresourced contexts.
+                </p>
+                <p className="text-justify text-base mb-2">
+                  When you discover that you need a specific doctor to solve
                   your health problem and often, you may not be sure where to
                   start.
                 </p>
+                <p className="text-justify text-base mb-2">
+                  You think, "Where should I start?" "Who should I ask?" "Where
+                  do I find this type of doctor?" “Are they certified?” and "How
+                  much will it cost?"
+                </p>
 
-                <p className="text-justify">
-                  You think,{" "}
-                  <i>
-                    "Where should I start?" "Who should I ask?" "Where do I find
-                    this type of doctor?" and "How much will it cost?"
-                  </i>
+                <p className="text-justify text-base mb-2">
+                  After over 10 years of research and personal experience with
+                  similar challenges, MedAtlas is excited to introduce the
+                  solution that brings peace of mind!
                 </p>
-                <p className="text-justify">
-                  After over 10 years of experiencing similar challenges, we are
-                  excited to introduce the solution that brings peace of mind!
+                <p className="text-justify text-base mb-2">
+                  With just a few simple clicks, speak to a certified specialist
+                  doctor in the comfort of your own home.
                 </p>
-              </div>
-              <div className="py-5">
-                <p className="text-justify">
-                  With just a few clicks, speak to a certified specialist doctor
-                  in the comfort of your own home.
-                </p>
-                <p className="text-justify">
-                  Our technology makes it easier to get timely, convenient &#38;
+                <p className="text-justify text-base mb-2">
+                  Our technology makes it easier to get timely, convenient &
                   confidential care without all the hustle. Our specialist
-                  doctors have been thoroughly checked to give you quality care
-                  online and in person. MedAtlas Specialist Doctors in Africa,
-                  from Africa and for Africa.{" "}
+                  clinicians have been thoroughly checked to give you quality
+                  care online and in person.
                 </p>
+
                 <div className="mt-3">
-                  <p className="text-justify">
+                  <p className="text-justify text-base">
                     Why wait? Start today at{" "}
                     <Link to="/" className="text-accent">
                       www.medatlas.com
                     </Link>
                   </p>
-                  <p className="text-justify">
+                  <p className="text-justify text-base">
                     The future of specialist healthcare in Africa!{"  "}
                     <Link to="/" className="text-accent">
                       Join us today!

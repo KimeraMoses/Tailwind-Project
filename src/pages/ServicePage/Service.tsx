@@ -1,6 +1,4 @@
 import React from "react";
-import ServiceImage from "../../assets/services.png";
-import image1 from "../../assets/carousel/cardiologist.png";
 import { Footer } from "./../../components/Footer/Footer";
 import { DecoratedButton } from "./../../components/Buttons/ButtonDecorated";
 import { serviceData } from "./../../constants/services";
