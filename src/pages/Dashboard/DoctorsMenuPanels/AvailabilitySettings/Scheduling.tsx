@@ -7,6 +7,7 @@ import "react-calendar/dist/Calendar.css";
 import { getCurrentYear } from "./../../../../components/Footer/CopyRight";
 import TimePicker from "./../../../../components/TimePicker/TimePicker";
 import DatePicker from "./../../../../components/TimePicker/Calender";
+import { doctorAvailability } from "./../../../../components/BookingSummary/BookingComponents/BookingForm/BookingForm";
 
 // const WeekDay: React.FC<{ day: string }> = ({ day }) => {
 //   const [selected, setSelected] = useState(false);
@@ -93,6 +94,25 @@ const Scheduling: React.FunctionComponent = () => {
         <div className="flex ml-5">
           <TimePicker time={time} setTime={setTime} />
         </div>
+      </div>
+      <h4 className="text-2xl text-primary font-semibold">Availability</h4>
+      <div className="my-2 flex flex-wrap w-3/4 shadow p-5">
+        {doctorAvailability.map((item) => {
+          return (
+            <div className="w-1/3 my-2  text-primary" key={item.id}>
+              <h4 className="font-semibold text-base mb-2">{item.date}</h4>
+              <ul>
+                {item.timeSlots.map((time) => {
+                  return (
+                    <li className="text-sm font-normal" key={time.id}>
+                      {time.fromTime} - {time.toTime}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

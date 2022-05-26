@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import RichTextEditor from "./RichTextEditor";
-import { BsImage } from "react-icons/bs";
+import { BiImageAdd } from "react-icons/bi";
+import { CheckBoxInput } from "./../../../../components/InputField/InputField";
+import { DoctorMinCard } from "./../../../../components/BookingSummary/BookingComponents/BookingForm/BookingForm";
+import { DecoratedButton } from "@components";
 
 const NewBlogPost = () => {
   const [image, setImage] = useState<unknown>("");
@@ -13,7 +16,6 @@ const NewBlogPost = () => {
   const postImageHandler = async (e: any) => {
     const file = e.target.files[0];
     const Image = await convertbase64Logo(file);
-    const CImage = Image;
     setImage(Image);
   };
 
@@ -51,16 +53,47 @@ const NewBlogPost = () => {
             onClick={imageHandler}
             className="flex flex-col items-center justify-center w-full cursor-pointer p-20 bg-[#EFF2F5] mt-5 border border-grayPrimary h-36"
           >
-            <BsImage className="text-6xl text-primary" />
+            <BiImageAdd className="text-6xl text-accent bordeer border-primary" />
             <input
               type="file"
-              hidden
               title=""
+              hidden
               value=""
               id="post_image_input_change"
               onChange={postImageHandler}
             />
           </div>
+        </div>
+
+        <div className="my-3">
+          <h3 className="text-primary font-semibold text-lg mb-3">
+            Declaration
+          </h3>
+          <p className="flex items-start">
+            <CheckBoxInput
+              id="name"
+              onChange={(e) => console.log("Checked", e.target.checked)}
+              name="name"
+              className="mr-2"
+            />
+            I declare that the information I have written is solely my
+            professional view points and not those of MedAtlas or the employees
+            of MedAtlas. I have written this piece in my right frame of mind and
+            without coercion.
+          </p>
+          <div className="my-3 p-3 bg-white">
+            <DoctorMinCard />
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center my-5">
+          <DecoratedButton
+            color="primary"
+            hoverColor="accent"
+            className="rounded-lg w-80"
+          >
+            Submit
+          </DecoratedButton>
         </div>
       </div>
     </div>

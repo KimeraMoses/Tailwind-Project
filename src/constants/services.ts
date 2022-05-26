@@ -7,9 +7,18 @@ import Image6 from "@assets/carousel/Neonatologist.png";
 import Image7 from "@assets/carousel/Oncologist.png";
 import Image8 from "@assets/carousel/Cosmetic.png";
 import Image9 from "@assets/carousel/neurology.png";
-import Image10 from "@assets/carousel/orthopedic.png";
+import Image10 from "@assets/carousel/orthopeadic.png";
 import Image11 from "@assets/carousel/urology.png";
 import Image12 from "@assets/carousel/Physiotherapist.png";
+import Image13 from "@assets/carousel/anaesthesiologist.png";
+import Image14 from "@assets/carousel/Dietrician.png";
+import Image15 from "@assets/carousel/endocrinologist.png";
+import Image16 from "@assets/carousel/ent.png";
+import Image17 from "@assets/carousel/colo.png";
+import Image18 from "@assets/carousel/radiologist.png";
+import Image19 from "@assets/carousel/psychiatrist.png";
+import Image20 from "@assets/carousel/Dentist.png";
+import Image21 from "@assets/carousel/nutritionist.png";
 
 export const serviceData = [
   {
@@ -73,8 +82,9 @@ export const serviceData = [
     title: "General Medicine",
     description:
       "A doctor who focus on the whole body and treats all common medical conditions and refer patients to hospitals and other medical services for urgent and specialist treatment. ",
-    icon: Image9,
+    icon: Image7,
   },
+
   {
     id: 10,
     title: "Urologist",
@@ -101,7 +111,7 @@ export const serviceData = [
     title: "Endocrinologist",
     description:
       "A doctor  who specializes in glands and the hormones they produce which affect processes that control metabolism, blood pressure, cholesterol, hunger, thirst, body temperature and more",
-    icon: Image3,
+    icon: Image15,
   },
   {
     id: 14,
@@ -115,21 +125,21 @@ export const serviceData = [
     title: "Orthopeadic Specialist",
     description:
       "A  specialist  focused on prevention, diagnosis, and treatment of disorders of the bones, joints, ligaments, tendons and muscles",
-    icon: Image3,
+    icon: Image10,
   },
   {
     id: 16,
     title: "Anaesthesiologist",
     description:
       "A doctor in pain control treatment during surgeries or other medical procedures, depending on the procedure and the patient's medical history",
-    icon: Image4,
+    icon: Image13,
   },
   {
     id: 17,
     title: "Nutritionist",
     description:
       "As an expert in food and nutrition, Nutritionists advise people how to live a more healthy lifestyle and achieve health-related goals",
-    icon: Image3,
+    icon: Image21,
   },
   {
     id: 18,
@@ -143,46 +153,40 @@ export const serviceData = [
     title: "Dietrician",
     description:
       "An expert to develop diet and nutrition programs tailored to an individual’s objectives and personal needs.",
-    icon: Image3,
+    icon: Image14,
   },
   {
     id: 20,
     title: "Psychiatrist",
     description:
       "A doctor that specializes diagnosis, prevention, study, and treatment of mental disorders.",
-    icon: Image3,
+    icon: Image19,
   },
   {
     id: 21,
     title: "Dentist",
     description: "A doctor who specialize in oral health (teeth, mouth, gums).",
-    icon: Image3,
+    icon: Image20,
   },
   {
     id: 22,
     title: "Radiologist",
     description:
       "A doctor who  specialize in diagnosing and treating disease and injury x-rays, computed tomography (CT), magnetic resonance imaging (MRI), positron emission tomography (PET), fusion imaging, and ultrasound.",
-    icon: Image3,
+    icon: Image18,
   },
   {
     id: 23,
     title: "Colo Rectal Specialist",
     description:
       "A specialist focused  in the diagnosis and treatment of diseases of the colon, rectum and anus. ",
-    icon: Image3,
+    icon: Image17,
   },
   {
     id: 24,
     title: "ENT Specialist",
     description:
       "A specialist that can treat hearing, swallowing and speech, breathing and sleep issues, allergies and sinuses, head and neck, skin disorders",
-    icon: Image3,
+    icon: Image16,
   },
-  // {
-  //   id: 6,
-  //   title: "",
-  //   description: "",
-  //   icon: Image3,
-  // },
 ];

@@ -22,7 +22,9 @@ const FaqCard: React.FC<FaqProps> = ({
       }`}
     >
       <div
-        className="flex justify-between p-5 items-center cursor-pointer relative before:content-[''] before:absolute before:left-0 before:h-5 before:w-1 before:rounded-2xl before:bg-primary"
+        className={`${
+          open ? "text-accent" : "text-primary"
+        } flex justify-between p-5 items-center cursor-pointer relative before:content-[''] before:absolute before:left-0 before:h-5 before:w-1 before:rounded-2xl before:bg-primary`}
         onClick={() => setOpen(!open)}
       >
         <h4 className="m-0 text-lg font-semibold">{FaqTitle}</h4>
@@ -34,7 +36,7 @@ const FaqCard: React.FC<FaqProps> = ({
       </div>
       {open && (
         <div className="w-full text-primary px-5 pb-4">
-          <p className="text-base font-normal">{FaqContent}</p>
+          <p className="text-base font-medium">{FaqContent}</p>
           {children}
         </div>
       )}

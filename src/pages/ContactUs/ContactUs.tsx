@@ -10,12 +10,15 @@ import { socialMedia } from "./../../constants/socialMedia";
 import ContactForm from "./../../components/ContactForm/ContactForm";
 import CopyRight from "./../../components/Footer/CopyRight";
 import SocialHandles from "./../../components/SocialHandles/SocialHandles";
+import map from "@assets/map.png";
+import { Link } from "react-router-dom";
 
 const ContactUs: React.FunctionComponent = () => {
   return (
     <>
       <div className="min-h-screen p-14 flex relative bg-header bg-cover items-center">
         <div className="flex-grow align-bottom px-14">
+          <img src={map} alt="MedAtlas Map" className="w-full h-auto" />
           <div className=" bg-primary p-9 text-white rounded">
             <h4 className="font-semibold text-3xl text-center mb-8">
               Contact Us
@@ -54,8 +57,9 @@ const ContactUs: React.FunctionComponent = () => {
             <SocialHandles />
           </div>
         </div>
-        <div
-          className="
+        <div className="w-80  md:w-128 flex flex-col item-center justify-center">
+          <div
+            className="
         w-80
         p-5
         bg-white
@@ -68,9 +72,26 @@ const ContactUs: React.FunctionComponent = () => {
         shadow-md
         md:w-128
       "
-        >
-          <img src={logo} className="w-52"></img>
-          <ContactForm />
+          >
+            <img src={logo} className="w-52"></img>
+            <h4 className="text-primary text-2xl font-semibold text-center">
+              Send Us A Message
+            </h4>
+            <ContactForm />
+          </div>
+          <div className="w-full text-center py-10 flex justify-center mt-6 px-3">
+            <div className="flex items-center shadow-md select-none w-full">
+              <div className="border border-accent font-bold text-base text-accent w-1/2 h-12 rounded-l-md flex items-center justify-center">
+                MedAtlas Help Center?
+              </div>
+              <Link
+                to="/dashboard/help-center"
+                className="flex items-center justify-center font-bold text-base  w-1/2 h-12 bg-primary text-white rounded-r-md cursor-pointer"
+              >
+                Click Here
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
       <div className="w-full h-1 bg-primary"></div>

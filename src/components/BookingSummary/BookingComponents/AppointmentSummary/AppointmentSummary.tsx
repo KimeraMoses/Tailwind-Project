@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "../../../../assets/team/margret.png";
 import Avatar from "@mui/material/Avatar";
+import { FileUpload } from "../BookingForm/BookingForm";
+import { DecoratedButton } from "@components";
 
 const AppointmentSummary: React.FunctionComponent = () => {
   return (
@@ -48,6 +50,25 @@ const AppointmentSummary: React.FunctionComponent = () => {
         <div className="flex w-full items-center">
           <div className="font-semibold mr-1 w-1/2">Condition Description:</div>
           <div className="font-medium w-1/2">We can't have kids</div>
+        </div>
+        <FileUpload isPreview={true} />
+
+        <div className="flex my-3">
+          <div className="border border-grayPrimary px-4 py-2 rounded-md text-primary font-medium mr-4">
+            25/05/2022
+          </div>
+          <div className="border border-grayPrimary px-4 py-2 rounded-md text-primary font-medium">
+            EAT: 10:00 am - 11:00 am
+          </div>
+        </div>
+        <div className="flex justify-end my-5">
+          <DecoratedButton
+            color="accent"
+            hoverColor="primary"
+            className="rounded-lg"
+          >
+            Confirm
+          </DecoratedButton>
         </div>
       </div>
     </div>

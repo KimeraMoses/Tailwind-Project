@@ -51,7 +51,7 @@ const ContactForm: React.FunctionComponent = () => {
           placeholder="Type here"
         ></textarea>
       </div>
-      <div className="flex justify-end my-4">
+      <div className="flex justify-center my-4">
         <DecoratedButton
           disabled={!formRef.current?.checkValidity()}
           color="accent"

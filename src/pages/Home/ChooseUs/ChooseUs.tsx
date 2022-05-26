@@ -25,7 +25,7 @@ const ListItem: React.FC<{ itemName: string }> = ({ itemName }) => {
 
 const ChooseUs: React.FunctionComponent = () => {
   return (
-    <div className="w-full p-5 py-5 shadow-md mb-5">
+    <div className="w-full p-5 py-5 mb-5">
       <div className="flex items-center justify-between px-32">
         <div className="w-1/2 px-12">
           <h2 className="text-primary text-4xl font-bold mb-2">
@@ -44,11 +44,6 @@ const ChooseUs: React.FunctionComponent = () => {
             <ListItem itemName="Easier than Traveling" />
             <ListItem itemName="All in one place" />
           </ul>
-          <div className="flex justify-center my-3">
-            <button className="py-2 px-6 border-none rounded-md text-white font-medium text-2xl transition bg-accent hover:bg-primary">
-              Book Appointment
-            </button>
-          </div>
         </div>
         <div className="w-1/2 flex justify-end">
           <img

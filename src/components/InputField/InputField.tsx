@@ -17,6 +17,7 @@ interface RadioFieldProps {
   value?: any;
   id: any;
   onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  className?: string;
 }
 
 export const InputField: React.FC<InputFieldProps> = ({
@@ -76,9 +77,10 @@ export const CheckBoxInput: React.FC<RadioFieldProps> = ({
   id,
   onChange,
   name,
+  className,
 }) => {
   return (
-    <div className="form-check">
+    <div className={`form-check ${className}`}>
       <input
         className="form-check-input h-4 w-4 border border-gray rounded-sm bg-white checked:bg-primary checked:border-white focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
         type="checkbox"
