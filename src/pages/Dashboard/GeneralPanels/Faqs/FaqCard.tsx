@@ -3,11 +3,17 @@ import { MdOutlineMinimize, MdAdd } from "react-icons/md";
 
 interface FaqProps {
   FaqTitle: string;
-  FaqContent: string;
-  FaqOpen: any;
+  FaqContent?: string;
+  FaqOpen?: any;
+  children?: any;
 }
 
-const FaqCard: React.FC<FaqProps> = ({ FaqTitle, FaqContent, FaqOpen }) => {
+const FaqCard: React.FC<FaqProps> = ({
+  FaqTitle,
+  FaqContent,
+  FaqOpen,
+  children,
+}) => {
   const [open, setOpen] = useState(FaqOpen);
   return (
     <div
@@ -29,6 +35,7 @@ const FaqCard: React.FC<FaqProps> = ({ FaqTitle, FaqContent, FaqOpen }) => {
       {open && (
         <div className="w-full text-primary px-5 pb-4">
           <p className="text-base font-normal">{FaqContent}</p>
+          {children}
         </div>
       )}
     </div>

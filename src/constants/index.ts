@@ -9,3 +9,4 @@ export * from "./paymentModes";
 export * from "./tableConstant";
 export * from "./month";
 export * from "./services";
+export * from "./faqs";

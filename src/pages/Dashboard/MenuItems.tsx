@@ -1,4 +1,4 @@
-import { MdOutlineMenu } from "react-icons/md";
+import { MdAddCircleOutline, MdOutlineMenu } from "react-icons/md";
 import { BiSearch } from "react-icons/bi";
 import { IoBagSharp } from "react-icons/io5";
 import { TiMessages } from "react-icons/ti";
@@ -38,6 +38,11 @@ export const DoctorsMenuItems = [
     name: "News Feeds",
     slug: "news-feeds",
     icon: <MdOutlineMenu className="text-2xl mr-2" />,
+  },
+  {
+    name: "New Blog Post",
+    slug: "new-blog-post",
+    icon: <MdAddCircleOutline className="text-2xl mr-2" />,
   },
   {
     name: "Appointments",
