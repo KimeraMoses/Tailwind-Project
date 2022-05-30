@@ -9,7 +9,7 @@ import DashboardLayout from "./../pages/Dashboard/DashboardLayout";
 import SearchDoctors from "./../pages/Dashboard/PatientsMenuPanels/SearchDoctors";
 import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
 import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
-import Messages from "./../pages/Dashboard/GeneralPanels/Messages";
+// import Messages from "./../pages/Dashboard/GeneralPanels/Messages";
 import {
   NotFound,
   Home,
@@ -37,6 +37,7 @@ import Service from "./../pages/ServicePage/Service";
 import ContactUs from "./../pages/ContactUs/ContactUs";
 import NewsFeeds from "./../pages/Dashboard/GeneralPanels/NewsFeeds";
 import NewBlogPost from "./../pages/Dashboard/DoctorsMenuPanels/NewBlogPost/NewBlogPost";
+import ComingSoon from "src/pages/Dashboard/GeneralPanels/ComingSoon";
 
 export const AppRoutes = () => {
   const userRole = useSelector((state: any) => state.account.userRole);
@@ -60,6 +61,8 @@ export const AppRoutes = () => {
         <Route path="otp" element={<OtpForm />} />
         <Route path="payment-success" element={<PaymentStatus type="fail" />} />
       </Route>
+
+      <Route path="help-center" element={<HelpCenter />} />
       <Route path="/dashboard" element={<DashboardLayout />}>
         <Route path="news-feeds" element={<NewsFeeds />} />
         <Route path="new-blog-post" element={<NewBlogPost />} />
@@ -69,9 +72,12 @@ export const AppRoutes = () => {
           path="patients-appointments"
           element={<PatientsAppointments />}
         />
-        <Route path="messages" element={<Messages />} />
+        <Route path="messages" element={<ComingSoon title="Messages" />} />
+        <Route
+          path="health-finacial-scheme"
+          element={<ComingSoon title="MedAtlas Health Financial Scheme" />}
+        />
         <Route path="scheduling" element={<Scheduling />} />
-        <Route path="help-center" element={<HelpCenter />} />
         <Route
           path="profile-settings"
           element={isPatient ? <ProfileSetting /> : <ProfileSettings />}
