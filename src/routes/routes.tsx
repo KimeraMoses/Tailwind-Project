@@ -47,9 +47,9 @@ export const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/privacy-policy" element={<Privacy />} />
       <Route path="/terms-conditions" element={<TermsConditions />} />
-      <Route path="/about-us" element={<AboutUs />}></Route>
-      <Route path="/services" element={<Service />}></Route>
-      <Route path="/contact-us" element={<ContactUs />}></Route>
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/services" element={<Service />} />
+      <Route path="/contact-us" element={<ContactUs />} />
       <Route
         path="/appointment"
         element={<Navigate to="/appointment/booking" />}
@@ -84,7 +84,7 @@ export const AppRoutes = () => {
             <Login />
           </LoggedInRedirect>
         }
-      ></Route>
+      />
       <Route
         path="/register"
         element={
@@ -92,9 +92,9 @@ export const AppRoutes = () => {
             <Register />
           </LoggedInRedirect>
         }
-      ></Route>
-      <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-      <Route path="/reset-password" element={<ResetPassword />}></Route>
+      />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route
         path="/doctors"
         element={
@@ -102,7 +102,7 @@ export const AppRoutes = () => {
             <DoctorList />
           </AutheticatedView>
         }
-      ></Route>
+      />
       <Route
         path="/doctor/:id/book-appointment"
         element={
@@ -110,7 +110,7 @@ export const AppRoutes = () => {
             <BookAppointment />
           </AutheticatedView>
         }
-      ></Route>
+      />
       <Route
         path="/appointments"
         element={
@@ -118,7 +118,7 @@ export const AppRoutes = () => {
             <Appointments />
           </AutheticatedView>
         }
-      ></Route>
+      />
       <Route
         path="/appointment/:id"
         element={
@@ -126,7 +126,7 @@ export const AppRoutes = () => {
             <AppointmentDetail />
           </AutheticatedView>
         }
-      ></Route>
+      />
       <Route
         path="/account"
         element={
@@ -134,7 +134,7 @@ export const AppRoutes = () => {
             <Profile />
           </AutheticatedView>
         }
-      ></Route>
+      />
       <Route
         path="/schedule"
         element={
@@ -142,10 +142,10 @@ export const AppRoutes = () => {
             <CreateSchedule />
           </AutheticatedView>
         }
-      ></Route>
+      />
 
       {/* Not found route */}
-      <Route path="/*" element={<NotFound />}></Route>
+      <Route path="/*" element={<NotFound />} />
     </Routes>
   );
 };

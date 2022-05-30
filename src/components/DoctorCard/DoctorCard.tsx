@@ -1,5 +1,5 @@
 import React from "react";
-import { MdLocationOn } from "react-icons/md";
+import { MdLocationOn, MdVerified } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 
@@ -24,12 +24,18 @@ const DoctorCard: React.FC<DoctorProps> = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div className="bg-white px-3 pt-1 pb-5 shadow-sm w-80 rounded-md">
+    <div className="bg-white px-3 pt-1 pb-5 shadow-sm rounded-md">
       <div className="flex justify-center">
         <img src={image} alt="" className="w-48 h-48 shadow-md rounded-md" />
       </div>
-      <div className="font-Poppins pt-4">
-        <h2 className="font-bold text-primary text-xl">Dr. {name}</h2>
+      <div className="font-body pt-4">
+        <h2 className="font-bold text-primary text-xl mb-2 flex items-center">
+          Dr. {name}
+          <MdVerified
+            className="text-accent ml-1"
+            title="Doctors Document Verified"
+          />
+        </h2>
         <p className="text-accent text-sm font-medium">{speciality}</p>
         <div className="w-full py-1">
           <Rating name="read-only" value={rating} precision={0.5} readOnly />

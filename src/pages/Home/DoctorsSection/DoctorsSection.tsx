@@ -66,13 +66,14 @@ const DoctorsSection: React.FunctionComponent = () => {
         Book Our Best Doctors
       </h2>
 
-      <div className="flex justify-center  my-5 select-none mx-40">
+      <div className="flex justify-center  my-5 select-none mx-32">
         <Swiper
           navigation={true}
           modules={[Navigation]}
-          spaceBetween={10}
+          spaceBetween={30}
           slidesPerView={3}
-          className="container flex justify-center mx-40"
+          className="w-auto"
+          style={{ padding: "0 60px" }}
         >
           {DoctorsList.map((doctor) => {
             return (
