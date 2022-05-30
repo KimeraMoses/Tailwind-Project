@@ -2,14 +2,13 @@ import React from "react";
 import welcomeBunner from "../../../assets/welcomebunner.png";
 import { Link } from "react-router-dom";
 import image from "../../../assets/bkgrd-authflow.jpeg";
-import { FaClock } from "react-icons/fa";
 import FeatureCard from "../../../components/FeatureCard/FeatureCard";
 import NewsCard from "src/components/NewsCard/NewsCard";
 
 const NewsFeeds: React.FunctionComponent = () => {
   return (
     <div className="w-full p-3 rounded font-body">
-      <div className="px-40 flex items-center justify-center mx-20">
+      <div className="flex items-center justify-center">
         <img
           src={welcomeBunner}
           alt="Welcome to MedAtlas"

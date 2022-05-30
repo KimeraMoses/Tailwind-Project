@@ -85,7 +85,7 @@ const ContactUs: React.FunctionComponent = () => {
                 MedAtlas Help Center?
               </div>
               <Link
-                to="/dashboard/help-center"
+                to="/help-center"
                 className="flex items-center justify-center font-bold text-base  w-1/2 h-12 bg-primary text-white rounded-r-md cursor-pointer"
               >
                 Click Here

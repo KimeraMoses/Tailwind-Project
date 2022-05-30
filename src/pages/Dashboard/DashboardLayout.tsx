@@ -1,7 +1,7 @@
 import React from "react";
 import MHFS from "../../assets/MHFS.png";
 import { MdOutlineHelpOutline } from "react-icons/md";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { DoctorsMenuItems, PatientsMenuItems } from "./MenuItems";
 import { useSelector } from "react-redux";
 
@@ -55,14 +55,17 @@ const DashboardLayout: React.FunctionComponent = () => {
           </div>
           <div className="flex flex-col justify-center items-center mt-4 mx-auto text-center">
             <img src={MHFS} alt="MedAtlas Health Finance Scheme" className="" />
-            <h4 className="text-black text-center select-none text-base hover:text-accentHover cursor-pointer">
+            <Link
+              to="/dashboard/health-finacial-scheme"
+              className="text-black text-center select-none text-base hover:text-accentHover cursor-pointer"
+            >
               MedAtlas Health <br />
               Finance Scheme
-            </h4>
+            </Link>
           </div>
           <div className="text-center mx-5 -mt-5 mb-3 select-none">
             <NavLink
-              to="/dashboard/help-center"
+              to="/help-center"
               className={({ isActive }) =>
                 `flex items-center justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize ${
                   isActive
