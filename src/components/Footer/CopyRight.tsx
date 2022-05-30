@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SocialHandles from "./../SocialHandles/SocialHandles";
 
 export const getCurrentYear = new Date().getFullYear();
@@ -7,6 +7,8 @@ export const getCurrentYear = new Date().getFullYear();
 const CopyRight: React.FC<{ isContactPage?: boolean }> = ({
   isContactPage,
 }) => {
+  const style = `hover:text-accent`;
+
   return (
     <div
       className={`w-full bg-primary flex flex-col md:flex-row gap-4 md:gap-0 items-center justify-center md:justify-between text-white p-5 px-8 ${
@@ -24,21 +26,23 @@ const CopyRight: React.FC<{ isContactPage?: boolean }> = ({
         </div>
       )}
       <div className="flex gap-4 font-light">
-        <Link
-          target="_blank"
+        <NavLink
           to="/terms-conditions"
-          className="transition hover:text-accent"
+          className={({ isActive }) =>
+            style + (isActive ? ` text-accent font-medium` : " text-white")
+          }
         >
           Terms and Conditions
-        </Link>
+        </NavLink>
         |
-        <Link
-          target="_blank"
+        <NavLink
           to="/privacy-policy"
-          className=" transition hover:text-accent"
+          className={({ isActive }) =>
+            style + (isActive ? ` text-accent font-medium` : " text-white")
+          }
         >
           Policy
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

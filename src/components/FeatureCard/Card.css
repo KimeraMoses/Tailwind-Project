@@ -1,3 +1,10 @@
 .hero_card::after {
   clip-path: polygon(0 0, 0 100%, 50% 50%);
+  background-color: #225987;
+}
+.hero_card.hero_card_primary::after {
+  background-color: #225987;
+}
+.hero_card.hero_card_accent::after {
+  background-color: #f26e50;
 }

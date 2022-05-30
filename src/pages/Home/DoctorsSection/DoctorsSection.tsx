@@ -3,6 +3,7 @@ import doctorsImage from "../../../assets/doctor-01.png";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import DoctorCard from "src/components/DoctorCard/DoctorCard";
 import { Swiper, SwiperSlide } from "swiper/react";
+// import { useSearchDoctors } from "@hooks";
 
 export const DoctorsList = [
   {
@@ -58,7 +59,6 @@ export const DoctorsList = [
 const DoctorsSection: React.FunctionComponent = () => {
   // const doctorsList = useSearchDoctors({});
   // console.log("doctors", doctorsList);
-  // const swiper = useSwiper();
 
   return (
     <div className="w-full my-6 mb-10">
@@ -72,8 +72,6 @@ const DoctorsSection: React.FunctionComponent = () => {
           modules={[Navigation]}
           spaceBetween={10}
           slidesPerView={3}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
           className="container flex justify-center mx-40"
         >
           {DoctorsList.map((doctor) => {

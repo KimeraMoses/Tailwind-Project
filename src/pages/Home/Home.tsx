@@ -157,28 +157,28 @@ export const Home: React.FC = () => {
             <FeatureCard feature="Secure Payments" color="primary" />
             <FeatureCard feature="Certified Specialists" color="accent" />
             <FeatureCard feature="Online or In-person" color="primary" />
-            <FeatureCard feature="Secure and Confidential" color="primary" />
+            <FeatureCard feature="Secure and Confidential" color="accent" />
           </div>
         </div>
       </header>
 
-      <div className="p-6 mt-12 md:mt-10 overflow-hidden ">
-        <h1 className=" text-4xl  text-center text-primary font-[500]">
+      <div className="p-6 mt-12 md:mt-10 overflow-hidden mx-20">
+        <h1 className=" text-4xl  text-center text-primary font-semibold">
           Specialities
         </h1>
         <Swiper
-          slidesPerView={4}
-          spaceBetween={40}
+          slidesPerView={6}
+          spaceBetween={20}
           pagination={{
             clickable: true,
           }}
-          className="mt-14 h-60 w-142"
+          className="mt-14 h-60 w-auto"
         >
           {iconsCarousel.map((icon, index) => (
             <SwiperSlide
               key={index}
               className="cursor-pointer"
-              onClick={() => navigate(`/${icon.icon.props.icon}`)}
+              // onClick={() => navigate(`/${icon.icon.props.icon}`)}
             >
               {icon.icon}
             </SwiperSlide>

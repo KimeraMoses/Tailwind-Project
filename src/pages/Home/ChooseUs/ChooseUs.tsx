@@ -31,7 +31,7 @@ const ChooseUs: React.FunctionComponent = () => {
           <h2 className="text-primary text-4xl font-bold mb-2">
             Why Choose MedAtlas?
           </h2>
-          <p className="text-accent font-normal text-2xl mb-2">
+          <p className="text-accent font-medium text-2xl mb-2">
             Register and speak with specialists from the comfort of your own
             home!
           </p>
