@@ -68,7 +68,10 @@ export const Footer = () => {
               title="Register"
             />
 
-            <ListItem itemLink="/account" title="Doctor Dashboard" />
+            <ListItem
+              itemLink="/dashboard/news-feeds"
+              title="Doctor Dashboard"
+            />
           </ul>
         </section>
         {/*---------- Contact Us -------------*/}

@@ -11,14 +11,14 @@ import "swiper/css/pagination";
 // import Swiper core and required modules
 import SwiperCore, { Pagination } from "swiper";
 import { Footer, SpecialityButton } from "@components";
-import { NewsLetterSection } from "src/components/NewsLetterSection";
+// import { NewsLetterSection } from "src/components/NewsLetterSection";
 import { InputField } from "src/components/InputField";
 import { useNavigate } from "react-router-dom";
 import DropdownInputField from "src/components/DropdownInputField/DropdownInputField";
 import { useState } from "react";
-import DoctorsSection from "./DoctorsSection/DoctorsSection";
+// import DoctorsSection from "./DoctorsSection/DoctorsSection";
 import Partners from "./PartnersSection/Partners";
-import BlogSection from "./BlogSection/BlogSection";
+// import BlogSection from "./BlogSection/BlogSection";
 import ChooseUs from "./ChooseUs/ChooseUs";
 import FeatureCard from "../../components/FeatureCard/FeatureCard";
 
@@ -186,11 +186,11 @@ export const Home: React.FC = () => {
         </Swiper>
       </div>
       <ChooseUs />
-      <DoctorsSection />
-      <BlogSection />
+      {/* <DoctorsSection /> */}
+      {/* <BlogSection /> */}
       <SpecialityButton />
       <Partners />
-      <NewsLetterSection />
+      {/* <NewsLetterSection /> */}
       <Footer />
     </div>
   );
