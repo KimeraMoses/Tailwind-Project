@@ -1,6 +1,6 @@
 import doctors from "src/assets/MedAtlasDoctors.png";
 import { iconsCarousel } from "./CarouselIcon";
-import { SpecialityList, LanguageList, CountryList } from "@constants";
+import { SpecialityList } from "@constants";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -26,7 +26,6 @@ import FeatureCard from "../../components/FeatureCard/FeatureCard";
 SwiperCore.use([Pagination]);
 
 export const Home: React.FC = () => {
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [selectedType, setSelectedType] = useState("");
@@ -63,7 +62,7 @@ export const Home: React.FC = () => {
 
   const handleOnChange = (event: any) => {
     const { name, value } = event.target;
-    setValues({ ...values, [name]: event.target.value });
+    setValues({ ...values, [name]: value });
   };
 
   return (

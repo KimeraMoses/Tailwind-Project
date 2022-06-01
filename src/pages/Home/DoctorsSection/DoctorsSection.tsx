@@ -73,7 +73,7 @@ const DoctorsSection: React.FunctionComponent = () => {
           spaceBetween={30}
           slidesPerView={3}
           className="w-auto"
-          style={{ padding: "0 60px" }}
+          style={{ padding: "0 30px" }}
         >
           {DoctorsList.map((doctor) => {
             return (
