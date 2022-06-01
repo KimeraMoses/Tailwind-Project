@@ -1,6 +1,6 @@
 import doctors from "src/assets/MedAtlasDoctors.png";
 import { iconsCarousel } from "./CarouselIcon";
-import { SpecialityList, LanguageList, CountryList } from "@constants";
+import { SpecialityList } from "@constants";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,7 +13,6 @@ import SwiperCore, { Pagination } from "swiper";
 import { Footer, SpecialityButton } from "@components";
 import { NewsLetterSection } from "src/components/NewsLetterSection";
 import { InputField } from "src/components/InputField";
-import { useNavigate } from "react-router-dom";
 import DropdownInputField from "src/components/DropdownInputField/DropdownInputField";
 import { useState } from "react";
 import DoctorsSection from "./DoctorsSection/DoctorsSection";
@@ -26,7 +25,6 @@ import FeatureCard from "../../components/FeatureCard/FeatureCard";
 SwiperCore.use([Pagination]);
 
 export const Home: React.FC = () => {
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [selectedType, setSelectedType] = useState("");
@@ -175,11 +173,7 @@ export const Home: React.FC = () => {
           className="mt-14 h-60 w-auto"
         >
           {iconsCarousel.map((icon, index) => (
-            <SwiperSlide
-              key={index}
-              className="cursor-pointer"
-              // onClick={() => navigate(`/${icon.icon.props.icon}`)}
-            >
+            <SwiperSlide key={index} className="cursor-pointer">
               {icon.icon}
             </SwiperSlide>
           ))}

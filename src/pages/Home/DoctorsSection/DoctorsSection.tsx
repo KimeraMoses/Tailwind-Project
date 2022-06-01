@@ -70,10 +70,10 @@ const DoctorsSection: React.FunctionComponent = () => {
         <Swiper
           navigation={true}
           modules={[Navigation]}
-          spaceBetween={30}
+          spaceBetween={40}
           slidesPerView={3}
           className="w-auto"
-          style={{ padding: "0 60px" }}
+          style={{ padding: "0 30px" }}
         >
           {DoctorsList.map((doctor) => {
             return (

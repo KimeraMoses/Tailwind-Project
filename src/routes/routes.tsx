@@ -37,7 +37,8 @@ import Service from "./../pages/ServicePage/Service";
 import ContactUs from "./../pages/ContactUs/ContactUs";
 import NewsFeeds from "./../pages/Dashboard/GeneralPanels/NewsFeeds";
 import NewBlogPost from "./../pages/Dashboard/DoctorsMenuPanels/NewBlogPost/NewBlogPost";
-import ComingSoon from "src/pages/Dashboard/GeneralPanels/ComingSoon";
+import Messages from "src/pages/Dashboard/GeneralPanels/Messages";
+import ComingSoon from "./../pages/Dashboard/GeneralPanels/ComingSoon";
 
 export const AppRoutes = () => {
   const userRole = useSelector((state: any) => state.account.userRole);
@@ -72,7 +73,7 @@ export const AppRoutes = () => {
           path="patients-appointments"
           element={<PatientsAppointments />}
         />
-        <Route path="messages" element={<ComingSoon title="Messages" />} />
+        <Route path="messages" element={<Messages />} />
         <Route
           path="health-finacial-scheme"
           element={<ComingSoon title="MedAtlas Health Financial Scheme" />}
