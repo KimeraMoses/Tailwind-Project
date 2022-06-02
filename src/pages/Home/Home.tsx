@@ -68,7 +68,7 @@ export const Home: React.FC = () => {
     <div className="bg-background">
       <header className=" bg-header bg-cover">
         <div className="w-full flex justify-center items-center px-20">
-          <div className="self-center w-2/3 flex h-full flex-col justify-endd rounded-b-md px-20">
+          <div className="self-center w-2/3 flex h-full flex-col justify-endd rounded-b-md px-10">
             <img src={doctors} alt="" className="w-full h-auto" />
             <div className="bg-[#F7FAFE] p-4 rounded-md -mt-40 w-auto">
               <p className="text-primary font-bold text-3xl mb-2">

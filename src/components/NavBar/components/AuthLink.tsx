@@ -10,8 +10,6 @@ export const AuthLink = ({ path, children }: any) => {
   px-6 
   py-2 
   border 
-  border-2
-  border-solid
   border-primary
   text-primary
   font-semibold

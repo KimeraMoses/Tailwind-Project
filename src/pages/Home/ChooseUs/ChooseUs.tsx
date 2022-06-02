@@ -26,7 +26,7 @@ const ListItem: React.FC<{ itemName: string }> = ({ itemName }) => {
 const ChooseUs: React.FunctionComponent = () => {
   return (
     <div className="w-full p-5 py-5 mb-5">
-      <div className="flex items-center justify-between px-32">
+      <div className="flex items-center justify-between px-20">
         <div className="w-1/2 px-12">
           <h2 className="text-primary text-4xl font-bold mb-2">
             Why Choose MedAtlas?
