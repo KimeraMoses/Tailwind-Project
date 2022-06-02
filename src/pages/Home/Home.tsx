@@ -142,7 +142,7 @@ export const Home: React.FC = () => {
                   />
                 </div>
                 <div className="mt-8">
-                  <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4  transition bg-accent hover:bg-primary">
+                  <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4 py-2  transition bg-accent hover:bg-primary">
                     Book Doctor Now
                   </button>
                 </div>
