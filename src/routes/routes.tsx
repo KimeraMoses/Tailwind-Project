@@ -5,10 +5,10 @@ import BookingForm from "../components/BookingSummary/BookingComponents/BookingF
 import PaymentForm from "./../components/BookingSummary/BookingComponents/PaymentForm/PaymentForm";
 import OtpForm from "./../components/BookingSummary/BookingComponents/PaymentForm/OtpForm";
 import PaymentStatus from "./../components/BookingSummary/BookingComponents/PaymentForm/PaymentStatus";
-import DashboardLayout from "./../pages/Dashboard/DashboardLayout";
-import SearchDoctors from "./../pages/Dashboard/PatientsMenuPanels/SearchDoctors";
-import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
-import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
+// import DashboardLayout from "./../pages/Dashboard/DashboardLayout";
+// import SearchDoctors from "./../pages/Dashboard/PatientsMenuPanels/SearchDoctors";
+// import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
+// import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
 // import Messages from "./../pages/Dashboard/GeneralPanels/Messages";
 import {
   NotFound,
@@ -28,16 +28,16 @@ import {
   TermsConditions,
   AppointmentBooking,
 } from "../pages";
-import ProfileSetting from "./../pages/Dashboard/PatientsMenuPanels/ProfileSetting";
+// import ProfileSetting from "./../pages/Dashboard/PatientsMenuPanels/ProfileSetting";
 import { useSelector } from "react-redux";
-import ProfileSettings from "src/pages/Dashboard/DoctorsMenuPanels/ProfileSettings/ProfileSettings";
+// import ProfileSettings from "src/pages/Dashboard/DoctorsMenuPanels/ProfileSettings/ProfileSettings";
 import HelpCenter from "./../pages/Dashboard/GeneralPanels/HelpCenter";
-import Scheduling from "./../pages/Dashboard/DoctorsMenuPanels/AvailabilitySettings/Scheduling";
+// import Scheduling from "./../pages/Dashboard/DoctorsMenuPanels/AvailabilitySettings/Scheduling";
 import Service from "./../pages/ServicePage/Service";
 import ContactUs from "./../pages/ContactUs/ContactUs";
-import NewsFeeds from "./../pages/Dashboard/GeneralPanels/NewsFeeds";
-import NewBlogPost from "./../pages/Dashboard/DoctorsMenuPanels/NewBlogPost/NewBlogPost";
-import ComingSoon from "src/pages/Dashboard/GeneralPanels/ComingSoon";
+// import NewsFeeds from "./../pages/Dashboard/GeneralPanels/NewsFeeds";
+// import NewBlogPost from "./../pages/Dashboard/DoctorsMenuPanels/NewBlogPost/NewBlogPost";
+// import ComingSoon from "src/pages/Dashboard/GeneralPanels/ComingSoon";
 
 export const AppRoutes = () => {
   const userRole = useSelector((state: any) => state.account.userRole);
@@ -63,7 +63,7 @@ export const AppRoutes = () => {
       </Route>
 
       <Route path="help-center" element={<HelpCenter />} />
-      <Route path="/dashboard" element={<DashboardLayout />}>
+      {/* <Route path="/dashboard" element={<DashboardLayout />}>
         <Route path="news-feeds" element={<NewsFeeds />} />
         <Route path="new-blog-post" element={<NewBlogPost />} />
         <Route path="search-doctors" element={<SearchDoctors />} />
@@ -82,7 +82,7 @@ export const AppRoutes = () => {
           path="profile-settings"
           element={isPatient ? <ProfileSetting /> : <ProfileSettings />}
         />
-      </Route>
+      </Route> */}
       <Route
         path="/login"
         element={
