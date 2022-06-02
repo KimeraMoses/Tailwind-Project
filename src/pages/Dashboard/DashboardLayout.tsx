@@ -63,7 +63,7 @@ const DashboardLayout: React.FunctionComponent = () => {
               Finance Scheme
             </Link>
           </div>
-          <div className="text-center mx-5 -mt-5 mb-3 select-none">
+          <div className="text-center mx-5 mb-1 select-none">
             <NavLink
               to="/help-center"
               className={({ isActive }) =>

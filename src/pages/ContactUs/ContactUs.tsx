@@ -81,7 +81,7 @@ const ContactUs: React.FunctionComponent = () => {
           </div>
           <div className="w-full text-center py-10 flex justify-center mt-6 px-3">
             <div className="flex items-center shadow-md select-none w-full">
-              <div className="border border-accent font-bold text-base text-accent w-1/2 h-12 rounded-l-md flex items-center justify-center">
+              <div className="bg-white border border-accent font-bold text-base text-accent w-1/2 h-12 rounded-l-md flex items-center justify-center">
                 MedAtlas Help Center?
               </div>
               <Link

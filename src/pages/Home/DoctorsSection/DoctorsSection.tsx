@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import doctorsImage from "../../../assets/doctor-01.png";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation } from "swiper";
 import DoctorCard from "src/components/DoctorCard/DoctorCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { useSearchDoctors } from "@hooks";
@@ -79,7 +79,7 @@ const DoctorsSection: React.FunctionComponent = () => {
   return (
     <div className="w-full my-6 mb-10">
       <h2 className="text-4xl text-accent capitalize text-center mb-3 font-semibold font-Poppins select-none">
-        Book Our Best Doctors
+        Book Our Best Specialists
       </h2>
 
       <div className="flex justify-center  my-5 select-none mx-32">

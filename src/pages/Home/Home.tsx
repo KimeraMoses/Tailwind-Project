@@ -9,15 +9,15 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import Swiper core and required modules
-import SwiperCore, { Pagination } from "swiper";
+import SwiperCore, { Pagination, Navigation } from "swiper";
 import { Footer, SpecialityButton } from "@components";
-// import { NewsLetterSection } from "src/components/NewsLetterSection";
+import { NewsLetterSection } from "src/components/NewsLetterSection";
 import { InputField } from "src/components/InputField";
 import DropdownInputField from "src/components/DropdownInputField/DropdownInputField";
 import { useState } from "react";
-// import DoctorsSection from "./DoctorsSection/DoctorsSection";
+import DoctorsSection from "./DoctorsSection/DoctorsSection";
 import Partners from "./PartnersSection/Partners";
-// import BlogSection from "./BlogSection/BlogSection";
+import BlogSection from "./BlogSection/BlogSection";
 import ChooseUs from "./ChooseUs/ChooseUs";
 import FeatureCard from "../../components/FeatureCard/FeatureCard";
 
@@ -70,7 +70,7 @@ export const Home: React.FC = () => {
         <div className="w-full flex justify-center items-center px-20">
           <div className="self-center w-2/3 flex h-full flex-col justify-endd rounded-b-md px-10">
             <img src={doctors} alt="" className="w-full h-auto" />
-            <div className="bg-[#F7FAFE] p-4 rounded-md -mt-40 w-auto">
+            <div className="bg-[#F7FAFE] p-4 rounded-md -mt-52 w-auto">
               <p className="text-primary font-bold text-3xl mb-2">
                 MedAtlas makes it easy to find Licensed Specialists Doctors
                 anywhere in Africa.
@@ -82,7 +82,7 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="flex justify-end w-1/3">
-            <div className="py-10 mt-10 border bg-white border-gray rounded shadow px-10">
+            <div className="py-12 mt-10 border bg-white border-gray rounded shadow px-10">
               <div className="text-center w-full ">
                 <h1 className="text-xl text-accent font-bold capitalize mb-3">
                   Search for doctors
@@ -167,9 +167,12 @@ export const Home: React.FC = () => {
         <Swiper
           slidesPerView={6}
           spaceBetween={20}
-          pagination={{
-            clickable: true,
-          }}
+          navigation={true}
+          modules={[Navigation]}
+          // pagination={{
+          //   clickable: true,
+          // }}
+          style={{ padding: "0 20px" }}
           className="mt-14 h-60 w-auto"
         >
           {iconsCarousel.map((icon, index) => (
@@ -180,11 +183,11 @@ export const Home: React.FC = () => {
         </Swiper>
       </div>
       <ChooseUs />
-      {/* <DoctorsSection /> */}
-      {/* <BlogSection /> */}
+      <DoctorsSection />
+      <BlogSection />
       <SpecialityButton />
       <Partners />
-      {/* <NewsLetterSection /> */}
+      <NewsLetterSection />
       <Footer />
     </div>
   );

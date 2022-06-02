@@ -142,7 +142,7 @@ export const Register = () => {
   const getSignUpTitle = useCallback((accountType: enums.AccountTypes) => {
     switch (accountType) {
       case enums.AccountTypes.DOCTOR:
-        return "Doctor Registration";
+        return "Specialist Registration";
       case enums.AccountTypes.PATIENT:
         return "Patient Registration";
       case enums.AccountTypes.ADMIN:

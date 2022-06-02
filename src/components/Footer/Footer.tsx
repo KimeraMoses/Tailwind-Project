@@ -105,17 +105,6 @@ export const Footer = () => {
                 {process.env.REACT_APP_MEDATLAS_PHONE_NUMBER}
               </li>
             </a>
-            <a
-              href="https://wa.link/tvh16q"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-accent"
-            >
-              <li className="flex items-center gap-2">
-                <RiWhatsappFill />
-                +256772384551
-              </li>
-            </a>
           </ul>
         </section>
       </div>

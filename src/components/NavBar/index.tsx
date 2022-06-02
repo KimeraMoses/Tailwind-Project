@@ -93,7 +93,7 @@ const doctor = [
     icon: ChartBarIcon,
   },
   {
-    name: "See Our Doctors",
+    name: "See Our Specialists",
     href: "/doctors",
     icon: ChartBarIcon,
   },
@@ -151,7 +151,9 @@ export const NavBar = () => {
                     <NavBarComponent submenu={patient}>
                       Patients
                     </NavBarComponent>
-                    <NavBarComponent submenu={doctor}>Doctors</NavBarComponent>
+                    <NavBarComponent submenu={doctor}>
+                      Specialists
+                    </NavBarComponent>
                   </>
                 )}
                 <NavBarLink link="/contact-us">Contact Us</NavBarLink>

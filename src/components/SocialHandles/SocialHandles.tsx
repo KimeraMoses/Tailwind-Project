@@ -3,8 +3,9 @@ import { ReactComponent as Facebook } from "@assets/socialMedia/facebook.svg";
 import { ReactComponent as Instagram } from "@assets/socialMedia/instagram.svg";
 import { ReactComponent as Linkedin } from "@assets/socialMedia/linkedin.svg";
 import { ReactComponent as Twitter } from "@assets/socialMedia/twitter.svg";
+import { ReactComponent as Youtube } from "@assets/socialMedia/youtube.svg";
 import { socialMedia } from "./../../constants/socialMedia";
-import { AiOutlineYoutube } from "react-icons/ai";
+// import { AiOutlineYoutube } from "react-icons/ai";
 import { YTLink } from "@constants";
 
 const SocialHandles = () => {
@@ -49,7 +50,7 @@ const SocialHandles = () => {
         href={YTLink}
         className="transition hover:text-accent"
       >
-        <AiOutlineYoutube className="w-4 h-4 text-lg" />
+        <Youtube className="w-4 h-4" />
       </a>
     </div>
   );
