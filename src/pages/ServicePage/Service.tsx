@@ -18,7 +18,9 @@ const Service: React.FunctionComponent = () => {
   return (
     <>
       <div className="bg-background py-6 px-10">
-        <h3 className="text-primary font-semibold text-3xl mb-5">Services</h3>
+        <h3 className="text-primary font-semibold text-3xl mb-5">
+          Our Services
+        </h3>
 
         <div className="flex flex-wrap">
           {items.slice(0, visible).map((item) => {

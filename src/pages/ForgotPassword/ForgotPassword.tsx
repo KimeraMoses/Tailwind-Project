@@ -6,7 +6,6 @@ import * as enums from "@interface/enum";
 import { Link, useNavigate } from "react-router-dom";
 import { HttpApi } from "@api";
 import { InputField } from "./../../components/InputField/InputField";
-import { ResetPassword } from "./../ResetPassword/ResetPassword";
 
 export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -82,7 +81,6 @@ export const ForgotPassword = () => {
           </div>
         </form>
       </GenericView>
-      <ResetPassword />
     </>
   );
 };

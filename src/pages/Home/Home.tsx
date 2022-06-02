@@ -61,7 +61,7 @@ export const Home: React.FC = () => {
 
   const handleOnChange = (event: any) => {
     const { name, value } = event.target;
-    setValues({ ...values, [name]: event.target.value });
+    setValues({ ...values, [name]: value });
   };
 
   return (
@@ -82,12 +82,12 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="flex justify-end w-1/3">
-            <div className="pt-[76px] pb-[94px] mt-10 border bg-white border-gray rounded shadow px-10">
+            <div className="py-10 mt-10 border bg-white border-gray rounded shadow px-10">
               <div className="text-center w-full ">
-                <h1 className="text-xl text-accent font-bold capitalize ">
+                <h1 className="text-xl text-accent font-bold capitalize mb-3">
                   Search for doctors
                 </h1>
-                <h2 className="text-2xl text-primary font-semibold">
+                <h2 className="text-2xl text-primary font-semibold mb-5">
                   Book Appointments Today!
                 </h2>
               </div>
