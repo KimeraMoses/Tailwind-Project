@@ -1,14 +1,12 @@
 import { faqs } from "@constants";
 import React from "react";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import FaqCard from "./FaqCard";
 import { YTLink } from "./../../../../constants/faqs";
 
-const Faqs: React.FunctionComponent = () => {
-  const userRole = useSelector((state: any) => state.account.userRole);
-  const isPatient = userRole && userRole === "patient" ? true : false;
-
+const Faqs: React.FunctionComponent<{ isPatient: boolean }> = ({
+  isPatient,
+}) => {
   let currentFaqs = [];
   if (!isPatient) {
     currentFaqs = faqs.filter((faq) => faq.type !== "patient");
