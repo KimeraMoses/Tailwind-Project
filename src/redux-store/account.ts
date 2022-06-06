@@ -9,7 +9,9 @@ export const accountSlice = createSlice({
   } as { user: models.Account | null },
   reducers: {
     setUser: (state, action) => {
+      console.log("User",action.payload)
       state.user = action.payload;
+
     },
   },
 });

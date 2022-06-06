@@ -58,7 +58,7 @@ const DoctorsSection: React.FunctionComponent = () => {
 
   return (
     <div className="w-full my-6 mb-10">
-      <h2 className="text-4xl text-accent capitalize text-center mb-3 font-semibold font-Poppins select-none">
+      <h2 className="text-4xl text-accent capitalize text-center mb-3 font-semibold font-body select-none">
         Book Our Best Specialists
       </h2>
 
