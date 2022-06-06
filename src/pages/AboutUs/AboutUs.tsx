@@ -19,32 +19,32 @@ export const AboutUs = () => {
             <div className="w-1/2 ml-9">
               <div className="text-justify font-semibold text-primary">
                 <h3 className="text-2xl font-bold mb-3">Our Story</h3>
-                <p className="text-justify text-lg mb-4">
+                <p className="text-justify text-base mb-3">
                   MedAtlas has been born out of the challenges many individuals
                   face when looking for specialist help in Africa and other
                   underresourced contexts.
                 </p>
-                <p className="text-justify text-lg mb-4">
+                <p className="text-justify text-base mb-3">
                   When you discover that you need a specific doctor to solve
                   your health problem and often, you may not be sure where to
                   start.
                 </p>
-                <p className="text-justify text-lg mb-4">
+                <p className="text-justify text-base mb-3">
                   You think, "Where should I start?" "Who should I ask?" "Where
                   do I find this type of doctor?" “Are they certified?” and "How
                   much will it cost?"
                 </p>
 
-                <p className="text-justify text-lg mb-4">
+                <p className="text-justify text-base mb-3">
                   After over 10 years of research and personal experience with
                   similar challenges, MedAtlas is excited to introduce the
                   solution that brings peace of mind!
                 </p>
-                <p className="text-justify text-lg mb-4">
+                <p className="text-justify text-base mb-3">
                   With just a few simple clicks, speak to a certified specialist
                   doctor in the comfort of your own home.
                 </p>
-                <p className="text-justify text-lg mb-4">
+                <p className="text-justify text-base mb-3">
                   Our technology makes it easier to get timely, convenient &
                   confidential care without all the hustle. Our specialist
                   clinicians have been thoroughly checked to give you quality

@@ -72,7 +72,7 @@ export const AppRoutes = () => {
           path="patients-appointments"
           element={<PatientsAppointments />}
         />
-        <Route path="messages" element={<ComingSoon title="Messages" />} />
+        <Route path="messages" element={<Messages />} />
         <Route
           path="health-finacial-scheme"
           element={<ComingSoon title="MedAtlas Health Financial Scheme" />}

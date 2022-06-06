@@ -9,8 +9,6 @@ import Partner7 from "../../../assets/partners/7.jpg";
 import Partner8 from "../../../assets/partners/8.jpg";
 import Partner9 from "../../../assets/partners/9.jpg";
 import Partner10 from "../../../assets/partners/10.jpg";
-import { Swiper } from "swiper/react";
-import { SwiperSlide } from "swiper/react";
 
 const partnersData = [
   {
@@ -62,27 +60,15 @@ const Partners: React.FunctionComponent = () => {
         Our Partners
       </h2>
 
-      <div className="flex justify-between gap-4 flex-wrap mt-5 p-8">
-        <Swiper
-          slidesPerView={6}
-          spaceBetween={20}
-          pagination={{
-            clickable: true,
-          }}
-          className="h-48 container"
-        >
-          {partnersData.map((item) => (
-            <SwiperSlide key={item.name} className="cursor-pointer">
-              <div className="w-56 h-auto mx-4">
-                <img
-                  src={item.logo}
-                  alt={item.name}
-                  className="rounded-md w-36"
-                />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+      <div className="flex gap-8 flex-wrap mt-5 p-8 w-full">
+        {partnersData.map((item) => (
+          <img
+            src={item.logo}
+            alt={item.name}
+            className="rounded-md w-36"
+            key={item.name}
+          />
+        ))}
       </div>
     </div>
   );

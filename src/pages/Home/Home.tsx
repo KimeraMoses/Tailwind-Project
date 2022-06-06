@@ -9,16 +9,15 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import Swiper core and required modules
-import SwiperCore, { Pagination } from "swiper";
+import SwiperCore, { Pagination, Navigation } from "swiper";
 import { Footer, SpecialityButton } from "@components";
-// import { NewsLetterSection } from "src/components/NewsLetterSection";
+import { NewsLetterSection } from "src/components/NewsLetterSection";
 import { InputField } from "src/components/InputField";
-import { useNavigate } from "react-router-dom";
 import DropdownInputField from "src/components/DropdownInputField/DropdownInputField";
 import { useState } from "react";
-// import DoctorsSection from "./DoctorsSection/DoctorsSection";
+import DoctorsSection from "./DoctorsSection/DoctorsSection";
 import Partners from "./PartnersSection/Partners";
-// import BlogSection from "./BlogSection/BlogSection";
+import BlogSection from "./BlogSection/BlogSection";
 import ChooseUs from "./ChooseUs/ChooseUs";
 import FeatureCard from "../../components/FeatureCard/FeatureCard";
 
@@ -33,6 +32,7 @@ export const Home: React.FC = () => {
   const [values, setValues] = useState({
     doctorType: "",
     location: "",
+    language: "",
     email: "",
   });
 
@@ -71,7 +71,7 @@ export const Home: React.FC = () => {
         <div className="w-full flex justify-center items-center px-20">
           <div className="self-center w-2/3 flex h-full flex-col justify-endd rounded-b-md px-10">
             <img src={doctors} alt="" className="w-full h-auto" />
-            <div className="bg-[#F7FAFE] p-4 rounded-md -mt-40 w-auto">
+            <div className="bg-[#F7FAFE] p-4 rounded-md -mt-52 w-auto">
               <p className="text-primary font-bold text-3xl mb-2">
                 MedAtlas makes it easy to find Licensed Specialists Doctors
                 anywhere in Africa.
@@ -83,12 +83,12 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="flex justify-end w-1/3">
-            <div className="pt-[76px] pb-[94px] mt-10 border bg-white border-gray rounded shadow px-10">
+            <div className="py-5 mt-5 border bg-white border-gray rounded shadow px-5">
               <div className="text-center w-full ">
-                <h1 className="text-xl text-accent font-bold capitalize ">
+                <h1 className="text-xl text-accent font-bold capitalize mb-3">
                   Search for doctors
                 </h1>
-                <h2 className="text-2xl text-primary font-semibold">
+                <h2 className="text-2xl text-primary font-semibold mb-5">
                   Book Appointments Today!
                 </h2>
               </div>
@@ -128,6 +128,22 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="flex flex-col gap-2 mb-4">
                   <label
+                    htmlFor="language"
+                    className="text-primary mb-1 font-semibold"
+                  >
+                    Language
+                  </label>
+                  <InputField
+                    disabled={false}
+                    type="text"
+                    placeholder="E.g. English"
+                    name="Language"
+                    value={values.language}
+                    onChange={handleOnChange}
+                  />
+                </div>
+                <div className="flex flex-col gap-2 mb-4">
+                  <label
                     htmlFor="email"
                     className="text-primary mb-1 font-semibold"
                   >
@@ -142,8 +158,8 @@ export const Home: React.FC = () => {
                     onChange={handleOnChange}
                   />
                 </div>
-                <div className="mt-8">
-                  <button className="w-full shadow border border-gray rounded-md text-white font-medium px-4 py-2 transition bg-accent hover:bg-primary">
+                <div className="mt-8 mx-5">
+                  <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4 py-2  transition bg-accent hover:bg-primary">
                     Book Doctor Now
                   </button>
                 </div>
@@ -168,28 +184,24 @@ export const Home: React.FC = () => {
         <Swiper
           slidesPerView={6}
           spaceBetween={20}
-          pagination={{
-            clickable: true,
-          }}
+          navigation={true}
+          modules={[Navigation]}
+          style={{ padding: "0 20px" }}
           className="mt-14 h-60 w-auto"
         >
           {iconsCarousel.map((icon, index) => (
-            <SwiperSlide
-              key={index}
-              className="cursor-pointer"
-              // onClick={() => navigate(`/${icon.icon.props.icon}`)}
-            >
+            <SwiperSlide key={index} className="cursor-pointer">
               {icon.icon}
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
       <ChooseUs />
-      {/* <DoctorsSection /> */}
+      <DoctorsSection />
       {/* <BlogSection /> */}
       <SpecialityButton />
       <Partners />
-      {/* <NewsLetterSection /> */}
+      <NewsLetterSection />
       <Footer />
     </div>
   );

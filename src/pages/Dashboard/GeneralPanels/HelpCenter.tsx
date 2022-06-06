@@ -7,6 +7,7 @@ import { Footer } from "./../../../components/Footer/Footer";
 import { NewsLetterSection } from "./../../../components/NewsLetterSection/NewsLetterSection";
 
 const HelpCenter = () => {
+  const [isPatient, setIsPatient] = useState(true);
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -15,7 +16,7 @@ const HelpCenter = () => {
   });
   const handleOnChange = (event: any) => {
     const { name, value } = event.target;
-    setValues({ ...values, [name]: event.target.value });
+    setValues({ ...values, [name]: value });
   };
   return (
     <>
@@ -29,7 +30,32 @@ const HelpCenter = () => {
             <h4 className="text-primary font-semibold text-lg">
               Frequently Asked Questions (FAQs)
             </h4>
-            <Faqs />
+
+            <div className="flex items-center justify-center text-white py-5">
+              <div className="bg-primary p-1 rounded-[30px] flex items-center shadow-md select-none">
+                <div
+                  onClick={() => setIsPatient(true)}
+                  className={`py-[4px] rounded-[30px] cursor-pointer ${
+                    isPatient
+                      ? "font-bold px-[10px] bg-accent shadow-sm"
+                      : "font-semibold px-[14px]"
+                  }`}
+                >
+                  Patients Questions
+                </div>
+                <div
+                  onClick={() => setIsPatient(false)}
+                  className={`py-[4px] rounded-[30px] cursor-pointer ${
+                    !isPatient
+                      ? "font-bold px-[10px] bg-accent shadow-sm"
+                      : "font-semibold px-[14px]"
+                  }`}
+                >
+                  Doctors Questions
+                </div>
+              </div>
+            </div>
+            <Faqs isPatient={isPatient} />
           </div>
           <div className="w-1/3">
             <div className="my-3 rounded-md w-full shadow-md">

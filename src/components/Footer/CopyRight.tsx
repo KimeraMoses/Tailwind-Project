@@ -27,6 +27,15 @@ const CopyRight: React.FC<{ isContactPage?: boolean }> = ({
       )}
       <div className="flex gap-4 font-light">
         <NavLink
+          to="/help-center"
+          className={({ isActive }) =>
+            style + (isActive ? ` text-accent font-medium` : " text-white")
+          }
+        >
+          Faqs
+        </NavLink>
+        |
+        <NavLink
           to="/terms-conditions"
           className={({ isActive }) =>
             style + (isActive ? ` text-accent font-medium` : " text-white")

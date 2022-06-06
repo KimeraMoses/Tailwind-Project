@@ -10,5 +10,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "default": "medatlas-4de76"
   }
 }

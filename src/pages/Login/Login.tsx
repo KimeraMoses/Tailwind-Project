@@ -75,7 +75,9 @@ export const Login: React.FunctionComponent = () => {
   }, []);
 
   return (
-    <GenericView>
+    <GenericView
+      isDoctor={accountType === enums.AccountTypes.DOCTOR ? true : false}
+    >
       <form onSubmit={onSubmit} ref={formRef} className="w-full">
         <h3 className="mb-2 text-center text-2xl font-semibold text-primary">
           {getLoginTitle(accountType)}

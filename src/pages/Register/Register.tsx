@@ -142,7 +142,7 @@ export const Register = () => {
   const getSignUpTitle = useCallback((accountType: enums.AccountTypes) => {
     switch (accountType) {
       case enums.AccountTypes.DOCTOR:
-        return "Doctor Registration";
+        return "Specialist Registration";
       case enums.AccountTypes.PATIENT:
         return "Patient Registration";
       case enums.AccountTypes.ADMIN:
@@ -153,7 +153,9 @@ export const Register = () => {
   }, []);
 
   return (
-    <GenericView>
+    <GenericView
+      isDoctor={accountType === enums.AccountTypes.DOCTOR ? true : false}
+    >
       <form onSubmit={onSubmit} ref={formRef}>
         <h3 className="mb-3 text-center text-2xl font-semibold text-primary">
           {getSignUpTitle(accountType)}

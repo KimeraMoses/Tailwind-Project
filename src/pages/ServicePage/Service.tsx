@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Footer } from "./../../components/Footer/Footer";
 import { DecoratedButton } from "./../../components/Buttons/ButtonDecorated";
 import { serviceData } from "./../../constants/services";
 
 const Service: React.FunctionComponent = () => {
+  const [items, setItems] = useState<any[]>([]);
+  const [visible, setVisible] = useState<number>(8);
+
+  useEffect(() => {
+    setItems(serviceData);
+  }, []);
+
+  const showMoreItems = () => {
+    setVisible((prevValue) => prevValue + 4);
+  };
+
   return (
     <>
       <div className="bg-background py-6 px-10">
-        <h3 className="text-primary font-semibold text-3xl mb-5">Services</h3>
+        <h3 className="text-primary font-semibold text-3xl mb-5">
+          Our Services
+        </h3>
 
         <div className="flex flex-wrap">
-          {serviceData.map((item) => {
+          {items.slice(0, visible).map((item) => {
             return (
               <div className="w-1/2 p-4" key={item.id}>
                 <div className="bg-white rounded-md shadow-md flex p-2">
@@ -32,16 +45,19 @@ const Service: React.FunctionComponent = () => {
             );
           })}
         </div>
-        <div className="flex justify-center my-4">
-          <DecoratedButton
-            color="primary"
-            hoverColor="accent"
-            className="px-6 py-2"
-            type="button"
-          >
-            Load More...
-          </DecoratedButton>
-        </div>
+        {visible < items.length && (
+          <div className="flex justify-center my-4">
+            <DecoratedButton
+              color="primary"
+              hoverColor="accent"
+              className="px-6 py-2"
+              type="button"
+              onClick={showMoreItems}
+            >
+              Load More...
+            </DecoratedButton>
+          </div>
+        )}
       </div>
       <Footer />
     </>
