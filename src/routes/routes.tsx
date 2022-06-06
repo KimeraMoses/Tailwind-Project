@@ -101,14 +101,14 @@ export const AppRoutes = () => {
       />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
-      <Route
+      {/* <Route
         path="/doctors"
         element={
           <AutheticatedView>
             <DoctorList />
           </AutheticatedView>
         }
-      />
+      /> */}
       <Route
         path="/doctor/:id/book-appointment"
         element={
@@ -133,14 +133,14 @@ export const AppRoutes = () => {
           </AutheticatedView>
         }
       />
-      <Route
+      {/* <Route
         path="/account"
         element={
           <AutheticatedView>
             <Profile />
           </AutheticatedView>
         }
-      />
+      /> */}
       <Route
         path="/schedule"
         element={

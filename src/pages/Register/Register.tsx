@@ -206,7 +206,10 @@ export const Register = () => {
               <InputField
                 name="firstName"
                 placeholder={
-                  registerAs === "specialist" ? "First Name" : "Clinic Name"
+                  accountType === enums.AccountTypes.DOCTOR &&
+                  registerAs === "clinic"
+                    ? "Clinic Name"
+                    : "First Name"
                 }
                 type="text"
                 required

@@ -36,7 +36,9 @@ const DoctorCard: React.FC<DoctorProps> = ({
             title="Doctors Document Verified"
           />
         </h2>
-        <p className="text-accent text-sm font-medium">{speciality}</p>
+        <p className="text-accent text-sm font-medium capitalize">
+          {speciality}
+        </p>
         <div className="w-full py-1">
           <Rating name="read-only" value={rating} precision={0.5} readOnly />
         </div>
@@ -48,6 +50,7 @@ const DoctorCard: React.FC<DoctorProps> = ({
         </div>
         <div className="flex items-center justify-between gap-2 mt-5">
           <button
+            disabled
             onClick={() =>
               navigate(
                 `/dashboard/doctors/${name.toLowerCase().replace(/ /g, "-")}`
@@ -58,6 +61,7 @@ const DoctorCard: React.FC<DoctorProps> = ({
             View Profile
           </button>
           <button
+            disabled
             onClick={() => navigate("/appointment/booking")}
             className="py-2 px-4 border-none rounded-md text-white text-sm font-medium transition bg-accent hover:bg-primary"
           >
