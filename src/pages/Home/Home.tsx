@@ -32,6 +32,7 @@ export const Home: React.FC = () => {
   const [values, setValues] = useState({
     doctorType: "",
     location: "",
+    language: "",
     email: "",
   });
 
@@ -82,7 +83,7 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="flex justify-end w-1/3">
-            <div className="py-12 mt-10 border bg-white border-gray rounded shadow px-10">
+            <div className="py-5 mt-5 border bg-white border-gray rounded shadow px-5">
               <div className="text-center w-full ">
                 <h1 className="text-xl text-accent font-bold capitalize mb-3">
                   Search for doctors
@@ -127,6 +128,22 @@ export const Home: React.FC = () => {
                 </div>
                 <div className="flex flex-col gap-2 mb-4">
                   <label
+                    htmlFor="language"
+                    className="text-primary mb-1 font-semibold"
+                  >
+                    Language
+                  </label>
+                  <InputField
+                    disabled={false}
+                    type="text"
+                    placeholder="E.g. English"
+                    name="Language"
+                    value={values.language}
+                    onChange={handleOnChange}
+                  />
+                </div>
+                <div className="flex flex-col gap-2 mb-4">
+                  <label
                     htmlFor="email"
                     className="text-primary mb-1 font-semibold"
                   >
@@ -141,7 +158,7 @@ export const Home: React.FC = () => {
                     onChange={handleOnChange}
                   />
                 </div>
-                <div className="mt-8">
+                <div className="mt-8 mx-5">
                   <button className="w-full shadow border border-gray rounded-md text-white font-medium p-4 py-2  transition bg-accent hover:bg-primary">
                     Book Doctor Now
                   </button>

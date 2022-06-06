@@ -153,7 +153,9 @@ export const Register = () => {
   }, []);
 
   return (
-    <GenericView>
+    <GenericView
+      isDoctor={accountType === enums.AccountTypes.DOCTOR ? true : false}
+    >
       <form onSubmit={onSubmit} ref={formRef}>
         <h3 className="mb-3 text-center text-2xl font-semibold text-primary">
           {getSignUpTitle(accountType)}

@@ -3,7 +3,7 @@ import doctorsImage from "../../../assets/doctor-01.png";
 import { Navigation } from "swiper";
 import DoctorCard from "src/components/DoctorCard/DoctorCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { useSearchDoctors } from "@hooks";
+import { useSearchDoctors } from "@hooks";
 
 export const DoctorsList = [
   {
@@ -73,8 +73,8 @@ export const DoctorsList = [
 ];
 
 const DoctorsSection: React.FunctionComponent = () => {
-  // const doctorsList = useSearchDoctors({});
-  // console.log("doctors", doctorsList);
+  const doctorsList = useSearchDoctors({});
+  console.log("doctors", doctorsList);
 
   return (
     <div className="w-full my-6 mb-10">
