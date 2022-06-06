@@ -3,7 +3,7 @@ import doctorsImage from "../../../assets/doctor-01.png";
 import { Navigation } from "swiper";
 import DoctorCard from "src/components/DoctorCard/DoctorCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSearchDoctors } from "@hooks";
+// import { useSearchDoctors } from "@hooks";
 
 export const DoctorsList = [
   {
@@ -53,7 +53,8 @@ export const DoctorsList = [
 ];
 
 const DoctorsSection: React.FunctionComponent = () => {
-  const doctorsList = useSearchDoctors({});
+  // const doctorsList = useSearchDoctors({});
+  // console.log("doctors", doctorsList);
 
   return (
     <div className="w-full my-6 mb-10">
@@ -70,21 +71,20 @@ const DoctorsSection: React.FunctionComponent = () => {
           className="w-auto"
           style={{ padding: "0 20px" }}
         >
-          {doctorsList &&
-            doctorsList.map((doctor) => {
-              return (
-                <SwiperSlide key={doctor._id}>
-                  <DoctorCard
-                    name={doctor.firstName + " " + doctor.lastName}
-                    speciality={doctor.specialities[0].replace(/_/g, " ")}
-                    city={doctor.timeZone.split("/")[1]}
-                    country={doctor.timeZone.split("/")[0]}
-                    image={doctor.profilePicture?.link}
-                    rating={4.5}
-                  />
-                </SwiperSlide>
-              );
-            })}
+          {DoctorsList.map((doctor) => {
+            return (
+              <SwiperSlide key={doctor.name}>
+                <DoctorCard
+                  name={doctor.name}
+                  speciality={doctor.speciality}
+                  city={doctor.city}
+                  country={doctor.country}
+                  image={doctor.image}
+                  rating={doctor.rating}
+                />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </div>
@@ -92,3 +92,10 @@ const DoctorsSection: React.FunctionComponent = () => {
 };
 
 export default DoctorsSection;
+
+// name={doctor.firstName + " " + doctor.lastName}
+// speciality={doctor.specialities[0].replace(/_/g, " ")}
+// city={doctor.timeZone.split("/")[1]}
+// country={doctor.timeZone.split("/")[0]}
+// image={doctor.profilePicture?.link}
+// rating={4.5}
