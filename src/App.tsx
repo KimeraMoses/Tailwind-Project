@@ -4,10 +4,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { NavBar } from "@components";
 import { Outlet } from "react-router-dom";
 import { HttpApi } from "@api";
-import { useEffect, useState, useCallback, useMemo } from "react";
-import { Loader } from "@components";
+import { useEffect, useState } from "react";
+// import { Loader } from "@components";
 import { useModals, useLoaders } from "@redux-store";
-import { IonModal, IonApp, IonPage, IonLoading } from "@ionic/react";
+import { IonModal, IonPage } from "@ionic/react";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -57,14 +57,14 @@ const App = () => {
           </IonModal>
         )
       )}
-      {loaders.map(({ id, onWillPresent, LoaderProps }) => (
+      {/* {loaders.map(({ id, onWillPresent, LoaderProps }) => (
         <IonLoading
           key={id}
           {...LoaderProps}
           isOpen={true}
           onWillPresent={onWillPresent}
         />
-      ))}
+      ))} */}
     </IonPage>
   );
 };

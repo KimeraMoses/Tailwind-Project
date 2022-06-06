@@ -3,78 +3,58 @@ import doctorsImage from "../../../assets/doctor-01.png";
 import { Navigation } from "swiper";
 import DoctorCard from "src/components/DoctorCard/DoctorCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSearchDoctors } from "@hooks";
+// import { useSearchDoctors } from "@hooks";
 
 export const DoctorsList = [
   {
-    name: "Kimera Moses",
-    speciality: "Fertility expert",
-    city: "Kampala",
-    country: "Uganda",
-    image: doctorsImage,
-    rating: 3.5,
-  },
-  {
-    name: "Namugambi Cynthia",
-    speciality: "Dentist",
-    city: "Mulago",
-    country: "Uganda",
-    image: doctorsImage,
-    rating: 5,
-  },
-  {
-    name: "Mubiru Isaac",
-    speciality: "Gynaecology",
-    city: "Acra",
-    country: "Ghana",
-    image: doctorsImage,
-    rating: 4.5,
-  },
-  {
-    name: "Margret Mutumba",
-    speciality: "Fertility expert",
-    city: "Mwanza",
-    country: "Tanzania",
-    image: doctorsImage,
-    rating: 2.5,
-  },
-  {
-    name: "Nantale Becky",
-    speciality: "Orthopaedic Specialist ",
-    city: "Dodoma",
-    country: "Tanzania",
-    image: doctorsImage,
-    rating: 3.5,
-  },
-  {
-    name: "Omoding Ronald",
+    name: "Mukasa Jane",
     speciality: "Physiotherapist",
-    city: "Amuria",
-    country: "Uganda",
-    image: doctorsImage,
-    rating: 5.0,
+    city: "Nairobi",
+    country: "Kenya",
+    image:
+      "https://medatlas-production.s3.amazonaws.com/1647357377968-1647357378243.png",
+    rating: 3.5,
   },
   {
     name: "Efena Efetie",
     speciality: "Fertility Specialist",
-    city: "Abuja",
+    city: "Lagos",
     country: "Nigeria",
-    image: doctorsImage,
-    rating: 4.5,
+    image:
+      "https://medatlas-production.s3.amazonaws.com/1645704598098-1645704577940.png",
+    rating: 5,
   },
   {
-    name: "Samuel Mutumba",
-    speciality: "Physiotherapist",
-    city: "Nailobi",
-    country: "Kenya",
+    name: "Muyingo Mark",
+    speciality: "Fertility Specialist",
+    city: "Moscow",
+    country: "Russia",
+    image:
+      "https://medatlas-production.s3.amazonaws.com/1644171764307-1644171745413.png",
+    rating: 2.5,
+  },
+  {
+    name: "Harriet (Hattie) Opondo",
+    speciality: "Mental Health",
+    city: "Chicago",
+    country: "America",
+    image:
+      "https://medatlas-production.s3.amazonaws.com/1644003730013-1644003723532.png",
+    rating: 3.5,
+  },
+  {
+    name: "Namugambi Cynthia",
+    speciality: "HIV Consultant",
+    city: "Kampala",
+    country: "Uganda",
     image: doctorsImage,
-    rating: 5,
+    rating: 5.0,
   },
 ];
 
 const DoctorsSection: React.FunctionComponent = () => {
-  const doctorsList = useSearchDoctors({});
-  console.log("doctors", doctorsList);
+  // const doctorsList = useSearchDoctors({});
+  // console.log("doctors", doctorsList);
 
   return (
     <div className="w-full my-6 mb-10">

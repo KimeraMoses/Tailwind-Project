@@ -5,10 +5,10 @@ import React, {
   useRef,
   useEffect,
 } from "react";
-import { Button, showNotification } from "@components";
+import {  showNotification } from "@components";
 import { GenericView } from "@views";
 import { GenderList, CountryList, SpecialityList } from "@constants";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as enums from "@interface/enum";
 import * as input from "@interface/input";
 import { useQuery, useTimeZone } from "@hooks";
@@ -20,7 +20,6 @@ import { DecoratedButton } from "@components";
 import {
   InputSignupFields,
   AddressFields,
-  ClinicFields,
   Input2Fields,
   Input2ChidFields,
 } from "@interface/input";
