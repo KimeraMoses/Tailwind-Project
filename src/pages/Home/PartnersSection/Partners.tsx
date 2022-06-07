@@ -9,6 +9,7 @@ import Partner7 from "../../../assets/partners/7.jpg";
 import Partner8 from "../../../assets/partners/8.jpg";
 import Partner9 from "../../../assets/partners/9.jpg";
 import Partner10 from "../../../assets/partners/10.jpg";
+import Partner11 from "../../../assets/partners/velocity.png";
 
 const partnersData = [
   {
@@ -48,6 +49,10 @@ const partnersData = [
     logo: Partner9,
   },
   {
+    name: "Velocity",
+    logo: Partner11,
+  },
+  {
     name: "Joyce Fertility Surport Center Uganda",
     logo: Partner10,
   },
@@ -60,7 +65,7 @@ const Partners: React.FunctionComponent = () => {
         Our Partners
       </h2>
 
-      <div className="flex gap-8 flex-wrap mt-5 p-8 w-full">
+      <div className="flex gap-8 flex-wrap mt-5 p-8 w-full justify-center">
         {partnersData.map((item) => (
           <img
             src={item.logo}

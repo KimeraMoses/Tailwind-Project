@@ -92,10 +92,3 @@ const DoctorsSection: React.FunctionComponent = () => {
 };
 
 export default DoctorsSection;
-
-// name={doctor.firstName + " " + doctor.lastName}
-// speciality={doctor.specialities[0].replace(/_/g, " ")}
-// city={doctor.timeZone.split("/")[1]}
-// country={doctor.timeZone.split("/")[0]}
-// image={doctor.profilePicture?.link}
-// rating={4.5}
