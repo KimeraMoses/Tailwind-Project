@@ -6,15 +6,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import { useSearchDoctors } from "@hooks";
 
 export const DoctorsList = [
-  {
-    name: "Mukasa Jane",
-    speciality: "Physiotherapist",
-    city: "Nairobi",
-    country: "Kenya",
-    image:
-      "https://medatlas-production.s3.amazonaws.com/1647357377968-1647357378243.png",
-    rating: 3.5,
-  },
+  // {
+  //   name: "Mukasa Jane",
+  //   speciality: "Physiotherapist",
+  //   city: "Nairobi",
+  //   country: "Kenya",
+  //   image:
+  //     "https://medatlas-production.s3.amazonaws.com/1647357377968-1647357378243.png",
+  //   rating: 3.5,
+  // },
   {
     name: "Efena Efetie",
     speciality: "Fertility Specialist",
@@ -27,8 +27,8 @@ export const DoctorsList = [
   {
     name: "Muyingo Mark",
     speciality: "Fertility Specialist",
-    city: "Moscow",
-    country: "Russia",
+    city: "Kampala",
+    country: "Uganda",
     image:
       "https://medatlas-production.s3.amazonaws.com/1644171764307-1644171745413.png",
     rating: 2.5,

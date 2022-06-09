@@ -32,7 +32,7 @@ const CopyRight: React.FC<{ isContactPage?: boolean }> = ({
             style + (isActive ? ` text-accent font-medium` : " text-white")
           }
         >
-          Faqs
+          FAQs
         </NavLink>
         |
         <NavLink
