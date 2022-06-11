@@ -228,7 +228,7 @@ const ProfileSettings: React.FunctionComponent = () => {
             </div>
             <div className="my-4">
               <h6 className="text-primary font-medium text-sm mb-1">
-                Conultation Fees (Convert to USD)
+                Consultation Fees (Convert to USD)
               </h6>
               <div className="flex items-center">
                 <div className="py-1.5 px-4 border border-gray rounded-l-lg font-medium">

@@ -136,7 +136,7 @@ export const Home: React.FC = () => {
                   <InputField
                     disabled={false}
                     type="text"
-                    placeholder="E.g. English"
+                    placeholder="E.g. Kiswahili"
                     name="Language"
                     value={values.language}
                     onChange={handleOnChange}

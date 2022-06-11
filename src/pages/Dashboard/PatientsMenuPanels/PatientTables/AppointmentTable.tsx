@@ -15,7 +15,7 @@ import { ActionButton, ColumnHeader, UserName } from "./TableComponents";
 export default function AppointmentTable() {
   return (
     <>
-      <TableContainer component={Paper} className="my-6">
+      <TableContainer component={Paper} className="my-6 font-body">
         <Table sx={{ minWidth: 650 }} size="small">
           <TableHead>
             <TableRow>

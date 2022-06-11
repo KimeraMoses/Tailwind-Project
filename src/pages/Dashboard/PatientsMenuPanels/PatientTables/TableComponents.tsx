@@ -2,7 +2,7 @@ import { Avatar } from "@mui/material";
 
 export const UserName = ({ image, name, occupation }: any) => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center font-body">
       <Avatar alt={name} src={image} sx={{ width: 30, height: 30 }} />
       <div className="flex-grow ml-2">
         {name}
