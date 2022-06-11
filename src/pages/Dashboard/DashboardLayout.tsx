@@ -1,9 +1,10 @@
 import React from "react";
 import MHFS from "../../assets/MHFS.png";
-import { MdOutlineHelpOutline } from "react-icons/md";
-import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { DoctorsMenuItems, PatientsMenuItems } from "./MenuItems";
-import { useSelector } from "react-redux";
+import { useCurrentUser } from "@hooks";
+import { SignOutButton } from "@components";
 
 interface MenuProps {
   menuTitle: string;
@@ -31,9 +32,8 @@ const DashboardMenuItem: React.FC<MenuProps> = ({
 };
 
 const DashboardLayout: React.FunctionComponent = () => {
-  const userRole = useSelector((state: any) => state.account.userRole);
-  const isPatient = userRole && userRole === "patient" ? true : false;
-  const navigate = useNavigate();
+  const user = useCurrentUser();
+  const isPatient = user?.accountType === "PATIENT" ? true : false;
 
   return (
     <div className="relative ">
@@ -63,21 +63,7 @@ const DashboardLayout: React.FunctionComponent = () => {
               Finance Scheme
             </Link>
           </div>
-          <div className="text-center mx-5 mb-1 select-none">
-            <NavLink
-              to="/help-center"
-              className={({ isActive }) =>
-                `flex items-center justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize ${
-                  isActive
-                    ? "bg-primary border-primary text-white"
-                    : "text-primary border-accent"
-                }`
-              }
-            >
-              <MdOutlineHelpOutline className="text-2xl mr-2" />
-              Help
-            </NavLink>
-          </div>
+          <SignOutButton />
         </div>
         <div className="py-4 px-4 flex-grow overflow-hidden ">
           <div className="w-full">

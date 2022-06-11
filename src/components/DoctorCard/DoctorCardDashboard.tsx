@@ -4,11 +4,11 @@ import { HiCreditCard } from "react-icons/hi";
 import { DoctorProps } from "./DoctorCard";
 import { useNavigate } from "react-router-dom";
 import Rating from "@mui/material/Rating";
-import { Tooltip } from "@mui/material";
 
 const DoctorCardDashboard: React.FC<DoctorProps> = ({
   image,
   name,
+  doctor,
   speciality,
   city,
   country,
@@ -33,7 +33,9 @@ const DoctorCardDashboard: React.FC<DoctorProps> = ({
           <h6 className="text-sm font-normal mb-1">
             English, Luganda, Kiswahili
           </h6>
-          <p className="text-accent text-sm font-medium">{speciality}</p>
+          <p className="text-accent text-sm font-medium capitalize">
+            {speciality}
+          </p>
           <Rating
             name="read-only"
             value={rating}
@@ -57,11 +59,8 @@ const DoctorCardDashboard: React.FC<DoctorProps> = ({
         <div className="flex flex-col items-center justify-between gap-2 mt-5">
           {!isSelected && (
             <button
-              onClick={() =>
-                navigate(
-                  `/dashboard/doctors/${name.toLowerCase().replace(/ /g, "-")}`
-                )
-              }
+              disabled
+              onClick={() => navigate(`/dashboard/doctors/${doctor?._id}`)}
               className="py-2 px-4 w-full border border-solid border-primary rounded-md text-primary font-medium text-sm transition hover:bg-primary hover:text-white"
             >
               View Profile
@@ -69,6 +68,7 @@ const DoctorCardDashboard: React.FC<DoctorProps> = ({
           )}
           {!isDoctor && (
             <button
+              disabled
               onClick={() => navigate("/appointment/booking")}
               className="py-2 px-4 border-none w-full rounded-md text-white text-sm font-medium transition bg-accent hover:bg-primary"
             >

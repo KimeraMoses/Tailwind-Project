@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { MdNotifications, MdKeyboardArrowDown } from "react-icons/md";
-import { Avatar, Fade, IconButton, Paper, Popper } from "@mui/material";
-import { NotificationIcon } from "./../../assets/icons/icons";
+import { Fade, IconButton, Paper, Popper } from "@mui/material";
 
 const NotificationsArray = [
   {
@@ -66,8 +65,10 @@ const Notifications: React.FunctionComponent = () => {
           {({ TransitionProps }) => (
             <Fade {...TransitionProps} timeout={350}>
               <Paper elevation={3} className="w-96 p-3 font-body">
-                <h3 className="text-black text-2xl font-bold">Notifications</h3>
-                <div className="w-full flex items-center my-2">
+                <h3 className="text-black text-2xl font-bold mb-3">
+                  Notifications
+                </h3>
+                {/* <div className="w-full flex items-center my-2">
                   <div
                     onClick={() => setRead(false)}
                     className="rounded-md px-4 py-2 mr-2 bg-primary text-white select-none text-base cursor-pointer"
@@ -80,8 +81,8 @@ const Notifications: React.FunctionComponent = () => {
                   >
                     Read
                   </div>
-                </div>
-                <ul>
+                </div> */}
+                {/* <ul>
                   {(read ? readMessages : NotificationsArray).map((msg) => {
                     return (
                       <li className="flex items-center mb-1" key={msg.id}>
@@ -95,11 +96,14 @@ const Notifications: React.FunctionComponent = () => {
                       </li>
                     );
                   })}
-                </ul>
-                <div className="mt-3 flex flex-col justify-center items-center">
+                </ul> */}
+                <div className="shadow-md p-5 bg-background mb-2">
+                  All your notifications will appear here
+                </div>
+                {/* <div className="mt-3 flex flex-col justify-center items-center">
                   <h6 className="text-sm text-black font-medium">Show More</h6>
                   <MdKeyboardArrowDown className="text-3xl text-primary font-bold -mt-2" />
-                </div>
+                </div> */}
               </Paper>
             </Fade>
           )}

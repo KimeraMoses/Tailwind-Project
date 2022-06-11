@@ -63,7 +63,7 @@ export const ImageCropper: React.FunctionComponent<ImageCropperProps> = ({
   );
 
   return (
-    <div className="p-4 overflow-auto">
+    <div className="p-4 overflow-auto h-screen">
       <div onSubmit={onSubmit} className="w-full">
         <div className="w-full mb-4">
           <img className="imageView" src={imageUrl} onLoad={onImageLoad} />

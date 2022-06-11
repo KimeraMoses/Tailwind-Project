@@ -33,6 +33,7 @@ const SpeciliatyOptions = SpecialityList.map((option) => ({
 }));
 
 export const Register = () => {
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -128,6 +129,7 @@ export const Register = () => {
 
   const onSubmit: React.FormEventHandler = useCallback(
     async (event) => {
+      setIsLoading(true);
       event.preventDefault();
       if (inputParams.password != inputParams.retype) {
         showNotification(
@@ -137,6 +139,7 @@ export const Register = () => {
         return;
       }
       await HttpApi.createAccount({ ...inputParams, accountType, timeZone });
+      setIsLoading(false);
       navigate(`/login?accountType=${accountType}`);
       showNotification(
         "Verify your account by clicking the link sent to your email address",
@@ -405,7 +408,7 @@ export const Register = () => {
             className="w-3/4 px-6 py-1"
             type="submit"
           >
-            Sign Up
+            {isLoading ? "Registering..." : "Sign Up"}
           </DecoratedButton>
         </div>
         <div className="my-6">

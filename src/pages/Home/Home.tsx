@@ -92,7 +92,7 @@ export const Home: React.FC = () => {
                   Book Appointments Today!
                 </h2>
               </div>
-              <form className="mt-2" action="/doctors" method="GET">
+              <form className="mt-2" action="/dashboard/doctors" method="GET">
                 <div className="flex flex-col gap-2 mb-4">
                   <label
                     htmlFor="type of doctor"

@@ -5,11 +5,11 @@ import BookingForm from "../components/BookingSummary/BookingComponents/BookingF
 import PaymentForm from "./../components/BookingSummary/BookingComponents/PaymentForm/PaymentForm";
 import OtpForm from "./../components/BookingSummary/BookingComponents/PaymentForm/OtpForm";
 import PaymentStatus from "./../components/BookingSummary/BookingComponents/PaymentForm/PaymentStatus";
-// import DashboardLayout from "./../pages/Dashboard/DashboardLayout";
-// import SearchDoctors from "./../pages/Dashboard/PatientsMenuPanels/SearchDoctors";
-// import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
-// import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
-// import Messages from "./../pages/Dashboard/GeneralPanels/Messages";
+import DashboardLayout from "./../pages/Dashboard/DashboardLayout";
+import SearchDoctors from "./../pages/Dashboard/PatientsMenuPanels/SearchDoctors";
+import PatientsAppointments from "./../pages/Dashboard/PatientsMenuPanels/PatientsAppointments";
+import DoctorDetails from "./../components/DoctorCard/DoctorDetails";
+import Messages from "./../pages/Dashboard/GeneralPanels/Messages";
 import {
   NotFound,
   Home,
@@ -18,7 +18,6 @@ import {
   ForgotPassword,
   Register,
   ResetPassword,
-  DoctorList,
   BookAppointment,
   Appointments,
   AppointmentDetail,
@@ -28,21 +27,15 @@ import {
   TermsConditions,
   AppointmentBooking,
 } from "../pages";
-// import ProfileSetting from "./../pages/Dashboard/PatientsMenuPanels/ProfileSetting";
-import { useSelector } from "react-redux";
-// import ProfileSettings from "src/pages/Dashboard/DoctorsMenuPanels/ProfileSettings/ProfileSettings";
 import HelpCenter from "./../pages/Dashboard/GeneralPanels/HelpCenter";
-// import Scheduling from "./../pages/Dashboard/DoctorsMenuPanels/AvailabilitySettings/Scheduling";
+import Scheduling from "./../pages/Dashboard/DoctorsMenuPanels/AvailabilitySettings/Scheduling";
 import Service from "./../pages/ServicePage/Service";
 import ContactUs from "./../pages/ContactUs/ContactUs";
-// import NewsFeeds from "./../pages/Dashboard/GeneralPanels/NewsFeeds";
-// import NewBlogPost from "./../pages/Dashboard/DoctorsMenuPanels/NewBlogPost/NewBlogPost";
-// import ComingSoon from "src/pages/Dashboard/GeneralPanels/ComingSoon";
+import NewsFeeds from "./../pages/Dashboard/GeneralPanels/NewsFeeds";
+import NewBlogPost from "./../pages/Dashboard/DoctorsMenuPanels/NewBlogPost/NewBlogPost";
+import ComingSoon from "./../pages/Dashboard/GeneralPanels/ComingSoon";
 
 export const AppRoutes = () => {
-  const userRole = useSelector((state: any) => state.account.userRole);
-  const isPatient = userRole && userRole === "patient" ? true : false;
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -63,26 +56,37 @@ export const AppRoutes = () => {
       </Route>
 
       <Route path="help-center" element={<HelpCenter />} />
-      {/* <Route path="/dashboard" element={<DashboardLayout />}>
-        <Route path="news-feeds" element={<NewsFeeds />} />
-        <Route path="new-blog-post" element={<NewBlogPost />} />
-        <Route path="search-doctors" element={<SearchDoctors />} />
+
+      <Route
+        path="/dashboard"
+        element={
+          <AutheticatedView>
+            <DashboardLayout />
+          </AutheticatedView>
+        }
+      >
+        <Route path="user" element={<NewsFeeds />} />
+        <Route
+          path="new-blog-post"
+          element={<ComingSoon title="New Blog Post Form" />}
+        />
+        <Route path="doctors" element={<SearchDoctors />} />
         <Route path="doctors/:doctorName" element={<DoctorDetails />} />
         <Route
           path="patients-appointments"
           element={<PatientsAppointments />}
         />
-        <Route path="messages" element={<Messages />} />
+        <Route
+          path="messages"
+          element={<ComingSoon title="Patient-Doctor Messages" />}
+        />
         <Route
           path="health-finacial-scheme"
           element={<ComingSoon title="MedAtlas Health Financial Scheme" />}
         />
-        <Route path="scheduling" element={<Scheduling />} />
-        <Route
-          path="profile-settings"
-          element={isPatient ? <ProfileSetting /> : <ProfileSettings />}
-        />
-      </Route> */}
+        <Route path="scheduling" element={<CreateSchedule />} />
+        <Route path="profile-settings" element={<Profile />} />
+      </Route>
       <Route
         path="/login"
         element={
@@ -101,14 +105,6 @@ export const AppRoutes = () => {
       />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/reset-password" element={<ResetPassword />} />
-      {/* <Route
-        path="/doctors"
-        element={
-          <AutheticatedView>
-            <DoctorList />
-          </AutheticatedView>
-        }
-      /> */}
       <Route
         path="/doctor/:id/book-appointment"
         element={

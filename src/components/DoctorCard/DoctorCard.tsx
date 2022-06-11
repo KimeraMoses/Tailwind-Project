@@ -5,19 +5,21 @@ import Rating from "@mui/material/Rating";
 
 export interface DoctorProps {
   image: any;
-  name: string;
-  speciality: string;
-  city: string;
-  country: string;
+  name: string | undefined;
+  speciality: string | undefined;
+  city: string | undefined;
+  country: string | undefined;
   rating?: number;
   isSelected?: boolean;
   isDoctor?: boolean;
+  doctor?: any;
 }
 
 const DoctorCard: React.FC<DoctorProps> = ({
   image,
   name,
   speciality,
+  doctor,
   city,
   country,
   rating,
@@ -51,11 +53,7 @@ const DoctorCard: React.FC<DoctorProps> = ({
         <div className="flex items-center justify-between gap-2 mt-5">
           <button
             disabled
-            onClick={() =>
-              navigate(
-                `/dashboard/doctors/${name.toLowerCase().replace(/ /g, "-")}`
-              )
-            }
+            onClick={() => navigate(`/dashboard/doctors/${doctor?._id}`)}
             className="py-2 px-4 border border-solid border-primary rounded-md text-primary font-medium text-sm transition hover:bg-primary hover:text-white"
           >
             View Profile

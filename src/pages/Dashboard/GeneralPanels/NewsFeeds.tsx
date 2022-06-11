@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 import image from "../../../assets/bkgrd-authflow.jpeg";
 import FeatureCard from "../../../components/FeatureCard/FeatureCard";
 import NewsCard from "src/components/NewsCard/NewsCard";
+import { useCurrentUser } from "@hooks";
 
 const NewsFeeds: React.FunctionComponent = () => {
+  const user = useCurrentUser();
+  const isPatient = user?.accountType === "PATIENT" ? true : false;
+
   return (
     <div className="w-full p-3 rounded font-body">
       <div className="flex items-center justify-center">
@@ -20,7 +24,11 @@ const NewsFeeds: React.FunctionComponent = () => {
           {" "}
           <p className="mb-5">
             Hello{" "}
-            <strong className="text-primary font-medium">Kimera Moses!</strong>
+            <strong className="text-primary font-medium">
+              {" "}
+              {!isPatient ? "Dr. " : ""}
+              {user?.firstName + " " + user?.lastName}!
+            </strong>
           </p>
           <p className="text-accent mb-5 font-medium">
             Thank you for joining MedAtlas.
@@ -29,17 +37,30 @@ const NewsFeeds: React.FunctionComponent = () => {
             Our vision at MedAtlas is to connecting you with Specialist Doctors
             from anywhere you are located!
           </p>
-          <p className="">
-            Simply{" "}
-            <Link
-              to="/dashboard/search-doctors"
-              className="text-accent hover:text-primary font-medium"
-            >
-              Book An Appointment{" "}
-            </Link>{" "}
-            , Get diagnosis, treatment, monitoring and secondary advise from the
-            comfort ofyour home.
-          </p>
+          {isPatient ? (
+            <p className="">
+              Simply{" "}
+              <Link
+                to="/dashboard/doctors"
+                className="text-accent hover:text-primary font-medium"
+              >
+                Book An Appointment{" "}
+              </Link>{" "}
+              , Get diagnosis, treatment, monitoring and secondary advise from
+              the comfort ofyour home.
+            </p>
+          ) : (
+            <p>
+              Simply set your availability{" "}
+              <Link
+                to="/dashboard/scheduling"
+                className="text-accent hover:text-primary font-medium"
+              >
+                here{" "}
+              </Link>{" "}
+              for patients to easily make appointments
+            </p>
+          )}
         </div>
         <div className="w-2/3">
           <div className="flex w-full my-2 items-start flex-wrap justify-evenly">
