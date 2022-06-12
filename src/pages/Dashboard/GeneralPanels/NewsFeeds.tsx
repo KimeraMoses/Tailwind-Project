@@ -5,6 +5,7 @@ import image from "../../../assets/bkgrd-authflow.jpeg";
 import FeatureCard from "../../../components/FeatureCard/FeatureCard";
 import NewsCard from "src/components/NewsCard/NewsCard";
 import { useCurrentUser } from "@hooks";
+import { MdOutlineHelpOutline } from "react-icons/md";
 
 const NewsFeeds: React.FunctionComponent = () => {
   const user = useCurrentUser();
@@ -30,10 +31,10 @@ const NewsFeeds: React.FunctionComponent = () => {
               {user?.firstName + " " + user?.lastName}!
             </strong>
           </p>
-          <p className="text-accent mb-5 font-medium">
+          <p className="text-accent mb-2 font-medium">
             Thank you for joining MedAtlas.
           </p>
-          <p className="mb-5">
+          <p className="mb-2">
             Our vision at MedAtlas is to connecting you with Specialist Doctors
             from anywhere you are located!
           </p>
@@ -47,7 +48,7 @@ const NewsFeeds: React.FunctionComponent = () => {
                 Book An Appointment{" "}
               </Link>{" "}
               , Get diagnosis, treatment, monitoring and secondary advise from
-              the comfort ofyour home.
+              the comfort of your home.
             </p>
           ) : (
             <p>
@@ -61,6 +62,15 @@ const NewsFeeds: React.FunctionComponent = () => {
               for patients to easily make appointments
             </p>
           )}
+          <div className="w-full mt-2">
+            <Link
+              to="/help-center"
+              className="flex items-center text-lg mx-3 mb-1 justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize hover:bg-primary text-primary hover:text-white border-primary"
+            >
+              Need Help
+              <MdOutlineHelpOutline className="text-2xl ml-1" />
+            </Link>
+          </div>
         </div>
         <div className="w-2/3">
           <div className="flex w-full my-2 items-start flex-wrap justify-evenly">

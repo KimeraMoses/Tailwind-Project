@@ -93,7 +93,7 @@ const doctor = [
   },
   {
     name: "See Our Specialists",
-    href: "/doctors",
+    href: "/dashboard/doctors",
     icon: ChartBarIcon,
   },
 ];

@@ -56,10 +56,10 @@ export const SignOutButton: React.FunctionComponent = () => {
     //   </button>
     // </div>
 
-    <div className="text-center mx-5 mb-1 select-none">
+    <div className="text-center mb-1 select-none -mr-4">
       <div
         onClick={onSignOutClick}
-        className="flex items-center justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize text-primary border-accent"
+        className="flex items-center justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize text-primary border-accent hover:bg-accent hover:text-white"
       >
         {isLoading ? "Loging Out.." : "Logout"}
         <FiLogOut className="text-lg ml-2" />

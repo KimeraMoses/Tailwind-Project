@@ -1,6 +1,7 @@
 import React from "react";
 import MHFS from "../../assets/MHFS.png";
-import { FiLogOut } from "react-icons/fi";
+// import { FiLogOut } from "react-icons/fi";
+import { MdOutlineHelpOutline } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { DoctorsMenuItems, PatientsMenuItems } from "./MenuItems";
 import { useCurrentUser } from "@hooks";
@@ -63,7 +64,16 @@ const DashboardLayout: React.FunctionComponent = () => {
               Finance Scheme
             </Link>
           </div>
-          <SignOutButton />
+          <div className="flex items-center px-2">
+            <Link
+              to="/help-center"
+              className="flex items-center mx-3 mb-1 justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize hover:bg-accent text-primary hover:text-white border-accent"
+            >
+              {/* Help */}
+              <MdOutlineHelpOutline className="text-2xl" />
+            </Link>
+            <SignOutButton />
+          </div>
         </div>
         <div className="py-4 px-4 flex-grow overflow-hidden ">
           <div className="w-full">

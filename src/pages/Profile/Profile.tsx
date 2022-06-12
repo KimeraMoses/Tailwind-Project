@@ -318,7 +318,14 @@ export const Profile = () => {
                   />
                 </div>
               </div>
-
+            </div>
+          </div>
+          {user.accountType === enums.AccountTypes.PATIENT ? (
+            <div className="w-1/2 px-2 pl-5 flex items-center justify-center">
+              <img src={medLogo} alt="MedAtlas Inc" className="" />
+            </div>
+          ) : (
+            <div className="w-1/2 px-2 pl-5">
               {user.accountType === enums.AccountTypes.DOCTOR && (
                 <div className="my-4">
                   <h6 className="text-primary font-medium text-sm mb-1">
@@ -337,23 +344,15 @@ export const Profile = () => {
                   />
                 </div>
               )}
-            </div>
-          </div>
-          {user.accountType === enums.AccountTypes.PATIENT ? (
-            <div className="w-1/2 px-2 pl-5 flex items-center justify-center">
-              <img src={medLogo} alt="MedAtlas Inc" className="" />
-            </div>
-          ) : (
-            <div className="w-1/2 px-2 pl-5">
-              <div className="my-4">
+              {/* <div className="my-4">
                 <h4 className="text-base text-primary font-bold">About Me</h4>
                 <textarea
                   rows={4}
                   className="textarea textarea-primary box-border border border-gray w-full rounded-lg select-none text-gray-700 leading-tight py-2 px-3 focus:outline-none focus:border-primary mr-2 font-Poppins"
                   placeholder="Add information about you (will be visible to patients)"
                 ></textarea>
-              </div>
-              <div className="my-4">
+              </div> */}
+              {/* <div className="my-4">
                 <h6 className="flex items-center mb-1 font-Poppins font-medium text-sm text-primary">
                   <RiAttachment2 />
                   Attachments ({user?.certifications.length})
@@ -396,19 +395,8 @@ export const Profile = () => {
                     patients and only for administrative use.
                   </p>
                 </div>
-                {/* <div>
-                  {user.accountType === enums.AccountTypes.DOCTOR && (
-                    <div className="mt-8">
-                      <Consultations user={user} />
-                    </div>
-                  )}
-                  {user.accountType === enums.AccountTypes.DOCTOR && (
-                    <div className="mt-8">
-                      <Certifications user={user} />
-                    </div>
-                  )}
-                </div> */}
-              </div>
+              </div> */}
+
               <div className="my-4">
                 <h6 className="text-primary font-medium text-sm mb-1">
                   Health Facility Name and Address
@@ -491,6 +479,11 @@ export const Profile = () => {
           </DecoratedButton>
         </div>
       </form>
+      {user.accountType === enums.AccountTypes.DOCTOR && (
+        <div className="my-4 bg-white p-5 w-3/4">
+          <Certifications user={user} />
+        </div>
+      )}
     </div>
   );
 };
