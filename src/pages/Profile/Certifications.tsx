@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo, useRef } from "react";
-import { Button, ConfirmModal, DecoratedButton } from "@components";
+import { ConfirmModal } from "@components";
 import * as input from "@interface/input";
 import * as models from "@interface/models";
 import { HttpApi } from "@api";
@@ -92,7 +92,7 @@ export const Certifications: React.FunctionComponent<CertificationProps> = ({
         {certifications?.map((certification) => (
           <div
             key={certification._id}
-            className="flex w-full items-center justify-between border border-[#F5E4FF] shadow p-3 rounded-2xl mt-1"
+            className="flex w-full items-center justify-between border border-[#F5E4FF] shadow p-3 rounded-2xl mt-1 bg-white"
           >
             <div className="flex items-center">
               {certification.file.fileKey.split(".").slice(-1)[0] === "docx" ? (
