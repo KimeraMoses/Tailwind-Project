@@ -198,7 +198,7 @@ export const Home: React.FC = () => {
       </div>
       <ChooseUs />
       <DoctorsSection />
-      {/* <BlogSection /> */}
+      <BlogSection />
       <SpecialityButton />
       <Partners />
       <NewsLetterSection />

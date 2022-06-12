@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import DoctorCardDashboard from "./DoctorCardDashboard";
 import { SiMicrodotblog } from "react-icons/si";
 import { useSearchDoctors } from "@hooks";
+// import { useGetDoctorReducer } from "./../../hooks/common";
 
 const DoctorDetails: React.FunctionComponent = () => {
   const doctorsList = useSearchDoctors({});

@@ -8,6 +8,7 @@ interface CardProps {
   date: string;
   title: string;
   description: string;
+  link: string;
 }
 
 const NewsCard: React.FC<CardProps> = ({
@@ -16,6 +17,7 @@ const NewsCard: React.FC<CardProps> = ({
   date,
   title,
   description,
+  link,
 }) => {
   return (
     <div className="bg-white p-5 shadow-sm w-1/2 rounded-md">
@@ -32,9 +34,14 @@ const NewsCard: React.FC<CardProps> = ({
         </div>
         <div className="text-primary my-2">
           <h2 className="font-bold text-lg">
-            <Link to="/" className="hover:text-accent">
+            <a
+              href={link}
+              className="hover:text-accent"
+              target="_blank"
+              rel="noreferrer"
+            >
               {title}
-            </Link>
+            </a>
           </h2>
           <p className="font-light text-sm">{description}</p>
         </div>

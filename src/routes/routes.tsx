@@ -66,16 +66,10 @@ export const AppRoutes = () => {
         }
       >
         <Route path="user" element={<NewsFeeds />} />
-        <Route
-          path="new-blog-post"
-          element={<ComingSoon title="New Blog Post Form" />}
-        />
+        <Route path="new-blog-post" element={<NewBlogPost />} />
         <Route path="doctors" element={<SearchDoctors />} />
         <Route path="doctors/:doctorName" element={<DoctorDetails />} />
-        <Route
-          path="patients-appointments"
-          element={<PatientsAppointments />}
-        />
+        <Route path="appointments" element={<PatientsAppointments />} />
         <Route
           path="messages"
           element={<ComingSoon title="Patient-Doctor Messages" />}

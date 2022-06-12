@@ -47,23 +47,14 @@ export const SignOutButton: React.FunctionComponent = () => {
   }, []);
 
   return (
-    // <div className="flex items-center justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize p-2">
-    //   <button
-    //     onClick={onSignOutClick}
-    //     className="flex items-center justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize"
-    //   >
-    //     Sign Out
-    //   </button>
-    // </div>
-
-    <div className="text-center mb-1 select-none -mr-4">
-      <div
-        onClick={onSignOutClick}
-        className="flex items-center justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize text-primary border-accent hover:bg-accent hover:text-white"
-      >
-        {isLoading ? "Loging Out.." : "Logout"}
-        <FiLogOut className="text-lg ml-2" />
-      </div>
+    // <div className="e">
+    <div
+      onClick={onSignOutClick}
+      className="flex items-center justify-start cursor-pointer px-5 py-2 font-semibold rounded-lg capitalize text-primary hover:text-accent"
+    >
+      <FiLogOut className="text-lg mr-2" />
+      {isLoading ? "Loging Out.." : "Logout"}
     </div>
+    // </div>
   );
 };

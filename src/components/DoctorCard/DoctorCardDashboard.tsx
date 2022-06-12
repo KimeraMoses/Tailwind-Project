@@ -68,7 +68,6 @@ const DoctorCardDashboard: React.FC<DoctorProps> = ({
           )}
           {!isDoctor && (
             <button
-              disabled
               onClick={() => navigate("/appointment/booking")}
               className="py-2 px-4 border-none w-full rounded-md text-white text-sm font-medium transition bg-accent hover:bg-primary"
             >

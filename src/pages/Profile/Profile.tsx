@@ -51,6 +51,7 @@ const SpeciliatyOptions = SpecialityList.map((option) => ({
 
 export const Profile = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [paymentModes, setPaymentMode] = useState("MM");
   const user = useCurrentUser()!;
   const [inputParams, setInputParams] = useState(
     {} as input.AccountUpdateInput
@@ -327,14 +328,14 @@ export const Profile = () => {
           ) : (
             <div className="w-1/2 px-2 pl-5">
               {user.accountType === enums.AccountTypes.DOCTOR && (
-                <div className="my-4">
-                  <h6 className="text-primary font-medium text-sm mb-1">
-                    Speciality
-                  </h6>
+                <div className="mb-4">
+                  <h4 className="text-base text-primary font-bold">
+                    Add Speciality
+                  </h4>
                   <Select
                     className="shadow-0 w-full mb-0 border border-gray rounded-lg text-black bg-white"
                     name="specialities"
-                    placeholder="Specialities"
+                    placeholder="Select specialities"
                     defaultValue={defaultspecialityOptions}
                     options={SpeciliatyOptions}
                     onChange={onMultiInputChange("specialities")}
@@ -344,14 +345,16 @@ export const Profile = () => {
                   />
                 </div>
               )}
-              {/* <div className="my-4">
-                <h4 className="text-base text-primary font-bold">About Me</h4>
+              <div className="my-4">
+                <h6 className="text-primary font-medium text-sm mb-1">
+                  About Me
+                </h6>
                 <textarea
                   rows={4}
                   className="textarea textarea-primary box-border border border-gray w-full rounded-lg select-none text-gray-700 leading-tight py-2 px-3 focus:outline-none focus:border-primary mr-2 font-Poppins"
                   placeholder="Add information about you (will be visible to patients)"
                 ></textarea>
-              </div> */}
+              </div>
               {/* <div className="my-4">
                 <h6 className="flex items-center mb-1 font-Poppins font-medium text-sm text-primary">
                   <RiAttachment2 />
@@ -412,7 +415,7 @@ export const Profile = () => {
               </div>
               <div className="my-4">
                 <h6 className="text-primary font-medium text-sm mb-1">
-                  Conultation Fees (Convert to USD)
+                  Consultation Fees (Convert to USD)
                 </h6>
                 <div className="flex items-center">
                   <div className="py-1.5 px-4 border border-gray rounded-l-lg font-medium">
@@ -444,24 +447,38 @@ export const Profile = () => {
               </div>
               <div className="my-4">
                 <h6 className="text-primary font-medium text-sm mb-1">
-                  Mode of Payment
+                  Mode of Payment{paymentModes}
                 </h6>
-                <div className="flex">
+                <div className="flex items-center w-full">
                   <select
-                    defaultValue="+256"
-                    className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out"
+                    onChange={(e) => setPaymentMode(e.target.value)}
+                    className="form-select block box-border border border-gray rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out w-40"
                   >
-                    <option>Mobile Money</option>
-                    <option>Bank Transfer</option>
+                    <option value="MM">Mobile Money</option>
+                    <option value="BT">Bank Transfer</option>
                   </select>
-                  <PhoneInput
-                    className="appearance-none box-border border border-gray w-full rounded-lg select-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary font-body custom_style"
-                    type="tel"
-                    name="mobileMoneyNumber"
-                    value={user.mobileMoneyNumber}
-                    required
-                    onChange={onPhoneInputChange("mobileMoneyNumber")}
-                  />
+                  {paymentModes === "MM" ? (
+                    <PhoneInput
+                      className="appearance-none box-border flex-grow border border-gray w-full rounded-lg select-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary font-body custom_style"
+                      type="tel"
+                      name="mobileMoneyNumber"
+                      value={user.mobileMoneyNumber}
+                      required
+                      onChange={onPhoneInputChange("mobileMoneyNumber")}
+                    />
+                  ) : (
+                    <div className="flex-grow border border-gray rounded-md whitespace-nowrap text-sm py-2 text-center text-primary font-semibold">
+                      Email bank details to{" "}
+                      <a
+                        href={`mailto:${process.env.REACT_APP_MEDATLAS_EMAIL}`}
+                        className="hover:text-accent inline"
+                      >
+                        <strong className="text-accent">
+                          info@medatlas.com
+                        </strong>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

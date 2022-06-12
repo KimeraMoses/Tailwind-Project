@@ -1,54 +1,54 @@
 import { Paper } from "@mui/material";
 import React, { useState } from "react";
-// import AppointmentCard from "src/components/AppointmentCard/AppointmentCard";
-// import AppointmentTable from "./PatientTables/AppointmentTable";
-// import BillingTable from "./PatientTables/BillingTable";
-// import ReportTable from "./PatientTables/ReportTable";
+import AppointmentCard from "src/components/AppointmentCard/AppointmentCard";
+import AppointmentTable from "./PatientTables/AppointmentTable";
+import BillingTable from "./PatientTables/BillingTable";
+import ReportTable from "./PatientTables/ReportTable";
 
-// const appointmentData = [
-//   {
-//     title: "Physiotherapy Appointment",
-//     doctor: "Doctor Mugera",
-//     description: "Lower back pains which come with stinging headaches.",
-//     date: "Mon,10:30 am EAT",
-//     means: "Virtual Meeting",
-//   },
-//   {
-//     title: "Fertility Appointment",
-//     doctor: "Doctor Margeret",
-//     description: "Discussion on how best we can acquire and manage serogates.",
-//     date: "Tue, 11:30 am EAT",
-//     means: "Physical (IMT Hospital)",
-//   },
-//   {
-//     title: "Ultrasonci Scan diagnostics",
-//     doctor: "Dr. Musinguzi John",
-//     description:
-//       "Reflection on the shared ultrasonic soft tissue scan documents.",
-//     date: "Thur, 12:00 am EAT",
-//     means: "Virtual meeting",
-//   },
-// ];
+const appointmentData = [
+  {
+    title: "Physiotherapy Appointment",
+    doctor: "Doctor Mugera",
+    description: "Lower back pains which come with stinging headaches.",
+    date: "Mon,10:30 am EAT",
+    means: "Virtual Meeting",
+  },
+  {
+    title: "Fertility Appointment",
+    doctor: "Doctor Margeret",
+    description: "Discussion on how best we can acquire and manage serogates.",
+    date: "Tue, 11:30 am EAT",
+    means: "Physical (IMT Hospital)",
+  },
+  {
+    title: "Ultrasonci Scan diagnostics",
+    doctor: "Dr. Musinguzi John",
+    description:
+      "Reflection on the shared ultrasonic soft tissue scan documents.",
+    date: "Thur, 12:00 am EAT",
+    means: "Virtual meeting",
+  },
+];
 
-// const TABS = {
-//   APPOINTMENTS: "Appointments",
-//   REPORTS: "Reports",
-//   BILLING: "Billing",
-// };
+const TABS = {
+  APPOINTMENTS: "Appointments",
+  REPORTS: "Reports",
+  BILLING: "Billing",
+};
 
 const PatientsAppointments: React.FunctionComponent = () => {
-  // const [tab, setTab] = useState(TABS.APPOINTMENTS);
+  const [tab, setTab] = useState(TABS.APPOINTMENTS);
   return (
     <div className="w-full bg-backgroundSidebar p-3 rounded">
       <h3 className="text-primary font-semibold text-2xl mb-5">
         Up Coming Appointments
       </h3>
-      <div className="my-3 p-5">
+      {/* <div className="my-3 p-5">
         <Paper elevation={2} className="p-5">
           All your appointments will appear here
         </Paper>
-      </div>
-      {/* <div className="flex flex-wrap">
+      </div> */}
+      <div className="flex flex-wrap">
         {appointmentData.map((app) => {
           return (
             <AppointmentCard
@@ -61,9 +61,9 @@ const PatientsAppointments: React.FunctionComponent = () => {
             />
           );
         })}
-      </div> */}
+      </div>
 
-      {/* <div className="w-full mt-10 mx-auto">
+      <div className="w-full mt-10 mx-auto">
         <div className="flex justify-center items-center">
           <div
             className={`mx-9 cursor-pointer select-none ${
@@ -105,7 +105,7 @@ const PatientsAppointments: React.FunctionComponent = () => {
             <AppointmentTable />
           )}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

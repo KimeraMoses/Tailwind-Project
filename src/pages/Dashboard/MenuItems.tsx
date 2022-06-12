@@ -18,7 +18,7 @@ export const PatientsMenuItems = [
   },
   {
     name: "Appointments",
-    slug: "patients-appointments",
+    slug: "appointments",
     icon: <IoBagSharp className="text-2xl mr-2" />,
   },
   {
@@ -46,7 +46,7 @@ export const DoctorsMenuItems = [
   },
   {
     name: "Appointments",
-    slug: "patients-appointments",
+    slug: "appointments",
     icon: <IoBagSharp className="text-2xl mr-2" />,
   },
   {

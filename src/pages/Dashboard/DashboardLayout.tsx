@@ -64,15 +64,20 @@ const DashboardLayout: React.FunctionComponent = () => {
               Finance Scheme
             </Link>
           </div>
-          <div className="flex items-center px-2">
-            <Link
+          <div className="text-center mx-5 mb-1 select-none">
+            <NavLink
               to="/help-center"
-              className="flex items-center mx-3 mb-1 justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize hover:bg-accent text-primary hover:text-white border-accent"
+              className={({ isActive }) =>
+                `flex items-center justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize ${
+                  isActive
+                    ? "bg-primary border-primary text-white"
+                    : "text-primary border-accent"
+                }`
+              }
             >
-              {/* Help */}
-              <MdOutlineHelpOutline className="text-2xl" />
-            </Link>
-            <SignOutButton />
+              <MdOutlineHelpOutline className="text-2xl mr-2" />
+              Help
+            </NavLink>
           </div>
         </div>
         <div className="py-4 px-4 flex-grow overflow-hidden ">

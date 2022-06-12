@@ -10,7 +10,6 @@ import image1 from "../../../../assets/placeholder.png";
 import { RiAttachment2 } from "react-icons/ri";
 import { MdVerified } from "react-icons/md";
 import Rating from "@mui/material/Rating";
-import imageDr from "../../../../assets/doctor-01.png";
 
 export const doctorAvailability = [
   {
@@ -66,7 +65,11 @@ export const doctorAvailability = [
 export const DoctorMinCard = () => {
   return (
     <div className="flex shadow rounded-xl">
-      <img src={imageDr} alt="" className="shadow-md rounded-xl w-40 h-40" />
+      <img
+        src="https://medatlas-production.s3.amazonaws.com/1644130043005-1644130036988.png"
+        alt=""
+        className="shadow-md rounded-xl w-40 h-40"
+      />
       <div className="flex flex-col ml-3">
         <h2 className="font-bold text-primary text-xl mb-2 flex items-center">
           Dr. Margret Mutumba
@@ -78,7 +81,7 @@ export const DoctorMinCard = () => {
         <h6 className="text-sm font-normal mb-1">
           English, Luganda, Kiswahili
         </h6>
-        <p className="text-accent text-sm font-medium">Fertilty</p>
+        <p className="text-accent text-sm font-medium">Fertilty Specialist</p>
         <Rating
           name="read-only"
           value={3.6}

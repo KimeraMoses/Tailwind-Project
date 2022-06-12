@@ -21,7 +21,7 @@ const NewsFeeds: React.FunctionComponent = () => {
         />
       </div>
       <div className="p-4 bg-white rounded-md shadow-md flex gap-4">
-        <div className="w-1/3">
+        <div className="w-1/3 text-primary font-medium">
           {" "}
           <p className="mb-5">
             Hello{" "}
@@ -35,8 +35,8 @@ const NewsFeeds: React.FunctionComponent = () => {
             Thank you for joining MedAtlas.
           </p>
           <p className="mb-2">
-            Our vision at MedAtlas is to connecting you with Specialist Doctors
-            from anywhere you are located!
+            Our Vision at MedAtlas is connecting you to thousands of patients in
+            Africa and the diaspora.
           </p>
           {isPatient ? (
             <p className="">
@@ -52,25 +52,12 @@ const NewsFeeds: React.FunctionComponent = () => {
             </p>
           ) : (
             <p>
-              Simply set your availability{" "}
-              <Link
-                to="/dashboard/scheduling"
-                className="text-accent hover:text-primary font-medium"
-              >
-                here{" "}
-              </Link>{" "}
-              for patients to easily make appointments
+              Increase your visibility to clients across Africa with the click
+              of a button. Patients can book an appointment with you, get a
+              diagnosis, prognosis, monitoring and secondary advise in the
+              comfort of their own home.
             </p>
           )}
-          <div className="w-full mt-2">
-            <Link
-              to="/help-center"
-              className="flex items-center text-lg mx-3 mb-1 justify-center cursor-pointer px-5 py-2 border font-semibold rounded-lg capitalize hover:bg-primary text-primary hover:text-white border-primary"
-            >
-              Need Help
-              <MdOutlineHelpOutline className="text-2xl ml-1" />
-            </Link>
-          </div>
         </div>
         <div className="w-2/3">
           <div className="flex w-full my-2 items-start flex-wrap justify-evenly">
@@ -85,20 +72,23 @@ const NewsFeeds: React.FunctionComponent = () => {
       </div>
       <div className="flex justify-center gap-8 my-8 select-none">
         <NewsCard
-          image={image}
+          image="https://uwaterloo.ca/news/sites/ca.news/files/styles/feature_xl/public/8273_colour.jpg?itok=KgO44A3h"
           location="University of Waterloo, Canada"
           date="6 Jan 2022"
           title="The future of Specialist care in Africa"
           description="Read how she founded MedAtlas, a telemedicine health-care
                 platform to make fertility care in Africa more accessible."
+          link="https://uwaterloo.ca/news/global-impact/future-specialist-care-africa"
         />
         <NewsCard
-          image={image}
+          image="https://uwaterloo.ca/public-health-sciences/sites/ca.public-health-sciences/files/resize/uploads/images/margaret-mutumba-circle-500-360x360.png"
           location="University of Waterloo, Canada"
-          date="6 Jan 2022"
-          title="The future of Specialist care in Africa"
-          description="Read how she founded MedAtlas, a telemedicine health-care
-                platform to make fertility care in Africa more accessible."
+          date="4 Aug 2021"
+          title="MedAtlas wins Concept $5K startup competition"
+          description="MedAtlas, founded by Public Health and Health Systems doctoral
+          student Margaret Mutumba, has won the Concept $5K challenge for
+          Spring 2021."
+          link="https://uwaterloo.ca/public-health-sciences/news/medatlas-wins-concept-5k-startup-competition"
         />
       </div>
     </div>

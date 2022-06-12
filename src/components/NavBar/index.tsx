@@ -17,6 +17,7 @@ import { SignOutButton } from "../Buttons";
 import { Avatar } from "@mui/material";
 import Notifications from "./../Notification/Notifications";
 import { useCurrentUser } from "@hooks";
+import AuthenticatedUser from "./../AuthenticatedUser/AuthenticatedUser";
 
 const REACT_APP_MEDATLAS_EMAIL = process.env.REACT_APP_MEDATLAS_EMAIL;
 
@@ -169,12 +170,7 @@ export const NavBar = () => {
           {user ? (
             <div className="flex items-center">
               <Notifications />
-              <Link to="/dashboard/user">
-                <Avatar
-                  src={user?.profilePicture?.link}
-                  alt={user?.firstName + " " + user?.lastName}
-                />
-              </Link>
+              <AuthenticatedUser />
             </div>
           ) : (
             <AuthNavComponents />
