@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DoctorCardDashboard from "src/components/DoctorCard/DoctorCardDashboard";
 import DoctorsSearch from "./../../../components/Search/DoctorsSearch";
-import { useSearchDoctors } from "@hooks";
+// import { useSearchDoctors } from "@hooks";
+import { DoctorsList } from "./../../Home/DoctorsSection/DoctorsSection";
 
 const SearchDoctors = () => {
-  const doctorsList = useSearchDoctors({});
+  // const doctorsList = useSearchDoctors({});
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<any[] | null>([]);
   const keyWordHandler = (e: any) => {
@@ -12,15 +13,13 @@ const SearchDoctors = () => {
     setSearchTerm(value);
 
     if (searchTerm !== "") {
-      const Results =
-        doctorsList &&
-        doctorsList.filter((Result: any) => {
-          return Object.values(Result)
-            .join(" ")
-            .replace(/-/g, " ")
-            .toLowerCase()
-            .includes(searchTerm.toLowerCase());
-        });
+      const Results = DoctorsList.filter((Result: any) => {
+        return Object.values(Result)
+          .join(" ")
+          .replace(/-/g, " ")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
       setSearchResults(Results);
     }
   };
@@ -48,18 +47,19 @@ const SearchDoctors = () => {
             Try another search term
           </div>
         ) : (
-          doctorsList &&
-          doctorsList.map((doctor) => {
+          (searchResults && searchResults.length > 0
+            ? searchResults
+            : DoctorsList
+          ).map((doctor) => {
             return (
               <DoctorCardDashboard
-                doctor={doctor}
-                key={doctor?._id}
-                name={doctor?.firstName + " " + doctor?.lastName}
-                speciality={doctor.specialities[0].replace(/_/g, " ")}
-                city={doctor?.timeZone.split("/")[1]}
-                country={doctor?.timeZone.split("/")[0]}
-                image={doctor.profilePicture?.link}
-                rating={4.5}
+                key={doctor.name}
+                name={doctor.name}
+                image={doctor.image}
+                speciality={doctor.speciality}
+                city={doctor.city}
+                country={doctor.country}
+                rating={doctor.rating}
               />
             );
           })
