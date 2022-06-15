@@ -73,7 +73,9 @@ The tasks are as follows:
 <p align="center" >
   About Us Page
 </p>
+
 ![](src/assets/screenshorts/8.png?raw=true "Mision & Vision")
+
 <p align="center" >
   Mision & Vision
 </p>
