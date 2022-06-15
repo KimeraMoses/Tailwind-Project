@@ -33,7 +33,11 @@ The tasks are as follows:
 ##### DEMO:
 
 ![](src/assets/screenshorts/1.png?raw=true "Hero Section")
-_Hero Section_
+
+<p align="center">
+  _Hero Section_
+</p>
+
 ![](src/assets/screenshorts/2.png?raw=true "Specialities Section")
 _Specialities Section_
 ![](src/assets/screenshorts/3.png?raw=true "Why Choose Us Section")
