@@ -33,7 +33,9 @@ The tasks are as follows:
 ##### DEMO:
 
 ![](src/assets/screenshorts/1.png?raw=true "Hero Section")
+_Hero Section_
 ![](src/assets/screenshorts/2.png?raw=true "Specialities Section")
+_Specialities Section_
 ![](src/assets/screenshorts/3.png?raw=true "Why Choose Us Section")
 ![](src/assets/screenshorts/4.png?raw=true "Best Doctors Slider")
 ![](src/assets/screenshorts/5.png?raw=true "Partners Section")
