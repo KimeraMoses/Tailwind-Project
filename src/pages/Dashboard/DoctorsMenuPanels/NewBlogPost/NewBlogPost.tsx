@@ -7,7 +7,6 @@ import { DecoratedButton } from "@components";
 
 const NewBlogPost = () => {
   const [image, setImage] = useState<unknown>("");
-
   const imageHandler = () => {
     document.getElementById("post_image_input_change")?.click();
   };
@@ -35,6 +34,14 @@ const NewBlogPost = () => {
 
   return (
     <div className="bg-backgroundSidebar w-full p-3 rounded">
+      <div
+        style={{ fontStyle: "italic", color: "red" }}
+        className="mt-1 py-3 px-2"
+      >
+        <div className="mt-1">
+          The form is not connected to recieve data at the moment
+        </div>
+      </div>
       <h3 className="text-primary font-semibold text-2xl mb-3">
         Write your own article
       </h3>
@@ -51,9 +58,11 @@ const NewBlogPost = () => {
           </h4>
           <div
             onClick={imageHandler}
-            className="flex flex-col items-center justify-center w-full cursor-pointer p-20 bg-[#EFF2F5] mt-5 border border-grayPrimary h-36"
+            className="flex flex-col items-center justify-center w-full cursor-pointer p-20 bg-[#EFF2F5] mt-5 border border-dashed rounded-md border-grayPrimary h-36"
           >
-            <BiImageAdd className="text-6xl text-accent bordeer border-primary" />
+            <div>
+              <BiImageAdd className="text-6xl text-primary" />
+            </div>
             <input
               type="file"
               title=""
@@ -91,6 +100,7 @@ const NewBlogPost = () => {
             color="primary"
             hoverColor="accent"
             className="rounded-lg w-80"
+            disabled
           >
             Submit
           </DecoratedButton>

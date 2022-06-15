@@ -29,7 +29,9 @@ export const TimeZoneSelector: React.FunctionComponent<PropTypes> = ({
     <select
       onChange={onTimeZoneChange}
       value={timeZone}
-      className={`border rounded p-2 w-full max-w-540 ${className || ""}`}
+      className={`form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary font-Poppins transition ease-in-out max-w-540 ${
+        className || ""
+      }`}
       required
       name="timeZone"
       {...props}

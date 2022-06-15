@@ -8,17 +8,17 @@ import { BsFillCalendarEventFill } from "react-icons/bs";
 export const PatientsMenuItems = [
   {
     name: "News Feeds",
-    slug: "news-feeds",
+    slug: "user",
     icon: <MdOutlineMenu className="text-2xl mr-2" />,
   },
   {
     name: "Search Doctors",
-    slug: "search-doctors",
+    slug: "doctors",
     icon: <BiSearch className="text-2xl mr-2" />,
   },
   {
     name: "Appointments",
-    slug: "patients-appointments",
+    slug: "appointments",
     icon: <IoBagSharp className="text-2xl mr-2" />,
   },
   {
@@ -36,7 +36,7 @@ export const PatientsMenuItems = [
 export const DoctorsMenuItems = [
   {
     name: "News Feeds",
-    slug: "news-feeds",
+    slug: "user",
     icon: <MdOutlineMenu className="text-2xl mr-2" />,
   },
   {
@@ -46,7 +46,7 @@ export const DoctorsMenuItems = [
   },
   {
     name: "Appointments",
-    slug: "patients-appointments",
+    slug: "appointments",
     icon: <IoBagSharp className="text-2xl mr-2" />,
   },
   {
@@ -56,7 +56,7 @@ export const DoctorsMenuItems = [
   },
   {
     name: "Search Doctors",
-    slug: "search-doctors",
+    slug: "doctors",
     icon: <BiSearch className="text-2xl mr-2" />,
   },
   {

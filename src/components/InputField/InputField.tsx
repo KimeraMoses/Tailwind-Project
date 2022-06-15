@@ -9,6 +9,7 @@ interface InputFieldProps {
   onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
   customClasses?: string;
   required?: boolean;
+  defaultValue?: any;
 }
 
 interface RadioFieldProps {
@@ -24,6 +25,7 @@ export const InputField: React.FC<InputFieldProps> = ({
   type,
   placeholder,
   value,
+  defaultValue,
   name,
   disabled,
   onChange,
@@ -38,6 +40,7 @@ export const InputField: React.FC<InputFieldProps> = ({
       required={required ? true : false}
       onChange={onChange}
       name={name}
+      defaultValue={defaultValue}
       disabled={disabled}
       className={`appearance-none box-border border border-gray w-full rounded-lg select-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins ${customClasses}`}
     />

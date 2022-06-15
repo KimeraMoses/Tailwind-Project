@@ -5,19 +5,21 @@ import Rating from "@mui/material/Rating";
 
 export interface DoctorProps {
   image: any;
-  name: string;
-  speciality: string;
-  city: string;
-  country: string;
+  name: string | undefined;
+  speciality: string | undefined;
+  city: string | undefined;
+  country: string | undefined;
   rating?: number;
   isSelected?: boolean;
   isDoctor?: boolean;
+  doctor?: any;
 }
 
 const DoctorCard: React.FC<DoctorProps> = ({
   image,
   name,
   speciality,
+  doctor,
   city,
   country,
   rating,
@@ -36,7 +38,9 @@ const DoctorCard: React.FC<DoctorProps> = ({
             title="Doctors Document Verified"
           />
         </h2>
-        <p className="text-accent text-sm font-medium">{speciality}</p>
+        <p className="text-accent text-sm font-medium capitalize">
+          {speciality}
+        </p>
         <div className="w-full py-1">
           <Rating name="read-only" value={rating} precision={0.5} readOnly />
         </div>
@@ -48,16 +52,14 @@ const DoctorCard: React.FC<DoctorProps> = ({
         </div>
         <div className="flex items-center justify-between gap-2 mt-5">
           <button
-            onClick={() =>
-              navigate(
-                `/dashboard/doctors/${name.toLowerCase().replace(/ /g, "-")}`
-              )
-            }
+            disabled
+            onClick={() => navigate(`/dashboard/doctors/${doctor?._id}`)}
             className="py-2 px-4 border border-solid border-primary rounded-md text-primary font-medium text-sm transition hover:bg-primary hover:text-white"
           >
             View Profile
           </button>
           <button
+            disabled
             onClick={() => navigate("/appointment/booking")}
             className="py-2 px-4 border-none rounded-md text-white text-sm font-medium transition bg-accent hover:bg-primary"
           >

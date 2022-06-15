@@ -1,3 +1,4 @@
+import { Paper } from "@mui/material";
 import React, { useState } from "react";
 import AppointmentCard from "src/components/AppointmentCard/AppointmentCard";
 import AppointmentTable from "./PatientTables/AppointmentTable";
@@ -42,6 +43,11 @@ const PatientsAppointments: React.FunctionComponent = () => {
       <h3 className="text-primary font-semibold text-2xl mb-5">
         Up Coming Appointments
       </h3>
+      {/* <div className="my-3 p-5">
+        <Paper elevation={2} className="p-5">
+          All your appointments will appear here
+        </Paper>
+      </div> */}
       <div className="flex flex-wrap">
         {appointmentData.map((app) => {
           return (

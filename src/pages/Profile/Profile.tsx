@@ -1,6 +1,11 @@
 import React, { useState, useCallback, useMemo, useRef } from "react";
 import Select from "react-select";
-import { Button, ConfirmModal, showNotification } from "@components";
+import {
+  Button,
+  ConfirmModal,
+  DecoratedButton,
+  showNotification,
+} from "@components";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { DashboardView } from "@views";
@@ -23,11 +28,17 @@ import {
   TimeZoneList,
   LanguageList,
   SpecialityList,
+  countryData,
 } from "@constants";
 
 import { Consultations } from "./Consultations";
 import { Certifications } from "./Certifications";
 import { AvatarEditor } from "./Avatar";
+import { InputField } from "src/components/InputField";
+import { RiAttachment2 } from "react-icons/ri";
+import image1 from "@assets/pdf.png";
+import "../Register/Register.css";
+import medLogo from "@assets/medatlas_logo.png";
 
 const LanguageOptons = LanguageList.map((option) => ({
   value: option.id,
@@ -39,6 +50,8 @@ const SpeciliatyOptions = SpecialityList.map((option) => ({
 }));
 
 export const Profile = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [paymentModes, setPaymentMode] = useState("MM");
   const user = useCurrentUser()!;
   const [inputParams, setInputParams] = useState(
     {} as input.AccountUpdateInput
@@ -121,8 +134,10 @@ export const Profile = () => {
 
   const onProfileFormSubmit: React.FormEventHandler = useCallback(
     async (event) => {
+      setIsLoading(true);
       event.preventDefault();
       await HttpApi.updateAccount({ ...inputParams });
+      setIsLoading(false);
       showNotification("Your profile has been updated", "success");
     },
     [inputParams]
@@ -155,111 +170,113 @@ export const Profile = () => {
   }, [user]);
 
   return (
-    <DashboardView>
-      <div className=" ">
-        <h3 className="mt-6 text-3xl font-medium">
-          {accountTypeName} Account profile
-        </h3>
-        {userWarnings.length > 0 && (
-          <div style={{ fontStyle: "italic", color: "red" }} className="mt-1">
-            {userWarnings.map((warning) => (
-              <div className="mt-1" key={warning}>
-                {warning}
-              </div>
-            ))}
-          </div>
-        )}
-        <div className="mt-6 flex-col-reverse gap-3 flex md:flex-row">
-          <form
-            onSubmit={onProfileFormSubmit}
-            className="w-full  xl:w-132 md:w-128"
-          >
-            <div className="mb-7">
-              <div
-                className="
-					        shadow
-					        w-full
-					        p-4
-					        mb-5
-					        "
-              >
-                <AvatarEditor />
-              </div>
-              <div>
-                <input
-                  className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
+    <div className="bg-backgroundSidebar p-3 rounded">
+      {userWarnings.length > 0 && (
+        <div
+          style={{ fontStyle: "italic", color: "red" }}
+          className="mt-1 py-3 px-2"
+        >
+          {userWarnings.map((warning) => (
+            <div className="mt-1" key={warning}>
+              {warning}{" "}
+              <Link to="/dashboard/scheduling" className="text-primary">
+                here
+              </Link>
+            </div>
+          ))}
+        </div>
+      )}
+      <form className="bg-white pt-2 pb-3" onSubmit={onProfileFormSubmit}>
+        <div className="flex">
+          <div className="w-1/2 px-2 border-r border-primary pr-5">
+            <div>
+              <h4 className="text-base text-primary font-bold">
+                Profile Picture
+              </h4>
+              <AvatarEditor />
+            </div>
+            <div className="flex gap-4 my-4 w-full">
+              <div className="w-1/2">
+                <h6 className="text-primary font-medium text-sm mb-1">
+                  First Name
+                </h6>
+                <InputField
                   type="text"
-                  name="firstName"
                   placeholder="First Name"
                   required
                   defaultValue={user.firstName}
+                  name="firstName"
                   onChange={onInputChange("firstName")}
-                ></input>
-                <input
-                  className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
+                />
+              </div>
+              <div className="w-1/2">
+                <h6 className="text-primary font-medium text-sm mb-1">
+                  Surname
+                </h6>
+                <InputField
                   type="text"
+                  required
                   name="lastName"
                   placeholder="Last Name"
-                  required
                   defaultValue={user.lastName}
                   onChange={onInputChange("lastName")}
-                ></input>
+                />
+              </div>
+            </div>
 
-                <select
-                  className="shadow
-				        w-full
-				        h-11
-				        p-2
-				        mb-5 border border-gray rounded text-black bg-white"
-                  name="gender"
-                  placeholder="Gender"
-                  required={user.accountType === enums.AccountTypes.DOCTOR}
-                  defaultValue={user.gender}
-                  onChange={onInputChange("gender")}
-                >
-                  <option value="">Select gender</option>
-                  {GenderList.map((gender) => (
-                    <option key={gender.id} value={gender.id}>
-                      {gender.name}
-                    </option>
-                  ))}
-                </select>
+            <div className="my-4">
+              <h6 className="text-primary font-medium text-sm mb-1">Gender</h6>
+              <select
+                name="gender"
+                required={user.accountType === enums.AccountTypes.DOCTOR}
+                defaultValue={user.gender}
+                onChange={onInputChange("gender")}
+                className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out"
+              >
+                {GenderList.map((gender) => (
+                  <option key={gender.id} value={gender.id}>
+                    {gender.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="my-4">
+              <h6 className="text-primary font-medium text-sm mb-1">
+                Email Address
+              </h6>
+              <InputField
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={user.email}
+                disabled
+              />
+            </div>
 
-                <input
-                  className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={user.email}
-                  readOnly
-                ></input>
+            <div className="my-4">
+              <h6 className="text-primary font-medium text-sm mb-1">
+                Languages spoken
+              </h6>
+              <Select
+                className="shadow-0 w-full mb-0 border border-gray rounded-lg text-black bg-white"
+                name="languages"
+                placeholder="Languages"
+                defaultValue={defaultLangOptions}
+                options={LanguageOptons}
+                onChange={onMultiInputChange("languages")}
+                noOptionsMessage={(value) => "Select your languages"}
+                isMulti
+                isSearchable={true}
+              />
+            </div>
 
+            <div className="my-4">
+              <h6 className="text-primary font-medium text-sm mb-1">
+                Mobile Number
+              </h6>
+              <div className="flex">
                 <PhoneInput
-                  className="
-				        shadow
-				        w-full
-				        h-11
-				        p-4
-				        mb-5
-				        "
+                  className="appearance-none box-border border border-gray w-full rounded-lg select-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary font-body custom_style"
                   type="tel"
                   name="whatsAppNum"
                   value={user.whatsAppNum}
@@ -267,191 +284,223 @@ export const Profile = () => {
                   placeholder="WhatsApp / phone number"
                   onChange={onPhoneInputChange("whatsAppNum")}
                 />
+              </div>
+              <div className="flex gap-4 my-4 w-full">
+                <div className="w-1/2">
+                  <h6 className="text-primary font-medium text-sm mb-1">
+                    Country of Residence
+                  </h6>
+                  <select
+                    name="clinic__address__country"
+                    placeholder="Country"
+                    required
+                    defaultValue={user.clinic?.address?.country}
+                    onChange={onClinicAddressInputChange("country")}
+                    className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out"
+                  >
+                    {CountryList.map((country) => (
+                      <option key={country.id} value={country.id}>
+                        {country.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-                {user.accountType === enums.AccountTypes.DOCTOR && (
+                <div className="w-1/2">
+                  <h6 className="text-primary font-medium text-sm mb-1">
+                    City
+                  </h6>
+                  <InputField
+                    type="text"
+                    name="address__city"
+                    placeholder="City"
+                    defaultValue={user.address?.city}
+                    onChange={onInput2Change("address", "city")}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          {user.accountType === enums.AccountTypes.PATIENT ? (
+            <div className="w-1/2 px-2 pl-5 flex items-center justify-center">
+              <img src={medLogo} alt="MedAtlas Inc" className="" />
+            </div>
+          ) : (
+            <div className="w-1/2 px-2 pl-5">
+              {user.accountType === enums.AccountTypes.DOCTOR && (
+                <div className="mb-4">
+                  <h4 className="text-base text-primary font-bold">
+                    Add Speciality
+                  </h4>
                   <Select
-                    className="shadow
-				        w-full
-				        mb-5 border border-gray rounded text-black bg-white"
+                    className="shadow-0 w-full mb-0 border border-gray rounded-lg text-black bg-white"
                     name="specialities"
-                    placeholder="Specialities"
+                    placeholder="Select specialities"
                     defaultValue={defaultspecialityOptions}
                     options={SpeciliatyOptions}
                     onChange={onMultiInputChange("specialities")}
                     noOptionsMessage={(value) => "Select your specialities"}
                     isMulti
-                    isSearchable={false}
+                    isSearchable={true}
                   />
-                )}
-                {user.accountType === enums.AccountTypes.DOCTOR && (
-                  <Select
-                    className="shadow
-				        w-full
-				        mb-5 border border-gray rounded text-black bg-white"
-                    name="languages"
-                    placeholder="Languages"
-                    defaultValue={defaultLangOptions}
-                    options={LanguageOptons}
-                    onChange={onMultiInputChange("languages")}
-                    noOptionsMessage={(value) => "Select your languages"}
-                    isMulti
-                    isSearchable={false}
-                  />
-                )}
-
-                <select
-                  className="shadow
-				        w-full
-				        h-11
-				        p-2
-				        mb-5 border border-gray rounded text-black bg-white"
-                  name="timezone"
-                  placeholder="Default timezone"
-                  required
-                  defaultValue={user.timeZone}
-                  onChange={onInputChange("timeZone")}
+                </div>
+              )}
+              <div className="my-4">
+                <h6 className="text-primary font-medium text-sm mb-1">
+                  About Me
+                </h6>
+                <textarea
+                  rows={4}
+                  className="textarea textarea-primary box-border border border-gray w-full rounded-lg select-none text-gray-700 leading-tight py-2 px-3 focus:outline-none focus:border-primary mr-2 font-Poppins"
+                  placeholder="Add information about you (will be visible to patients)"
+                ></textarea>
+              </div>
+              {/* <div className="my-4">
+                <h6 className="flex items-center mb-1 font-Poppins font-medium text-sm text-primary">
+                  <RiAttachment2 />
+                  Attachments ({user?.certifications.length})
+                </h6>
+                <div
+                  className="p-5 rounded-xl flex flex-wrap items-center gap-1"
+                  style={{
+                    background: `linear-gradient(100.32deg, #FCF5FF -6.29%, #F5E4FF 88.21%)`,
+                  }}
                 >
-                  <option value="">Select Timezone</option>
-                  {TimeZoneList.map((timezone) => (
-                    <option key={timezone.id} value={timezone.id}>
-                      {timezone.name}
-                    </option>
-                  ))}
-                </select>
-                {user.accountType !== enums.AccountTypes.DOCTOR && (
-                  <>
-                    <h2 className="font-medium">Your address</h2>
-                    <input
-                      className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
-                      type="text"
-                      name="address__city"
-                      placeholder="City"
-                      defaultValue={user.address?.city}
-                      onChange={onInput2Change("address", "city")}
-                    ></input>
+                  {user?.certifications.map((certificate) => {
+                    return (
+                      <div
+                        className="flex flex-col items-center justify-center mr-1 p-2"
+                        key={certificate._id}
+                      >
+                        <img src={image1} alt="pdf" className="w-8 h-auto" />
+                        <a
+                          href={certificate?.file?.link}
+                          download
+                          className="text-xs text-primary font-medium mt-2 hover:text-accentHover"
+                        >
+                          {certificate.name}
+                        </a>
+                      </div>
+                    );
+                  })}
 
-                    <select
-                      className="shadow
-				        w-full
-				        h-11
-				        
-				        mb-5 border border-gray p-2 rounded text-black bg-white"
-                      name="address__country"
-                      placeholder="Country"
-                      defaultValue={user.address?.country}
-                      onChange={onInput2Change("address", "country")}
-                    >
-                      <option value="">Select country</option>
-                      {CountryList.map((country) => (
-                        <option key={country.id} value={country.id}>
-                          {country.name}
-                        </option>
-                      ))}
-                    </select>
-                  </>
-                )}
+                  <div className="w-8 h-8 rounded-xl bg-backgroundPurple flex items-center justify-center text-white m-1">
+                    +
+                  </div>
+                </div>
+                <div className="my-1">
+                  <p className="text-base text-primary">
+                    <strong className="text-accent mr-1">Note:</strong>Please
+                    only upload the Medical Degree or Practitioner
+                    Degree,Specialist Certification and Current Practising
+                    License. These documents will{" "}
+                    <strong className="text-primary">not be visible</strong> to
+                    patients and only for administrative use.
+                  </p>
+                </div>
+              </div> */}
 
-                {user.accountType === enums.AccountTypes.DOCTOR && (
-                  <>
-                    <h2 className="font-medium">Clinic name & address</h2>
-
-                    <input
-                      className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
-                      type="text"
-                      name="clinic__name"
-                      placeholder="Clinic name"
-                      defaultValue={user.clinic?.name}
-                      onChange={onInput2Change("clinic", "name")}
-                      required
-                    ></input>
-
-                    <input
-                      className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
-                      type="text"
-                      name="clinic__address__city"
-                      placeholder="City"
-                      defaultValue={user.clinic?.address?.city}
-                      onChange={onClinicAddressInputChange("city")}
-                      required
-                    ></input>
-
-                    <select
-                      className="shadow
-				        w-full
-				        h-11
-				        mb-5 border border-gray p-2 rounded text-black bg-white"
-                      name="clinic__address__country"
-                      placeholder="Country"
-                      required
-                      defaultValue={user.clinic?.address?.country}
-                      onChange={onClinicAddressInputChange("country")}
-                    >
-                      <option value="">Select country</option>
-                      {CountryList.map((country) => (
-                        <option key={country.id} value={country.id}>
-                          {country.name}
-                        </option>
-                      ))}
-                    </select>
-                  </>
-                )}
-
-                {user.accountType === enums.AccountTypes.DOCTOR && (
-                  <h2 className="font-medium">Payments</h2>
-                )}
-                {user.accountType === enums.AccountTypes.DOCTOR && (
-                  <PhoneInput
-                    className="
-					        shadow
-					        w-full
-					        h-11
-					        p-4
-					        mb-5
-					        "
-                    type="tel"
-                    name="mobileMoneyNumber"
-                    value={user.mobileMoneyNumber}
-                    placeholder="mobile money"
-                    onChange={onPhoneInputChange("mobileMoneyNumber")}
+              <div className="my-4">
+                <h6 className="text-primary font-medium text-sm mb-1">
+                  Health Facility Name and Address
+                </h6>
+                <InputField
+                  type="text"
+                  name="clinic__name"
+                  placeholder="Clinic name"
+                  defaultValue={user.clinic?.name}
+                  onChange={onInput2Change("clinic", "name")}
+                  required
+                />
+              </div>
+              <div className="my-4">
+                <h6 className="text-primary font-medium text-sm mb-1">
+                  Consultation Fees (Convert to USD)
+                </h6>
+                <div className="flex items-center">
+                  <div className="py-1.5 px-4 border border-gray rounded-l-lg font-medium">
+                    USD
+                  </div>
+                  <InputField
+                    type="number"
+                    placeholder="50,000"
+                    name="amount"
+                    value=""
                   />
-                )}
+                </div>
+              </div>
+              <div className="my-4">
+                <h6 className="text-primary font-medium text-sm mb-1">
+                  Follow-up Fees
+                </h6>
+                <div className="flex items-center">
+                  <div className="py-1.5 px-4 border border-gray rounded-l-lg font-medium">
+                    USD
+                  </div>
+                  <InputField
+                    type="number"
+                    placeholder="50,000"
+                    name="amount"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div className="my-4">
+                <h6 className="text-primary font-medium text-sm mb-1">
+                  Mode of Payment{paymentModes}
+                </h6>
+                <div className="flex items-center w-full">
+                  <select
+                    onChange={(e) => setPaymentMode(e.target.value)}
+                    className="form-select block box-border border border-gray rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out w-40"
+                  >
+                    <option value="MM">Mobile Money</option>
+                    <option value="BT">Bank Transfer</option>
+                  </select>
+                  {paymentModes === "MM" ? (
+                    <PhoneInput
+                      className="appearance-none box-border flex-grow border border-gray w-full rounded-lg select-none py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary font-body custom_style"
+                      type="tel"
+                      name="mobileMoneyNumber"
+                      value={user.mobileMoneyNumber}
+                      required
+                      onChange={onPhoneInputChange("mobileMoneyNumber")}
+                    />
+                  ) : (
+                    <div className="flex-grow border border-gray rounded-md whitespace-nowrap text-sm py-2 text-center text-primary font-semibold">
+                      Email bank details to{" "}
+                      <a
+                        href={`mailto:${process.env.REACT_APP_MEDATLAS_EMAIL}`}
+                        className="hover:text-accent inline"
+                      >
+                        <strong className="text-accent">
+                          info@medatlas.com
+                        </strong>
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-
-            <Button type="submit">Update profile</Button>
-          </form>
-          <div>
-            {user.accountType === enums.AccountTypes.DOCTOR && (
-              <div className="mt-8">
-                <Consultations user={user} />
-              </div>
-            )}
-            {user.accountType === enums.AccountTypes.DOCTOR && (
-              <div className="mt-8">
-                <Certifications user={user} />
-              </div>
-            )}
-          </div>
+          )}
         </div>
-      </div>
-    </DashboardView>
+        <div className="flex justify-center my-4">
+          <DecoratedButton
+            color="primary"
+            hoverColor="accent"
+            className="px-4 py-1 w-1/2"
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? "Updating..." : "Update Profile"}
+          </DecoratedButton>
+        </div>
+      </form>
+      {user.accountType === enums.AccountTypes.DOCTOR && (
+        <div className="my-4 bg-white p-5 w-3/4">
+          <Certifications user={user} />
+        </div>
+      )}
+    </div>
   );
 };

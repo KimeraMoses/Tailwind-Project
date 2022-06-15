@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Popover, Transition } from "@headlessui/react";
 import {
   ChartBarIcon,
@@ -15,9 +15,9 @@ import { AvatarComponent } from "./components/AvatarNavBarComponent";
 
 import { SignOutButton } from "../Buttons";
 import { Avatar } from "@mui/material";
-import userImage from "../../assets/team/margret.png";
 import Notifications from "./../Notification/Notifications";
-import { useSelector } from "react-redux";
+import { useCurrentUser } from "@hooks";
+import AuthenticatedUser from "./../AuthenticatedUser/AuthenticatedUser";
 
 const REACT_APP_MEDATLAS_EMAIL = process.env.REACT_APP_MEDATLAS_EMAIL;
 
@@ -94,7 +94,7 @@ const doctor = [
   },
   {
     name: "See Our Specialists",
-    href: "/doctors",
+    href: "/dashboard/doctors",
     icon: ChartBarIcon,
   },
 ];
@@ -106,7 +106,6 @@ type NavBarLinkType = {
 
 const NavBarLink: React.FunctionComponent<NavBarLinkType> = ({
   link,
-  target,
   children,
 }) => {
   const style = `font-medium text-base  xl:text-xl md:text-md mr-3 hover:text-accent font-Poppins`;
@@ -123,17 +122,15 @@ const NavBarLink: React.FunctionComponent<NavBarLinkType> = ({
 };
 
 export const NavBar = () => {
-  const userRole = useSelector((state: any) => state.account.userRole);
-  const isPatient = userRole && userRole === "patient" ? true : false;
-  // const isAuthenticated = useCurrentUser()!;
-  const isAuthenticated = false;
+  const user = useCurrentUser();
+  const isPatient = user?.accountType === "PATIENT" ? true : false;
 
   return (
     <Popover className="sticky top-0  z-50 w-full h-primaryNavBar shadow bg-white  border-b border-gray ">
       <div className=" mx-auto px-4 xl:w-extra ">
         <div className=" flex justify-between items-center  py-6 md:space-x-10">
           <Logo />
-          {!isAuthenticated ? (
+          {!user ? (
             <>
               <div className="md:hidden">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -145,7 +142,7 @@ export const NavBar = () => {
                 <NavBarLink link="/">Home</NavBarLink>
                 <NavBarLink link="/about-us">About</NavBarLink>
                 <NavBarLink link="/services">Services</NavBarLink>
-                {!isAuthenticated && (
+                {!user && (
                   <>
                     {" "}
                     <NavBarComponent submenu={patient}>
@@ -163,16 +160,17 @@ export const NavBar = () => {
             <div className="flex justify-center item-center font-light text-grayPrimary">
               <strong className="text-black font-semibold mr-1">Hi</strong>
               <strong className="font-semibold text-primary">
-                {!isPatient ? "Dr. " : ""}Kimera Moses,
+                {!isPatient ? "Dr. " : ""}
+                {user?.firstName + " " + user?.lastName},
               </strong>
               Welcome Back
             </div>
           )}
 
-          {isAuthenticated ? (
+          {user ? (
             <div className="flex items-center">
               <Notifications />
-              <Avatar src={userImage} alt="Margret Mutumba" />
+              <AuthenticatedUser />
             </div>
           ) : (
             <AuthNavComponents />
@@ -227,7 +225,7 @@ export const NavBar = () => {
                   >
                     Contact
                   </a>
-                  {!isAuthenticated && (
+                  {!user && (
                     <>
                       {" "}
                       <NavBarComponent submenu={patient}>
@@ -242,7 +240,7 @@ export const NavBar = () => {
               </div>
             </div>
             <div className="py-6 px-5  gap-4">
-              {isAuthenticated ? (
+              {user ? (
                 <div className="flex justify-between items-center">
                   <AvatarComponent />
                   <SignOutButton />

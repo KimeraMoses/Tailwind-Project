@@ -1,9 +1,11 @@
 import React from "react";
 import MHFS from "../../assets/MHFS.png";
+// import { FiLogOut } from "react-icons/fi";
 import { MdOutlineHelpOutline } from "react-icons/md";
-import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { DoctorsMenuItems, PatientsMenuItems } from "./MenuItems";
-import { useSelector } from "react-redux";
+import { useCurrentUser } from "@hooks";
+import { SignOutButton } from "@components";
 
 interface MenuProps {
   menuTitle: string;
@@ -31,9 +33,8 @@ const DashboardMenuItem: React.FC<MenuProps> = ({
 };
 
 const DashboardLayout: React.FunctionComponent = () => {
-  const userRole = useSelector((state: any) => state.account.userRole);
-  const isPatient = userRole && userRole === "patient" ? true : false;
-  const navigate = useNavigate();
+  const user = useCurrentUser();
+  const isPatient = user?.accountType === "PATIENT" ? true : false;
 
   return (
     <div className="relative ">

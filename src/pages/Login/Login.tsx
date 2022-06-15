@@ -56,7 +56,7 @@ export const Login: React.FunctionComponent = () => {
       setIsLoading(false);
       const redirect = searchParams.get("redirect");
       if (redirect) navigate(redirect);
-      else navigate("/dashboard/news-feeds");
+      else navigate("/dashboard/user");
     },
     [email, password, accountType, navigate, searchParams]
   );

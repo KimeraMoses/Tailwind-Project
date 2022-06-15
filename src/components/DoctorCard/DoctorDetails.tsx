@@ -1,24 +1,25 @@
 import React from "react";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
-import { DoctorsList } from "./../../pages/Home/DoctorsSection/DoctorsSection";
 import DoctorCardDashboard from "./DoctorCardDashboard";
 import { SiMicrodotblog } from "react-icons/si";
+import { useSearchDoctors } from "@hooks";
+// import { useGetDoctorReducer } from "./../../hooks/common";
 
 const DoctorDetails: React.FunctionComponent = () => {
+  const doctorsList = useSearchDoctors({});
   const { doctorName } = useParams();
   const navigate = useNavigate();
 
-  const SelectedDoctor = DoctorsList.filter(
-    (dr) => dr.name.toLowerCase().replace(/ /g, "-") === doctorName
-  )[0];
+  const SelectedDoctor =
+    doctorsList && doctorsList.filter((dr) => dr?._id === doctorName)[0];
 
   return (
     <div className="w-full">
       <div className="flex items-center">
         <MdOutlineArrowBackIosNew
           className="text-primary text-xl mb-5 cursor-pointer"
-          onClick={() => navigate(`/dashboard/search-doctors`)}
+          onClick={() => navigate(`/dashboard/doctors`)}
         />
         <h3 className="text-primary font-semibold text-2xl mb-5">
           Doctor's Profile
@@ -26,12 +27,12 @@ const DoctorDetails: React.FunctionComponent = () => {
       </div>
       <div className="w-full bg-white rounded-t-md">
         <DoctorCardDashboard
-          name={SelectedDoctor && SelectedDoctor.name}
-          image={SelectedDoctor && SelectedDoctor.image}
-          speciality={SelectedDoctor && SelectedDoctor.speciality}
-          city={SelectedDoctor && SelectedDoctor.city}
-          country={SelectedDoctor && SelectedDoctor.country}
-          rating={SelectedDoctor && SelectedDoctor.rating}
+          name={SelectedDoctor?.firstName + " " + SelectedDoctor?.lastName}
+          speciality={SelectedDoctor?.specialities[0]}
+          city={SelectedDoctor?.timeZone.split("/")[1]}
+          country={SelectedDoctor?.timeZone.split("/")[0]}
+          image={SelectedDoctor?.profilePicture?.link}
+          rating={4.5}
           isSelected={true}
         />
         <div className="mt-5 p-6 font-Poppins">

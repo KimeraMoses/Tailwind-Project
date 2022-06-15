@@ -21,7 +21,7 @@ const App = () => {
   }, []);
 
   const modals = useModals();
-  const loaders = useLoaders();
+  // const loaders = useLoaders();
 
   return (
     <IonPage className="overflow-auto h-full">

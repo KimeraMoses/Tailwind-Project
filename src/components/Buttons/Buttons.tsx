@@ -1,6 +1,7 @@
-import React, { useMemo, useCallback } from "react";
+import React, { useMemo, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSignOutReducer } from "@hooks";
+import { FiLogOut } from "react-icons/fi";
 
 export const Button: React.FunctionComponent<
   React.HTMLProps<HTMLButtonElement> & PropTypes
@@ -35,21 +36,25 @@ type PropTypes = {
 
 export const SignOutButton: React.FunctionComponent = () => {
   const [signOut] = useSignOutReducer();
+  const [isLoading, setIsLoading] = useState(false);
   const nagivate = useNavigate();
 
   const onSignOutClick = useCallback(async () => {
+    setIsLoading(true);
     await signOut();
-    nagivate("/");
+    setIsLoading(false);
+    nagivate("/login");
   }, []);
 
   return (
-    <div className="border border-gray rounded bg-accent self-center p-2">
-      <button
-        onClick={onSignOutClick}
-        className="border-none bg-accent transition-all text-white font-medium hover:text-white"
-      >
-        Sign Out
-      </button>
+    // <div className="e">
+    <div
+      onClick={onSignOutClick}
+      className="flex items-center justify-start cursor-pointer px-5 py-2 font-semibold rounded-lg capitalize text-primary hover:text-accent"
+    >
+      <FiLogOut className="text-lg mr-2" />
+      {isLoading ? "Loging Out.." : "Logout"}
     </div>
+    // </div>
   );
 };

@@ -92,7 +92,7 @@ export const Home: React.FC = () => {
                   Book Appointments Today!
                 </h2>
               </div>
-              <form className="mt-2" action="/doctors" method="GET">
+              <form className="mt-2" action="/dashboard/doctors" method="GET">
                 <div className="flex flex-col gap-2 mb-4">
                   <label
                     htmlFor="type of doctor"
@@ -186,9 +186,6 @@ export const Home: React.FC = () => {
           spaceBetween={20}
           navigation={true}
           modules={[Navigation]}
-          // pagination={{
-          //   clickable: true,
-          // }}
           style={{ padding: "0 20px" }}
           className="mt-14 h-60 w-auto"
         >

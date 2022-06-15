@@ -5,7 +5,7 @@ import React, {
   useRef,
   useEffect,
 } from "react";
-import {  showNotification } from "@components";
+import { showNotification } from "@components";
 import { GenericView } from "@views";
 import { GenderList, CountryList, SpecialityList } from "@constants";
 import { Link, useNavigate } from "react-router-dom";
@@ -32,9 +32,17 @@ const SpeciliatyOptions = SpecialityList.map((option) => ({
 }));
 
 export const Register = () => {
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [registerAs, setRegisterAs] = useState("specialist");
+
+  const registerSelectHandler = (e: any) => {
+    const { value } = e.target;
+    setRegisterAs(value);
+  };
 
   const formRef = useRef<HTMLFormElement>(null);
   const [inputParams, setInputParams] = useState(
@@ -120,6 +128,7 @@ export const Register = () => {
 
   const onSubmit: React.FormEventHandler = useCallback(
     async (event) => {
+      setIsLoading(true);
       event.preventDefault();
       if (inputParams.password != inputParams.retype) {
         showNotification(
@@ -129,6 +138,7 @@ export const Register = () => {
         return;
       }
       await HttpApi.createAccount({ ...inputParams, accountType, timeZone });
+      setIsLoading(false);
       navigate(`/login?accountType=${accountType}`);
       showNotification(
         "Verify your account by clicking the link sent to your email address",
@@ -161,30 +171,80 @@ export const Register = () => {
         </h3>
         <div className="mb-7">
           <div>
+            {accountType === enums.AccountTypes.DOCTOR && (
+              <div className="my-3">
+                <label className="text-base text-primary font-medium mb-1">
+                  Register as {registerAs}
+                </label>
+                <div className="flex gap-2 ">
+                  <div className="form-check form-check-inline">
+                    <RadioInput
+                      value="specialist"
+                      label="Specialist"
+                      name="specialist"
+                      id="01"
+                      onChange={registerSelectHandler}
+                    />
+                  </div>
+                  <div className="form-check form-check-inline">
+                    <RadioInput
+                      value="clinic"
+                      label="Clinic"
+                      name="specialist"
+                      id="02"
+                      onChange={registerSelectHandler}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
             <div className="my-2">
               <label className="text-base text-primary font-medium mb-1">
-                First Name
+                {accountType === enums.AccountTypes.DOCTOR &&
+                registerAs === "clinic"
+                  ? "Clinic Name"
+                  : "First Name"}
               </label>
               <InputField
                 name="firstName"
-                placeholder="First Name"
+                placeholder={
+                  accountType === enums.AccountTypes.DOCTOR &&
+                  registerAs === "clinic"
+                    ? "Clinic Name"
+                    : "First Name"
+                }
                 type="text"
                 required
                 onChange={onInputChange("firstName")}
               />
             </div>
-            <div className="my-2">
-              <label className="text-base text-primary font-medium mb-1">
-                Surname
-              </label>
-              <InputField
-                name="lastName"
-                required
-                placeholder="Type here"
-                type="text"
-                onChange={onInputChange("lastName")}
-              />
-            </div>
+            {registerAs === "specialist" ? (
+              <div className="my-2">
+                <label className="text-base text-primary font-medium mb-1">
+                  Surname
+                </label>
+                <InputField
+                  name="lastName"
+                  required
+                  placeholder="Type here"
+                  type="text"
+                  onChange={onInputChange("lastName")}
+                />
+              </div>
+            ) : (
+              <div className="my-2">
+                <label className="text-base text-primary font-medium mb-1">
+                  Address
+                </label>
+                <InputField
+                  name="address"
+                  required
+                  placeholder="Type here"
+                  type="text"
+                  onChange={onInputChange("lastName")}
+                />
+              </div>
+            )}
             <div className="my-2">
               <label className="text-base text-primary font-medium mb-1">
                 Email
@@ -211,25 +271,27 @@ export const Register = () => {
                 onChange={onPhoneInputChange("whatsAppNum")}
               />
             </div>
-            <div className="my-2">
-              <label className="text-base text-primary font-medium mb-1">
-                Gender
-              </label>
-              <select
-                className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out"
-                name="gender"
-                placeholder="Gender"
-                required
-                onChange={onInputChange("gender")}
-              >
-                <option value="">Select gender</option>
-                {GenderList.map((gender) => (
-                  <option key={gender.id} value={gender.id}>
-                    {gender.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {registerAs === "specialist" && (
+              <div className="my-2">
+                <label className="text-base text-primary font-medium mb-1">
+                  Gender
+                </label>
+                <select
+                  className="form-select block box-border border border-gray w-full rounded-lg select-none py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:border-primary mr-2 font-Poppins transition ease-in-out"
+                  name="gender"
+                  placeholder="Gender"
+                  required
+                  onChange={onInputChange("gender")}
+                >
+                  <option value="">Select gender</option>
+                  {GenderList.map((gender) => (
+                    <option key={gender.id} value={gender.id}>
+                      {gender.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
             {accountType === enums.AccountTypes.DOCTOR && (
               <div className="my-2">
                 <label className="text-base text-primary font-medium mb-1">
@@ -345,7 +407,7 @@ export const Register = () => {
             className="w-3/4 px-6 py-1"
             type="submit"
           >
-            Sign Up
+            {isLoading ? "Registering..." : "Sign Up"}
           </DecoratedButton>
         </div>
         <div className="my-6">

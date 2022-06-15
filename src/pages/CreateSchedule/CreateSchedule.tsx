@@ -1,7 +1,6 @@
 import React, { useCallback, useState, useMemo } from "react";
 import { useSearchAvailabilities, useCurrentUser, useTimeZone } from "@hooks";
 import moment from "moment-timezone";
-import { useSelector } from "react-redux";
 import * as models from "@interface/models";
 import { HttpApi } from "@api";
 import Calendar from "react-calendar";
@@ -12,7 +11,6 @@ import {
   ConfirmModal,
   TimeZoneSelector,
 } from "@components";
-import { DashboardView } from "@views";
 import { isValidBookingDate, cropAndSplitWithRange } from "@utils";
 import { SlotDurationMinutes } from "@constants";
 
@@ -57,7 +55,15 @@ export const CreateSchedule = () => {
 
   const availabilities = useSearchAvailabilities(searchParams) || [];
 
-  const croppedAvailabilies = useMemo(()=>cropAndSplitWithRange(availabilities||[], searchParams.startDateTime, searchParams.endDateTime).map(s=>({...s, id: getSlotId(s)})), [availabilities, searchParams])
+  const croppedAvailabilies = useMemo(
+    () =>
+      cropAndSplitWithRange(
+        availabilities || [],
+        searchParams.startDateTime,
+        searchParams.endDateTime
+      ).map((s) => ({ ...s, id: getSlotId(s) })),
+    [availabilities, searchParams]
+  );
 
   const onEditClick = useCallback(async () => {
     const saved = await EditAvailabilityModal({
@@ -94,87 +100,85 @@ export const CreateSchedule = () => {
   }, [availabilities, refreshAvailabilities, calendarDate]);
 
   return (
-    <DashboardView>
-      <div className="dashboard-content p-6 w-full">
-        <div className="mx-auto ">
-          <h1 className="text-3xl font-medium mb-8">Schedule Timings</h1>
-          <div className="mb-6 ">
-            <TimeZoneSelector className="max-w-sm" />
+    <div className="dashboard-content w-full bg-backgroundSidebar p-3 rounded">
+      <div className="mx-auto pb-5">
+        <h1 className="text-3xl font-medium mb-8">Schedule Availability</h1>
+        <div className="mb-6 ">
+          <TimeZoneSelector className="max-w-sm" />
+        </div>
+        <div className="  sm:flex  gap-2  ">
+          <div>
+            <Calendar
+              tileDisabled={dateDisabled}
+              className="mb-4 sm:mb-0"
+              onChange={onLocalDateChange}
+              value={localDate}
+            />
           </div>
-          <div className="  sm:flex  gap-2  ">
-            <div>
-              <Calendar
-                tileDisabled={dateDisabled}
-                className="mb-4 sm:mb-0"
-                onChange={onLocalDateChange}
-                value={localDate}
-              />
-            </div>
-            <div className=" self-stretch   md:flex  ">
-              <div className=" flex flex-grow flex-col p-2">
-                <div className="mb-4 md:mb-0">
-                  <h1>Appointment Duration</h1>
-                  <div className="w-48 border rounded p-2 bg-gray ">
-                    {SlotDurationMinutes} minutes
-                  </div>
+          <div className=" self-stretch   md:flex  ">
+            <div className=" flex flex-grow flex-col p-2">
+              <div className="mb-4 md:mb-0">
+                <h1>Appointment Duration</h1>
+                <div className="w-48 border rounded p-2 bg-gray border-gray">
+                  {SlotDurationMinutes} minutes
                 </div>
+              </div>
 
-                <div className="mt-5">
-                  <div className="py-2 flex">
+              <div className="mt-5">
+                <div className="py-2 flex">
+                  <button
+                    onClick={onEditClick}
+                    className="flex items-center gap-2 mr-5"
+                  >
+                    <PencilAltIcon className="h-8 w-8 text-primary transition hover:text-accent" />
+                    {croppedAvailabilies.length > 0 ? "Edit" : "Add"}{" "}
+                    availability
+                  </button>
+                  {croppedAvailabilies.length > 0 && (
                     <button
-                      onClick={onEditClick}
-                      className="flex items-center gap-2 mr-5"
+                      onClick={onDeleteClick}
+                      className="flex items-center gap-2 transition "
                     >
-                      <PencilAltIcon className="h-8 w-8 text-primary transition hover:text-accent" />
-                      {croppedAvailabilies.length > 0 ? "Edit" : "Add"} availability
+                      <MinusCircleIcon className="h-8 w-8 text-primary transition hover:text-red" />
+                      delete
                     </button>
-                    {croppedAvailabilies.length > 0 && (
-                      <button
-                        onClick={onDeleteClick}
-                        className="flex items-center gap-2 transition "
-                      >
-                        <MinusCircleIcon className="h-8 w-8 text-primary transition hover:text-red" />
-                        delete
-                      </button>
-                    )}
-                  </div>
+                  )}
                 </div>
+              </div>
 
-                <div className="mt-2">
-                  <h1>Time Slots</h1>
-                  <div className="gap-2 flex-wrap">
-                    {croppedAvailabilies.map((availability) => (
-                      <div
-                        key={availability.id}
-                        className="bg-primary text-white border rounded p-2 mb-1"
-                        style={{ maxWidth: 200 }}
-                      >
-                        {moment
-                          .tz(availability.startDateTime, timeZone)
-                          .format("hh:mm a")}{" "}
-                        -{" "}
-                        {moment
-                          .tz(availability.endDateTime, timeZone)
-                          .format("hh:mm a")}
-                        {availability.locked && (
-                          <>
-                            <br />
-                            (reserved/booked)
-                          </>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+              <div className="mt-2">
+                <h1>Time Slots</h1>
+                <div className="gap-2 flex-wrap">
+                  {croppedAvailabilies.map((availability) => (
+                    <div
+                      key={availability.id}
+                      className="bg-primary text-white border rounded p-2 mb-1"
+                      style={{ maxWidth: 200 }}
+                    >
+                      {moment
+                        .tz(availability.startDateTime, timeZone)
+                        .format("hh:mm a")}{" "}
+                      -{" "}
+                      {moment
+                        .tz(availability.endDateTime, timeZone)
+                        .format("hh:mm a")}
+                      {availability.locked && (
+                        <>
+                          <br />
+                          (reserved/booked)
+                        </>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </DashboardView>
+    </div>
   );
 };
-
 
 const getSlotId = (slot: models.Slot) => {
   return `${slot.startDateTime}-${slot.endDateTime}`;

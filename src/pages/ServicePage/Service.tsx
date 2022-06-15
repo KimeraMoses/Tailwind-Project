@@ -5,7 +5,7 @@ import { serviceData } from "./../../constants/services";
 
 const Service: React.FunctionComponent = () => {
   const [items, setItems] = useState<any[]>([]);
-  const [visible, setVisible] = useState<number>(4);
+  const [visible, setVisible] = useState<number>(8);
 
   useEffect(() => {
     setItems(serviceData);

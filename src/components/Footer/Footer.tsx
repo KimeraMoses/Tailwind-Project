@@ -39,7 +39,10 @@ export const Footer = () => {
         <section className=" leading-6 text-white flex flex-col gap-3 basis-1/4">
           <h1 className="text-xl  font-semibold">For Patients</h1>
           <ul className=" flex flex-col gap-2 list-none font-light list-inside">
-            <ListItem itemLink="/doctors" title="Search for Doctors" />
+            <ListItem
+              itemLink="/dashboard/doctors"
+              title="Search for Doctors"
+            />
             <ListItem
               itemLink={`/login?accountType=${AccountTypes.PATIENT}`}
               title="Login"
@@ -48,17 +51,14 @@ export const Footer = () => {
               itemLink={`/register?accountType=${AccountTypes.PATIENT}`}
               title="Register"
             />
-            <ListItem
-              itemLink="/dashboard/news-feeds"
-              title="Patient Dashboard"
-            />
+            <ListItem itemLink="/dashboard/user" title="Patient Dashboard" />
           </ul>
         </section>
         {/*---------- For Doctors -------------*/}
         <section className="leading-6 text-white flex flex-col gap-3 basis-1/4">
           <h1 className="text-xl  font-semibold">For Doctors</h1>
           <ul className="flex flex-col gap-2 list-none font-light list-inside">
-            <ListItem itemLink="appointments" title="Appointments" />
+            <ListItem itemLink="/dashboard/appointments" title="Appointments" />
             <ListItem
               itemLink={`/login?accountType=${AccountTypes.DOCTOR}`}
               title="Login"
@@ -68,10 +68,7 @@ export const Footer = () => {
               title="Register"
             />
 
-            <ListItem
-              itemLink="/dashboard/news-feeds"
-              title="Doctor Dashboard"
-            />
+            <ListItem itemLink="/dashboard/user" title="Doctor Dashboard" />
           </ul>
         </section>
         {/*---------- Contact Us -------------*/}

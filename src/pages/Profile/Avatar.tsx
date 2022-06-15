@@ -35,43 +35,40 @@ export const AvatarEditor: React.FunctionComponent = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center gap-3">
-      <h3 className="font-medium text-xl">Profile Picture</h3>
-      <div className=" flex  flex-col gap-3    ">
-        <div className="my-1">
-          <div className="">
-            <label
-              className="px-4 py-2 cursor-pointer rounded transition text-white bg-primary hover:bg-accent"
-              htmlFor="profilePictureInput"
-            >
-              Upload picture
-            </label>
-            <input
-              style={{
-                height: 1,
-                width: 1,
-                outline: "none",
-                border: "none",
-                opacity: 0,
-                pointerEvents: "none",
-              }}
-              id="profilePictureInput"
-              name="profilePicture"
-              required={
-                user?.accountType === enums.AccountTypes.DOCTOR &&
-                !profilePictureUrl
-              }
-              type="file"
-              accept="image/*"
-              onChange={onFileChange}
-            />
-          </div>
-        </div>
-        <div className="my-1 mb-3" style={{ minWidth: 100, maxWidth: 300 }}>
-          <img
-            className=" h-auto object-cover rounded-full"
-            style={{ maxWidth: 200, border: "1px solid lightgray" }}
-            src={profilePictureUrl || defaultAvatar}
+    <div className="p-2 flex gap-3 items-end">
+      <div style={{ minWidth: 100, maxWidth: 120 }}>
+        <img
+          className=" h-auto object-cover rounded-full"
+          style={{ maxWidth: 120, border: "1px solid lightgray" }}
+          src={profilePictureUrl || defaultAvatar}
+        />
+      </div>
+      <div className="my-1">
+        <div className="">
+          <label
+            className="px-4 py-2 cursor-pointer rounded transition text-white bg-primary hover:bg-accent"
+            htmlFor="profilePictureInput"
+          >
+            Upload picture
+          </label>
+          <input
+            style={{
+              height: 1,
+              width: 1,
+              outline: "none",
+              border: "none",
+              opacity: 0,
+              pointerEvents: "none",
+            }}
+            id="profilePictureInput"
+            name="profilePicture"
+            required={
+              user?.accountType === enums.AccountTypes.DOCTOR &&
+              !profilePictureUrl
+            }
+            type="file"
+            accept="image/*"
+            onChange={onFileChange}
           />
         </div>
       </div>
